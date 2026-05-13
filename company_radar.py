@@ -3,9 +3,10 @@ from __future__ import annotations
 import datetime as dt
 import json
 import os
+import re
 from pathlib import Path
 from typing import Any
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 import feedparser
 import requests
@@ -15,6 +16,122 @@ from radar import get_text, load_config, normalize, today_local
 
 
 ROOT = Path(__file__).resolve().parent
+
+NOISE_TEXT_TERMS = {
+    "about us",
+    "business",
+    "careers",
+    "changelog",
+    "community",
+    "contact",
+    "cookie",
+    "customer stories",
+    "download",
+    "download press kit",
+    "enterprise",
+    "facebook",
+    "foundation",
+    "linkedin",
+    "login",
+    "press kit",
+    "privacy",
+    "products",
+    "research",
+    "resources",
+    "sign in",
+    "skip to content",
+    "skip to footer",
+    "skip to main content",
+    "solutions",
+    "subscribe",
+    "support",
+    "terms",
+    "try chatgpt",
+    "try claude",
+    "try meta ai",
+    "try studio",
+    "use cases",
+}
+
+NOISE_URL_PARTS = {
+    "#",
+    "about",
+    "apply",
+    "careers",
+    "contact",
+    "cookie",
+    "customer-stories",
+    "events",
+    "facebook.com",
+    "footer",
+    "linkedin.com",
+    "login",
+    "mailto:",
+    "mokahr.com",
+    "press-kit",
+    "privacy",
+    "share",
+    "signin",
+    "signup",
+    "support",
+    "terms",
+    "twitter.com",
+    "weibo.com",
+}
+
+DYNAMIC_URL_PARTS = {
+    "agent",
+    "api",
+    "blog",
+    "changelog",
+    "copilot",
+    "developer",
+    "docs",
+    "feature",
+    "features",
+    "kimi",
+    "llm",
+    "model",
+    "models",
+    "news",
+    "open-source",
+    "product",
+    "release",
+    "research",
+}
+
+DYNAMIC_TITLE_TERMS = {
+    "agent",
+    "agentic",
+    "api",
+    "assistant",
+    "automation",
+    "browser",
+    "chat",
+    "claude",
+    "code",
+    "coding",
+    "computer",
+    "copilot",
+    "deepseek",
+    "developer",
+    "doubao",
+    "function calling",
+    "glm",
+    "hunyuan",
+    "kimi",
+    "llama",
+    "manus",
+    "memory",
+    "minimax",
+    "model",
+    "open source",
+    "qwen",
+    "release",
+    "research agent",
+    "tool",
+    "workflow",
+}
 
 
 def fetch_rss_source(source: dict[str, Any], limit: int) -> list[dict[str, Any]]:
@@ -35,29 +152,55 @@ def fetch_rss_source(source: dict[str, Any], limit: int) -> list[dict[str, Any]]
     return [item for item in items if item["title"] and item["url"]]
 
 
-def meaningful_link_text(text: str) -> bool:
-    if len(text) < 8 or len(text) > 180:
-        return False
-    lower = text.lower()
-    noisy = ["privacy", "terms", "cookie", "careers", "contact", "subscribe", "sign in", "login"]
-    return not any(term in lower for term in noisy)
+def decode_response(response: requests.Response) -> str:
+    if not response.encoding or response.encoding.lower() == "iso-8859-1":
+        response.encoding = response.apparent_encoding
+    return response.text
+
+
+def is_noise_link(title: str, url: str) -> bool:
+    title_l = normalize(title).lower()
+    url_l = url.lower()
+    if not title_l or len(title_l) < 6 or len(title_l) > 220:
+        return True
+    if "@" in title_l or url_l.startswith("mailto:"):
+        return True
+    if "icp" in title_l or "备案" in title_l or "公安" in title_l:
+        return True
+    if title_l in NOISE_TEXT_TERMS:
+        return True
+    if any(part in url_l for part in NOISE_URL_PARTS):
+        if not any(part in url_l for part in ("blog", "news", "changelog", "release")):
+            return True
+    return False
+
+
+def looks_dynamic(title: str, url: str) -> bool:
+    title_l = normalize(title).lower()
+    url_l = url.lower()
+    if any(term in title_l for term in DYNAMIC_TITLE_TERMS):
+        return True
+    return any(part in url_l for part in DYNAMIC_URL_PARTS)
 
 
 def fetch_page_source(source: dict[str, Any], limit: int) -> list[dict[str, Any]]:
-    headers = {"User-Agent": "ai-agent-radar-company/0.1"}
+    headers = {"User-Agent": "ai-agent-radar-company/0.2"}
     response = requests.get(source["url"], headers=headers, timeout=30)
     response.raise_for_status()
-    soup = BeautifulSoup(response.text, "html.parser")
+    soup = BeautifulSoup(decode_response(response), "html.parser")
 
     items = []
     seen: set[str] = set()
     for anchor in soup.find_all("a"):
         title = normalize(anchor.get_text(" "))
         href = anchor.get("href")
-        if not href or not meaningful_link_text(title):
+        if not href:
             continue
         url = urljoin(source["url"], href)
-        if url in seen:
+        parsed = urlparse(url)
+        if parsed.scheme not in {"http", "https"}:
+            continue
+        if url in seen or is_noise_link(title, url) or not looks_dynamic(title, url):
             continue
         seen.add(url)
         items.append(
@@ -68,12 +211,22 @@ def fetch_page_source(source: dict[str, Any], limit: int) -> list[dict[str, Any]
                 "title": title,
                 "summary": "",
                 "url": url,
-                "published": None,
+                "published": extract_date_from_text(title) or extract_date_from_text(url),
             }
         )
         if len(items) >= limit:
             break
     return items
+
+
+def extract_date_from_text(text: str | None) -> str | None:
+    if not text:
+        return None
+    match = re.search(r"(20\d{2})[-/\.](\d{1,2})[-/\.](\d{1,2})", text)
+    if not match:
+        return None
+    year, month, day = match.groups()
+    return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
 
 
 def fetch_company_items(config: dict[str, Any]) -> list[dict[str, Any]]:
@@ -108,7 +261,7 @@ def dedupe_company_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def score_company_item(item: dict[str, Any], config: dict[str, Any]) -> tuple[float, list[str]]:
     company_config = config.get("company", {})
-    text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+    text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('url', '')}".lower()
     score = 0.0
     reasons: list[str] = []
 
@@ -117,28 +270,33 @@ def score_company_item(item: dict[str, Any], config: dict[str, Any]) -> tuple[fl
             score += 1.2
             reasons.append(f"focus: {term}")
 
+    if looks_dynamic(str(item.get("title", "")), str(item.get("url", ""))):
+        score += 1.0
+        reasons.append("dynamic-looking link")
+
     company = str(item.get("company", "")).lower()
     strategic_companies = [
-        "openai",
         "anthropic",
-        "deepmind",
-        "microsoft",
-        "github",
-        "deepseek",
-        "qwen",
-        "moonshot",
-        "zhipu",
-        "hunyuan",
         "bytedance",
-        "minimax",
+        "cursor",
+        "deepmind",
+        "deepseek",
+        "github",
+        "hunyuan",
         "manus",
+        "microsoft",
+        "minimax",
+        "moonshot",
+        "openai",
+        "qwen",
+        "zhipu",
     ]
     if any(name in company for name in strategic_companies):
-        score += 1.5
+        score += 0.8
         reasons.append("strategic company")
 
     if item.get("region") == "china":
-        score += 0.8
+        score += 0.6
         reasons.append("china ecosystem")
 
     return round(min(score, 10.0), 1), reasons[:6]
@@ -245,7 +403,7 @@ def call_deepseek_company(day: dt.date, items: list[dict[str, Any]], config: dic
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
-        "User-Agent": "ai-agent-radar-company/0.1",
+        "User-Agent": "ai-agent-radar-company/0.2",
     }
     base_url = str(ai_config.get("base_url", "https://api.deepseek.com")).rstrip("/")
     try:
@@ -262,19 +420,23 @@ def render_company_markdown(day: dt.date, items: list[dict[str, Any]]) -> str:
     lines = [
         f"# AI Company Radar - {day.isoformat()}",
         "",
-        "## 候选动态",
+        "## 规则候选动态",
+        "",
+        "DeepSeek 精筛未成功，因此这里只展示规则过滤后的高分候选，不能视为完整公司情报。",
         "",
     ]
     if not items:
         lines.append("暂无公司动态候选条目。")
         return "\n".join(lines)
-    for item in items:
+    for item in items[:10]:
         lines.append(f"### {item['company']}: {item['title']}")
-        lines.append(f"- Region: {item.get('region')}")
-        lines.append(f"- Score: {item.get('score')}/10")
-        lines.append(f"- Link: {item.get('url')}")
+        lines.append(f"- 区域：{item.get('region')}")
+        lines.append(f"- 分数：{item.get('score')}/10")
+        lines.append(f"- 链接：{item.get('url')}")
+        if item.get("published"):
+            lines.append(f"- 日期：{item.get('published')}")
         if item.get("reasons"):
-            lines.append(f"- Why: {', '.join(item['reasons'])}")
+            lines.append(f"- 理由：{', '.join(item['reasons'])}")
         lines.append("")
     return "\n".join(lines)
 
@@ -285,6 +447,7 @@ def main() -> None:
     items = fetch_company_items(config)
     for item in items:
         item["score"], item["reasons"] = score_company_item(item, config)
+    items = [item for item in items if item.get("score", 0) >= 2.0]
     items.sort(key=lambda x: x.get("score", 0), reverse=True)
 
     output_dir = ROOT / config.get("company", {}).get("output_dir", "company")
@@ -293,9 +456,8 @@ def main() -> None:
 
     ai_markdown = call_deepseek_company(day, items, config)
     output_path.write_text(ai_markdown or render_company_markdown(day, items), encoding="utf-8")
-    print(f"Wrote {output_path} with {len(items)} company items")
+    print(f"Wrote {output_path} with {len(items)} filtered company items")
 
 
 if __name__ == "__main__":
     main()
-

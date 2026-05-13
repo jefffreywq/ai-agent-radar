@@ -50,7 +50,6 @@ def load_trending_terms() -> dict[str, Any]:
 
 
 def today_local() -> dt.date:
-    # GitHub runners have zoneinfo available on Python 3.11+.
     try:
         from zoneinfo import ZoneInfo
 
@@ -61,14 +60,14 @@ def today_local() -> dt.date:
 
 
 def get_json(url: str, params: dict[str, Any] | None = None) -> Any:
-    headers = {"User-Agent": "ai-agent-radar/0.1"}
+    headers = {"User-Agent": "ai-agent-radar/0.3"}
     resp = requests.get(url, params=params, headers=headers, timeout=30)
     resp.raise_for_status()
     return resp.json()
 
 
 def get_text(url: str, params: dict[str, Any] | None = None) -> str:
-    headers = {"User-Agent": "ai-agent-radar/0.1"}
+    headers = {"User-Agent": "ai-agent-radar/0.3"}
     resp = requests.get(url, params=params, headers=headers, timeout=30)
     resp.raise_for_status()
     return resp.text
@@ -84,19 +83,51 @@ def item_id(item: dict[str, Any]) -> str:
     return f"{item.get('source')}::{item.get('url') or item.get('title')}"
 
 
+def dedupe(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    seen: set[str] = set()
+    result = []
+    for item in items:
+        key = item_id(item)
+        if key in seen:
+            continue
+        seen.add(key)
+        result.append(item)
+    return result
+
+
+def apply_weekly_trend_boost(text: str, config: dict[str, Any], trends: dict[str, Any], reasons: list[str]) -> float:
+    trend_config = config.get("ranking", {}).get("weekly_trend_boost", {})
+    if not trend_config.get("enabled", True):
+        return 0.0
+
+    max_total = float(trend_config.get("max_total", 4.0))
+    generic_terms = {"agent", "agents", "ai", "model", "models", "benchmark", "framework"}
+    boost = 0.0
+
+    for tier_name, default_weight in (("tier1", 2.0), ("tier2", 1.0)):
+        weight = float(trend_config.get(tier_name, default_weight))
+        for term in trends.get(tier_name, []):
+            term_l = str(term).lower()
+            if term_l in generic_terms:
+                continue
+            if term_l in text and boost < max_total:
+                add = min(weight, max_total - boost)
+                boost += add
+                reasons.append(f"weekly-trend {tier_name}: {term}")
+    return boost
+
+
 def score_item(item: dict[str, Any], config: dict[str, Any], trends: dict[str, Any] | None = None) -> tuple[float, list[str]]:
-    title = normalize(item.get("title")).lower()
-    summary = normalize(item.get("summary")).lower()
-    text = f"{title} {summary}"
+    text = f"{normalize(item.get('title')).lower()} {normalize(item.get('summary')).lower()}"
     score = 0.0
     reasons: list[str] = []
 
-    for kw in config["keywords"]:
+    for kw in config.get("keywords", []):
         if kw.lower() in text:
             score += 1.2
             reasons.append(f"keyword: {kw}")
 
-    for term in config["high_value_terms"]:
+    for term in config.get("high_value_terms", []):
         if term.lower() in text:
             score += 1.8
             reasons.append(f"high-value: {term}")
@@ -106,55 +137,28 @@ def score_item(item: dict[str, Any], config: dict[str, Any], trends: dict[str, A
             score -= 1.5
             reasons.append(f"downrank: {term}")
 
-    trend_config = config.get("ranking", {}).get("weekly_trend_boost", {})
-    if trend_config.get("enabled", True):
-        trends = trends or {"tier1": [], "tier2": [], "terms": []}
-        max_total = float(trend_config.get("max_total", 4.0))
-        trend_boost = 0.0
-        generic_terms = {"agent", "agents", "ai", "model", "models", "benchmark", "framework"}
-        for term in trends.get("tier1", []):
-            term_l = str(term).lower()
-            if term_l in generic_terms:
-                continue
-            if term_l in text and trend_boost < max_total:
-                add = min(float(trend_config.get("tier1", 2.0)), max_total - trend_boost)
-                score += add
-                trend_boost += add
-                reasons.append(f"weekly-trend tier1: {term}")
-        for term in trends.get("tier2", []):
-            term_l = str(term).lower()
-            if term_l in generic_terms:
-                continue
-            if term_l in text and trend_boost < max_total:
-                add = min(float(trend_config.get("tier2", 1.0)), max_total - trend_boost)
-                score += add
-                trend_boost += add
-                reasons.append(f"weekly-trend tier2: {term}")
+    score += apply_weekly_trend_boost(text, config, trends or {}, reasons)
 
-    source = item.get("source", "")
-    if source == "hf_daily_papers":
-        score += 2.5
-        reasons.append("appeared on HF Daily Papers")
-    if source == "hf_space":
-        score += 1.8
-        reasons.append("Hugging Face Space")
-    if source == "hf_competition":
-        score += 2.0
-        reasons.append("Hugging Face competition")
-    if source == "arxiv":
-        score += 1.0
-        reasons.append("new arXiv paper")
+    source_bonus = {
+        "hf_daily_papers": (2.5, "appeared on HF Daily Papers"),
+        "hf_space": (1.8, "Hugging Face Space"),
+        "hf_competition": (2.0, "Hugging Face competition"),
+        "arxiv": (1.0, "new arXiv paper"),
+    }
+    bonus = source_bonus.get(item.get("source", ""))
+    if bonus:
+        score += bonus[0]
+        reasons.append(bonus[1])
 
     likes = item.get("likes") or 0
     downloads = item.get("downloads") or 0
+    cited_by = item.get("cited_by_count") or 0
     if likes:
         score += min(float(likes) / 50.0, 2.0)
         reasons.append(f"HF likes: {likes}")
     if downloads:
         score += min(float(downloads) / 10000.0, 2.0)
         reasons.append(f"HF downloads: {downloads}")
-
-    cited_by = item.get("cited_by_count") or 0
     if cited_by:
         score += min(float(cited_by) / 25.0, 2.0)
         reasons.append(f"OpenAlex citations: {cited_by}")
@@ -185,142 +189,12 @@ def build_ai_prompt(day: dt.date, items: list[dict[str, Any]], config: dict[str,
         for item in items[: int(ai_config.get("max_items", 15))]
     ]
     system = (
-        "You are a research assistant for AI agents and multi-agent systems. "
-        "Your job is to curate a daily research radar for a technical user. "
-        "Prioritize benchmarks, leaderboards, evaluations, datasets, open-source frameworks, "
-        "coding agents, web agents, computer-use agents, tool use, planning, memory, and multi-agent collaboration. "
-        "Use only the supplied items and URLs. Do not invent links, papers, authors, or facts. "
-        "If evidence is weak, say so."
-    )
-    user = f"""
-请根据下面的候选条目，生成一份中文 Markdown 日报。
-
-日期：{day.isoformat()}
-语言：{ai_config.get("language", "zh-CN")}
-
-输出结构必须是：
-
-# AI Agent Radar - {day.isoformat()}
-
-## 今日结论
-用 3-5 句话概括今天最值得注意的趋势。
-
-## 必看 Top 5
-每条包含：
-- 类型：paper / benchmark / leaderboard / competition / framework / dataset / space / other
-- 重要性：A / B / C
-- 为什么重要：
-- 和 agent / multi-agent 的关系：
-- 建议动作：
-- 链接：
-
-## 值得扫一眼
-列出次重要条目，说明一句理由。
-
-## 可以跳过或低优先级
-列出看起来相关但价值较低的条目，并解释为什么。
-
-## 今日概念
-提取 3-6 个值得后续关注的概念。
-
-## 后续行动
-给出 3-5 个待办事项。
-
-硬性要求：
-- 不要编造输入中没有的链接。
-- 不要声称已经阅读全文。
-- 如果摘要不足以判断，请标注“证据不足”。
-- 保留原始 URL。
-
-候选条目 JSON：
-{json.dumps(compact_items, ensure_ascii=False, indent=2)}
-""".strip()
-    return [{"role": "system", "content": system}, {"role": "user", "content": user}]
-
-
-def build_ai_prompt_v2(day: dt.date, items: list[dict[str, Any]], config: dict[str, Any]) -> list[dict[str, str]]:
-    ai_config = config.get("ai", {})
-    compact_items = [
-        compact_for_ai(item, int(ai_config.get("max_summary_chars_per_item", 1200)))
-        for item in items[: int(ai_config.get("max_items", 15))]
-    ]
-    system = (
-        "You are a skeptical research assistant for AI agents and multi-agent systems. "
-        "Do not treat every new item as useful. Curate selectively for a technical user. "
-        "Prioritize benchmarks, leaderboards, evaluations, datasets, open-source frameworks, "
-        "coding agents, web agents, computer-use agents, tool use, planning, memory, "
-        "long-horizon tasks, and multi-agent collaboration. "
-        "Use only the supplied items and URLs. Do not invent links, papers, authors, dates, metrics, or facts. "
-        "If evidence is weak, say so explicitly."
-    )
-    user = f"""
-Generate a Markdown daily digest in Simplified Chinese.
-
-# AI Agent Radar - {day.isoformat()}
-
-Required structure:
-
-## Today conclusion
-Write 3-5 concise Chinese sentences about the most important signals today.
-
-## Must-read Top 5
-For each useful item, include:
-- Basic info: type, source, authors if available, date if available, URL
-- Priority: A / B / C
-- Why it matters: explain the practical research value
-- Innovation point: infer only from the supplied title/summary; if unclear, write "evidence insufficient"
-- Agent / multi-agent relevance: explain the connection
-- Recommended action: what the user should do next
-
-## Worth scanning
-List secondary items with one-line Chinese reasons.
-
-## Low priority or skippable
-List items that look new but are probably not useful enough, and explain why.
-
-## Background knowledge you should know
-Write one compact Chinese primer that helps the user understand today's most important items.
-Focus on one foundational concept, benchmark family, or evaluation method that appears in the candidates.
-Keep it practical: definition, why it matters, how to judge good work in this area.
-
-## Concepts to track
-Extract 3-6 Chinese concept bullets.
-
-## Follow-up actions
-Give 3-5 actionable todos.
-
-Hard requirements:
-- Output Simplified Chinese Markdown.
-- Do not invent links, papers, authors, dates, claims, or metrics.
-- Do not claim you read full papers.
-- If the evidence is weak, explicitly say "证据不足".
-- Keep original URLs.
-- Be selective: not every new item deserves attention.
-
-Candidate items JSON:
-{json.dumps(compact_items, ensure_ascii=False, indent=2)}
-""".strip()
-    return [{"role": "system", "content": system}, {"role": "user", "content": user}]
-
-
-def build_ai_prompt_zh(day: dt.date, items: list[dict[str, Any]], config: dict[str, Any]) -> list[dict[str, str]]:
-    ai_config = config.get("ai", {})
-    compact_items = [
-        compact_for_ai(item, int(ai_config.get("max_summary_chars_per_item", 1200)))
-        for item in items[: int(ai_config.get("max_items", 15))]
-    ]
-    system = (
         "You are a skeptical research assistant for AI agents and multi-agent systems. "
         "Your job is to curate a daily research radar for a technical user. "
         "Do not treat every new item as useful. Be selective, practical, and evidence-based. "
-        "Prioritize agent benchmarks, leaderboards, evaluation methods, datasets, open-source frameworks, "
-        "coding agents, web agents, computer-use agents, tool use, planning and memory, long-horizon tasks, "
-        "and multi-agent collaboration. "
         "Use only the supplied candidate items and URLs. Do not invent links, papers, authors, dates, metrics, claims, or project status. "
         'If the title and summary are not enough to judge an item, explicitly say "证据不足". '
-        "Important output rule: The final answer must be written entirely in Simplified Chinese. "
-        "Section headings, bullet labels, explanations, priority judgments, and todos must all be in Simplified Chinese. "
-        'Do not output English section headings such as "Today conclusion", "Must-read Top 5", or "Follow-up actions".'
+        "The final answer must be written entirely in Simplified Chinese."
     )
     user = f"""
 请根据下面的候选条目，生成一份简体中文 Markdown 日报。
@@ -335,9 +209,7 @@ def build_ai_prompt_zh(day: dt.date, items: list[dict[str, Any]], config: dict[s
 用 3-5 句中文总结今天最值得注意的变化。不要泛泛而谈，要指出哪些方向更值得关注，哪些只是噪音。
 
 ## 必看 Top 5
-只选择真正值得看的条目，不一定非要凑满 5 条。
-
-每条必须包含：
+只选择真正值得看的条目，不一定非要凑满 5 条。每条必须包含：
 
 ### 1. 标题
 - 基础信息：类型、来源、作者、日期、链接。如果输入里没有作者或日期，写“未提供”。
@@ -351,21 +223,10 @@ def build_ai_prompt_zh(day: dt.date, items: list[dict[str, Any]], config: dict[s
 列出次重要条目。每条用一到两句中文说明为什么值得快速看。
 
 ## 低优先级或可跳过
-列出看起来相关但价值较低的条目，并说明原因。比如：
-- 只是关键词相关，但和 agent 关系弱
-- 更像教程、营销、合集
-- 缺少 benchmark、代码、实验或清晰贡献
-- 摘要信息不足
+列出看起来相关但价值较低的条目，并说明原因，例如：只是关键词相关、缺少 benchmark/代码/实验、摘要信息不足，或更像教程/营销/合集。
 
 ## 你需要知道的基础知识
-补充一段中文基础知识，帮助我理解今天最重要的内容。
-
-要求：
-- 选择一个今天候选条目里反复出现、或者对理解 Top 5 最关键的概念。
-- 解释它是什么。
-- 解释它为什么重要。
-- 解释如何判断这个方向的工作是否有价值。
-- 不要写成百科，要和今天的候选内容相关。
+补充一段中文基础知识，帮助我理解今天最重要的内容。选择一个今天候选条目里反复出现、或对理解 Top 5 最关键的概念，解释它是什么、为什么重要、如何判断这个方向的工作是否有价值。
 
 ## 值得追踪的概念
 提取 3-6 个中文概念，并用一句话解释每个概念为什么值得追踪。
@@ -392,9 +253,7 @@ def build_ai_prompt_zh(day: dt.date, items: list[dict[str, Any]], config: dict[s
 
 def call_deepseek(day: dt.date, items: list[dict[str, Any]], config: dict[str, Any]) -> str | None:
     ai_config = config.get("ai", {})
-    if not ai_config.get("enabled", False):
-        return None
-    if ai_config.get("provider") != "deepseek":
+    if not ai_config.get("enabled", False) or ai_config.get("provider") != "deepseek" or not items:
         return None
 
     api_key = os.environ.get("DEEPSEEK_API_KEY")
@@ -402,21 +261,17 @@ def call_deepseek(day: dt.date, items: list[dict[str, Any]], config: dict[str, A
         print("DEEPSEEK_API_KEY is not set; using rule-based Markdown.")
         return None
 
-    if not items:
-        return None
-
     base_url = str(ai_config.get("base_url", "https://api.deepseek.com")).rstrip("/")
-    model = ai_config.get("model", "deepseek-v4-flash")
     payload = {
-        "model": model,
-        "messages": build_ai_prompt_zh(day, items, config),
+        "model": ai_config.get("model", "deepseek-v4-flash"),
+        "messages": build_ai_prompt(day, items, config),
         "temperature": 0.2,
         "max_tokens": 3500,
     }
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
-        "User-Agent": "ai-agent-radar/0.2",
+        "User-Agent": "ai-agent-radar/0.3",
     }
 
     try:
@@ -451,26 +306,27 @@ def fetch_hf_spaces(config: dict[str, Any]) -> list[dict[str, Any]]:
         ["agent leaderboard", "multi-agent benchmark", "web agent", "agent challenge"],
     )
     items: list[dict[str, Any]] = []
-    for q in queries:
+    for query in queries:
         try:
             data = get_json(
                 "https://huggingface.co/api/spaces",
-                {"search": q, "sort": "lastModified", "direction": "-1", "limit": 8, "full": "true"},
+                {"search": query, "sort": "lastModified", "direction": "-1", "limit": 8, "full": "true"},
             )
         except Exception:
             continue
-        for s in data if isinstance(data, list) else []:
-            sid = s.get("id")
+        for space in data if isinstance(data, list) else []:
+            sid = space.get("id")
             if not sid:
                 continue
+            card_data = space.get("cardData") if isinstance(space.get("cardData"), dict) else {}
             items.append(
                 {
                     "source": "hf_space",
                     "title": sid,
-                    "summary": normalize(s.get("cardData", {}).get("title") if isinstance(s.get("cardData"), dict) else ""),
+                    "summary": normalize(card_data.get("title")),
                     "url": f"https://huggingface.co/spaces/{sid}",
-                    "likes": s.get("likes"),
-                    "downloads": s.get("downloads"),
+                    "likes": space.get("likes"),
+                    "downloads": space.get("downloads"),
                 }
             )
     return dedupe(items)
@@ -482,66 +338,50 @@ def fetch_hf_competitions(config: dict[str, Any]) -> list[dict[str, Any]]:
     except Exception:
         return []
     soup = BeautifulSoup(text, "html.parser")
-    rows = soup.find_all("tr")
     items: list[dict[str, Any]] = []
-    for row in rows[1 : config["max_items_per_source"] + 1]:
+    for row in soup.find_all("tr")[1 : config["max_items_per_source"] + 1]:
         cells = [normalize(c.get_text(" ")) for c in row.find_all(["td", "th"])]
-        if not cells or len(cells) < 2:
+        if len(cells) < 2:
             continue
         title = cells[0]
         summary = " | ".join(cells[1:])
-        if any(kw.lower() in f"{title} {summary}".lower() for kw in config["keywords"]):
-            items.append(
-                {
-                    "source": "hf_competition",
-                    "title": title,
-                    "summary": summary,
-                    "url": "https://huggingface.co/competitions",
-                }
-            )
+        if any(kw.lower() in f"{title} {summary}".lower() for kw in config.get("keywords", [])):
+            items.append({"source": "hf_competition", "title": title, "summary": summary, "url": "https://huggingface.co/competitions"})
     return items
 
 
-def arxiv_query(config: dict[str, Any]) -> str:
-    kw = " OR ".join([f'all:"{k}"' if " " in k else f"all:{k}" for k in config["keywords"]])
-    cats = " OR ".join([f"cat:{c}" for c in config["arxiv_categories"]])
-    return f"({kw}) AND ({cats})"
-
-
 def fetch_arxiv(config: dict[str, Any]) -> list[dict[str, Any]]:
-    url = "https://export.arxiv.org/api/query"
+    keywords = config.get("keywords", [])
+    categories = config.get("arxiv_categories", [])
+    kw = " OR ".join([f'all:"{k}"' if " " in k else f"all:{k}" for k in keywords])
+    cats = " OR ".join([f"cat:{c}" for c in categories])
     params = {
-        "search_query": arxiv_query(config),
+        "search_query": f"({kw}) AND ({cats})",
         "start": 0,
         "max_results": config["max_items_per_source"],
         "sortBy": "submittedDate",
         "sortOrder": "descending",
     }
-    feed = feedparser.parse(get_text(url, params))
-    items = []
-    for entry in feed.entries:
-        items.append(
-            {
-                "source": "arxiv",
-                "title": normalize(entry.get("title")),
-                "summary": normalize(entry.get("summary")),
-                "url": entry.get("link"),
-                "published": entry.get("published"),
-                "authors": ", ".join(a.get("name", "") for a in entry.get("authors", [])),
-            }
-        )
-    return items
+    feed = feedparser.parse(get_text("https://export.arxiv.org/api/query", params))
+    return [
+        {
+            "source": "arxiv",
+            "title": normalize(entry.get("title")),
+            "summary": normalize(entry.get("summary")),
+            "url": entry.get("link"),
+            "published": entry.get("published"),
+            "authors": ", ".join(author.get("name", "") for author in entry.get("authors", [])),
+        }
+        for entry in feed.entries
+    ]
 
 
 def enrich_with_openalex(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for item in items:
-        if item.get("source") != "arxiv":
-            continue
-        title = item.get("title")
-        if not title:
+        if item.get("source") != "arxiv" or not item.get("title"):
             continue
         try:
-            data = get_json("https://api.openalex.org/works", {"search": title, "per-page": 1})
+            data = get_json("https://api.openalex.org/works", {"search": item["title"], "per-page": 1})
             results = data.get("results", [])
             if results:
                 item["cited_by_count"] = results[0].get("cited_by_count", 0)
@@ -551,45 +391,29 @@ def enrich_with_openalex(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return items
 
 
-def dedupe(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    seen: set[str] = set()
-    result = []
-    for item in items:
-        key = item_id(item)
-        if key in seen:
-            continue
-        seen.add(key)
-        result.append(item)
-    return result
-
-
 def render_markdown(day: dt.date, items: list[dict[str, Any]]) -> str:
-    lines = [
-        f"# AI Agent Radar - {day.isoformat()}",
-        "",
-        "## Today worth checking",
-        "",
-    ]
+    lines = [f"# AI Agent Radar - {day.isoformat()}", "", "## Today worth checking", ""]
     if not items:
-        lines.append("No matching items found today.")
-        lines.append("")
-        return "\n".join(lines)
+        return "\n".join(lines + ["No matching items found today.", ""])
 
     for idx, item in enumerate(items, 1):
-        lines.append(f"### {idx}. {item['title']}")
-        lines.append(f"- Score: {item['score']}/10")
-        lines.append(f"- Source: {item['source']}")
+        lines.extend(
+            [
+                f"### {idx}. {item['title']}",
+                f"- Score: {item['score']}/10",
+                f"- Source: {item['source']}",
+                f"- Link: {item['url']}",
+            ]
+        )
         if item.get("authors"):
-            lines.append(f"- Authors: {item['authors']}")
-        lines.append(f"- Link: {item['url']}")
+            lines.insert(-1, f"- Authors: {item['authors']}")
         if item.get("reasons"):
             lines.append(f"- Why: {', '.join(item['reasons'])}")
         if item.get("summary"):
             summary = item["summary"]
             if len(summary) > 700:
                 summary = summary[:700].rsplit(" ", 1)[0] + "..."
-            lines.append("")
-            lines.append(summary)
+            lines.extend(["", summary])
         lines.append("")
 
     lines.extend(
@@ -605,6 +429,19 @@ def render_markdown(day: dt.date, items: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
+def collect_items(config: dict[str, Any], day: dt.date) -> list[dict[str, Any]]:
+    items = []
+    for fetcher in [fetch_hf_daily_papers, fetch_hf_spaces, fetch_hf_competitions, fetch_arxiv]:
+        try:
+            if fetcher is fetch_hf_daily_papers:
+                items.extend(fetcher(config, day))
+            else:
+                items.extend(fetcher(config))
+        except Exception as exc:
+            print(f"{fetcher.__name__} failed: {exc}")
+    return enrich_with_openalex(dedupe(items))
+
+
 def main() -> None:
     config = load_config()
     day = today_local()
@@ -612,26 +449,7 @@ def main() -> None:
     trends = load_trending_terms()
     seen = set(state.get("seen", []))
 
-    items = []
-    for fetcher in [fetch_hf_daily_papers, fetch_hf_spaces, fetch_hf_competitions, fetch_arxiv]:
-        try:
-            if fetcher.__name__ == "fetch_hf_daily_papers":
-                items.extend(fetcher(config, day))
-            else:
-                items.extend(fetcher(config))
-        except Exception as exc:
-            items.append(
-                {
-                    "source": "system",
-                    "title": f"{fetcher.__name__} failed",
-                    "summary": str(exc),
-                    "url": "",
-                }
-            )
-
-    items = enrich_with_openalex(dedupe(items))
-    fresh = [item for item in items if item_id(item) not in seen and item.get("source") != "system"]
-
+    fresh = [item for item in collect_items(config, day) if item_id(item) not in seen]
     for item in fresh:
         item["score"], item["reasons"] = score_item(item, config, trends)
 
@@ -648,9 +466,8 @@ def main() -> None:
         ai_markdown = call_deepseek(day, digest_items, config)
         output_path.write_text(ai_markdown or render_markdown(day, digest_items), encoding="utf-8")
 
-    state["seen"] = sorted((seen | {item_id(i) for i in fresh if i.get("url")}) )[-2000:]
+    state["seen"] = sorted(seen | {item_id(item) for item in fresh if item.get("url")})[-2000:]
     save_state(state)
-
     print(f"Wrote {output_path} with {len(digest_items)} items")
 
 

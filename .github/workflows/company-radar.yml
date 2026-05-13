@@ -1,11 +1,11 @@
-name: AI Agent Radar
+name: AI Company Radar
 
 on:
   workflow_dispatch:
   schedule:
-    # 00:00 Australia/Sydney during AEST (UTC+10).
+    # 00:30 Australia/Sydney during AEST (UTC+10).
     # Adjust this when daylight saving changes if you care about exact wall-clock time.
-    - cron: "0 14 * * *"
+    - cron: "30 14 * * *"
 
 permissions:
   contents: write
@@ -14,7 +14,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 concurrency:
-  group: ai-agent-radar-${{ github.ref }}
+  group: ai-company-radar-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -35,18 +35,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run radar
-        run: python radar.py
+      - name: Run company radar
+        run: python company_radar.py
 
-      - name: Commit digest
+      - name: Commit company radar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add inbox/*.md state.json
+          git add company/*.md
           if git diff --cached --quiet; then
-            echo "No digest changes to commit."
+            echo "No company radar changes to commit."
             exit 0
           fi
-          git commit -m "Add daily AI agent radar digest"
+          git commit -m "Add AI company radar digest"
           git pull --rebase --autostash origin main
           git push origin main
+

@@ -32,11 +32,15 @@ jobs:
       - name: Run radar
         run: python radar.py
 
-      - name: Sync latest branch before commit
-        run: git pull --rebase origin main
-
       - name: Commit digest
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Add daily AI agent radar digest"
-          file_pattern: "inbox/*.md state.json"
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add inbox/*.md state.json
+          if git diff --cached --quiet; then
+            echo "No digest changes to commit."
+            exit 0
+          fi
+          git commit -m "Add daily AI agent radar digest"
+          git pull --rebase --autostash origin main
+          git push origin main

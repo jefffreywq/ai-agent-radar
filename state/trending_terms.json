@@ -1,0 +1,800 @@
+{
+  "generated_at": "2026-05-14",
+  "range": {
+    "start": "2026-05-08",
+    "end": "2026-05-14"
+  },
+  "curated_by": "deepseek-v4-flash",
+  "tier1": [
+    "agentic search",
+    "computer use",
+    "gaia"
+  ],
+  "tier2": [
+    "agent memory",
+    "coding agent",
+    "osworld",
+    "swe-bench",
+    "mobile agent",
+    "research agent",
+    "browser automation",
+    "agentic workflow",
+    "gui agent",
+    "agentic rl"
+  ],
+  "downrank": [
+    "planning",
+    "long-horizon task",
+    "agent evaluation",
+    "agentic ai",
+    "language model agents",
+    "ai agents",
+    "tool use",
+    "llm agents"
+  ],
+  "noise": [
+    "agents are increasingly",
+    "agentic reinforcement learning rl",
+    "benchmarks including",
+    "existing benchmarks",
+    "agents should",
+    "benchmark for evaluating",
+    "manus",
+    "use agent",
+    "model agents to reuse",
+    "agents to reuse"
+  ],
+  "curated": {
+    "tier1": [
+      "agentic search",
+      "computer use",
+      "gaia"
+    ],
+    "tier2": [
+      "agent memory",
+      "coding agent",
+      "osworld",
+      "swe-bench",
+      "mobile agent",
+      "research agent",
+      "browser automation",
+      "agentic workflow",
+      "gui agent",
+      "agentic rl"
+    ],
+    "downrank": [
+      "planning",
+      "long-horizon task",
+      "agent evaluation",
+      "agentic ai",
+      "language model agents",
+      "ai agents",
+      "tool use",
+      "llm agents"
+    ],
+    "noise": [
+      "agents are increasingly",
+      "agentic reinforcement learning rl",
+      "benchmarks including",
+      "existing benchmarks",
+      "agents should",
+      "benchmark for evaluating",
+      "manus",
+      "use agent",
+      "model agents to reuse",
+      "agents to reuse"
+    ],
+    "notes": {
+      "agentic search": "多步检索型研究代理升温",
+      "computer use": "真实环境操作方向升温",
+      "gaia": "GAIA基准测试热度高"
+    }
+  },
+  "candidate_terms": [
+    {
+      "term": "gaia",
+      "score": 12.21,
+      "count": 11,
+      "sources": [
+        "arxiv",
+        "hf_space"
+      ],
+      "examples": [
+        "dishaupl/gaia-agent-leaderboard",
+        "sumangempire/gaia-agent-challenge",
+        "lakshaykumarr28/GAIA-Benchmark-Agent"
+      ],
+      "seed": true
+    },
+    {
+      "term": "planning",
+      "score": 11.49,
+      "count": 8,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+        "Model Merging Scaling Laws in Large Language Models",
+        "RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyond Verifiable Rewards"
+      ],
+      "seed": true
+    },
+    {
+      "term": "agent memory",
+      "score": 10.97,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers",
+        "hf_space"
+      ],
+      "examples": [
+        "RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyond Verifiable Rewards",
+        "TusharPatel/web-agent-memory",
+        "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues"
+      ],
+      "seed": true
+    },
+    {
+      "term": "coding agent",
+      "score": 9.47,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_space"
+      ],
+      "examples": [
+        "taagarwa/coding-agent-leaderboard",
+        "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues",
+        "Classifier Context Rot: Monitor Performance Degrades with Context Length"
+      ],
+      "seed": true
+    },
+    {
+      "term": "reflection",
+      "score": 8.75,
+      "count": 2,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyond Verifiable Rewards",
+        "RoboBlockly Studio: Conversational Block Programming with Embodied Robot Feedback for Computational Thinking"
+      ],
+      "seed": true
+    },
+    {
+      "term": "osworld",
+      "score": 8.75,
+      "count": 2,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "ToolCUA: Towards Optimal GUI-Tool Path Orchestration for Computer Use Agents",
+        "ToolCUA: Towards Optimal GUI-Tool Path Orchestration for Computer Use Agents"
+      ],
+      "seed": true
+    },
+    {
+      "term": "long-horizon task",
+      "score": 8.52,
+      "count": 4,
+      "sources": [
+        "arxiv"
+      ],
+      "examples": [
+        "Executable Agentic Memory for GUI Agent",
+        "PriorZero: Bridging Language Priors and World Models for Decision Making",
+        "No Action Without a NOD: A Heterogeneous Multi-Agent Architecture for Reliable Service Agents"
+      ],
+      "seed": true
+    },
+    {
+      "term": "agentic search",
+      "score": 7.25,
+      "count": 2,
+      "sources": [
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction",
+        "From Web to Pixels: Bringing Agentic Search into Visual Perception"
+      ],
+      "seed": true
+    },
+    {
+      "term": "swe-bench",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning"
+      ],
+      "seed": true
+    },
+    {
+      "term": "manus",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "PaperFit: Vision-in-the-Loop Typesetting Optimization for Scientific Documents"
+      ],
+      "seed": true
+    },
+    {
+      "term": "mobile agent",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "X-OmniClaw Technical Report: A Unified Mobile Agent for Multimodal Understanding and Interaction"
+      ],
+      "seed": true
+    },
+    {
+      "term": "research agent",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyond Verifiable Rewards"
+      ],
+      "seed": true
+    },
+    {
+      "term": "browser automation",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "hf_space"
+      ],
+      "examples": [
+        "Swarneshkunden/web-agent-env"
+      ],
+      "seed": true
+    },
+    {
+      "term": "agentic workflow",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "arxiv"
+      ],
+      "examples": [
+        "ProfiliTable: Profiling-Driven Tabular Data Processing via Agentic Workflows"
+      ],
+      "seed": true
+    },
+    {
+      "term": "gui agent",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "arxiv"
+      ],
+      "examples": [
+        "Executable Agentic Memory for GUI Agent"
+      ],
+      "seed": true
+    },
+    {
+      "term": "androidworld",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "arxiv"
+      ],
+      "examples": [
+        "Executable Agentic Memory for GUI Agent"
+      ],
+      "seed": true
+    },
+    {
+      "term": "terminal-bench",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "arxiv"
+      ],
+      "examples": [
+        "No More, No Less: Task Alignment in Terminal Agents"
+      ],
+      "seed": true
+    },
+    {
+      "term": "agent evaluation",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "arxiv"
+      ],
+      "examples": [
+        "CIDR: A Large-Scale Industrial Source Code Dataset for Software Engineering Research"
+      ],
+      "seed": true
+    },
+    {
+      "term": "auditability",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "arxiv"
+      ],
+      "examples": [
+        "Autonomy and Agency in Agentic AI: Architectural Tactics for Regulated Contexts"
+      ],
+      "seed": true
+    },
+    {
+      "term": "agent observability",
+      "score": 6.23,
+      "count": 1,
+      "sources": [
+        "arxiv"
+      ],
+      "examples": [
+        "Property-Level Reconstructability of Agent Decisions: An Anchor-Level Pilot Across Vendor SDK Adapter Regimes"
+      ],
+      "seed": true
+    },
+    {
+      "term": "computer use",
+      "score": 10.49,
+      "count": 10,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers",
+        "hf_space"
+      ],
+      "examples": [
+        "ToolCUA: Towards Optimal GUI-Tool Path Orchestration for Computer Use Agents",
+        "Multi-Stream LLMs: Unblocking Language Models with Parallel Streams of Thoughts, Inputs and Outputs",
+        "Mmmma4iio/computer-use-agent"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agentic ai",
+      "score": 8.98,
+      "count": 5,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers",
+        "hf_space"
+      ],
+      "examples": [
+        "AI Co-Mathematician: Accelerating Mathematicians with Agentic AI",
+        "Richard9905/agentic_ai_web_chatbot",
+        "Attacks and Mitigations for Distributed Governance of Agentic AI under Byzantine Adversaries"
+      ],
+      "seed": false
+    },
+    {
+      "term": "model agents",
+      "score": 7.86,
+      "count": 6,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Skill1: Unified Evolution of Skill-Augmented Agents via Reinforcement Learning",
+        "Dynamic Skill Lifecycle Management for Agentic Reinforcement Learning",
+        "Missing Old Logits in Asynchronous Agentic RL: Semantic Mismatch and Repair Methods for Off-Policy Correction"
+      ],
+      "seed": false
+    },
+    {
+      "term": "language model agents",
+      "score": 7.86,
+      "count": 6,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Skill1: Unified Evolution of Skill-Augmented Agents via Reinforcement Learning",
+        "Dynamic Skill Lifecycle Management for Agentic Reinforcement Learning",
+        "Missing Old Logits in Asynchronous Agentic RL: Semantic Mismatch and Repair Methods for Off-Policy Correction"
+      ],
+      "seed": false
+    },
+    {
+      "term": "ai agents",
+      "score": 7.86,
+      "count": 6,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "AI Co-Mathematician: Accelerating Mathematicians with Agentic AI",
+        "DecodingTrust-Agent Platform (DTap): A Controllable and Interactive Red-Teaming Platform for AI Agents",
+        "Multi-Stream LLMs: Unblocking Language Models with Parallel Streams of Thoughts, Inputs and Outputs"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agentic rl",
+      "score": 7.86,
+      "count": 6,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning",
+        "ToolCUA: Towards Optimal GUI-Tool Path Orchestration for Computer Use Agents",
+        "Missing Old Logits in Asynchronous Agentic RL: Semantic Mismatch and Repair Methods for Off-Policy Correction"
+      ],
+      "seed": false
+    },
+    {
+      "term": "tool use",
+      "score": 7.48,
+      "count": 5,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "HumanNet: Scaling Human-centric Video Learning to One Million Hours",
+        "ToolCUA: Towards Optimal GUI-Tool Path Orchestration for Computer Use Agents",
+        "Towards On-Policy Data Evolution for Visual-Native Multimodal Deep Search Agents"
+      ],
+      "seed": false
+    },
+    {
+      "term": "large language model agents",
+      "score": 7.48,
+      "count": 5,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Dynamic Skill Lifecycle Management for Agentic Reinforcement Learning",
+        "Missing Old Logits in Asynchronous Agentic RL: Semantic Mismatch and Repair Methods for Off-Policy Correction",
+        "Missing Old Logits in Asynchronous Agentic RL: Semantic Mismatch and Repair Methods for Off-Policy Correction"
+      ],
+      "seed": false
+    },
+    {
+      "term": "memory systems",
+      "score": 7.02,
+      "count": 4,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "MiA-Signature: Approximating Global Activation for Long-Context Understanding",
+        "MemPrivacy: Privacy-Preserving Personalized Memory Management for Edge-Cloud Agents",
+        "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agents are increasingly",
+      "score": 7.02,
+      "count": 4,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "SkillOS: Learning Skill Curation for Self-Evolving Agents",
+        "DecodingTrust-Agent Platform (DTap): A Controllable and Interactive Red-Teaming Platform for AI Agents",
+        "MemPrivacy: Privacy-Preserving Personalized Memory Management for Edge-Cloud Agents"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agentic reinforcement",
+      "score": 7.02,
+      "count": 4,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction",
+        "AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning",
+        "Dynamic Skill Lifecycle Management for Agentic Reinforcement Learning"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agentic reinforcement learning",
+      "score": 7.02,
+      "count": 4,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction",
+        "AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning",
+        "Dynamic Skill Lifecycle Management for Agentic Reinforcement Learning"
+      ],
+      "seed": false
+    },
+    {
+      "term": "tool calls",
+      "score": 7.02,
+      "count": 4,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "HyperEyes: Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Search Agents",
+        "ToolCUA: Towards Optimal GUI-Tool Path Orchestration for Computer Use Agents",
+        "On-Policy Self-Evolution via Failure Trajectories for Agentic Safety Alignment"
+      ],
+      "seed": false
+    },
+    {
+      "term": "llm agents",
+      "score": 7.02,
+      "count": 4,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning",
+        "On-Policy Self-Evolution via Failure Trajectories for Agentic Safety Alignment",
+        "No Action Without a NOD: A Heterogeneous Multi-Agent Architecture for Reliable Service Agents"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agentic tasks",
+      "score": 6.47,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction",
+        "SkillOS: Learning Skill Curation for Self-Evolving Agents",
+        "Rollout Cards: A Reproducibility Standard for Agent Research"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agentic reinforcement learning rl",
+      "score": 6.47,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction",
+        "Dynamic Skill Lifecycle Management for Agentic Reinforcement Learning",
+        "Learning Agentic Policy from Action Guidance"
+      ],
+      "seed": false
+    },
+    {
+      "term": "benchmarks including",
+      "score": 6.47,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "AI Co-Mathematician: Accelerating Mathematicians with Agentic AI",
+        "AlphaGRPO: Unlocking Self-Reflective Multimodal Generation in UMMs via Decompositional Verifiable Reward",
+        "PriorZero: Bridging Language Priors and World Models for Decision Making"
+      ],
+      "seed": false
+    },
+    {
+      "term": "existing benchmarks",
+      "score": 6.47,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "HyperEyes: Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Search Agents",
+        "Beyond Retrieval: A Multitask Benchmark and Model for Code Search",
+        "No More, No Less: Task Alignment in Terminal Agents"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agents should",
+      "score": 6.47,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "HyperEyes: Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Search Agents",
+        "Do Enterprise Systems Need Learned World Models? The Importance of Context to Infer Dynamics",
+        "Do Enterprise Systems Need Learned World Models? The Importance of Context to Infer Dynamics"
+      ],
+      "seed": false
+    },
+    {
+      "term": "benchmark for evaluating",
+      "score": 6.47,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
+        "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues",
+        "SkillSafetyBench: Evaluating Agent Safety under Skill-Facing Attack Surfaces"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agent designed",
+      "score": 6.47,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "X-OmniClaw Technical Report: A Unified Mobile Agent for Multimodal Understanding and Interaction",
+        "ToolCUA: Towards Optimal GUI-Tool Path Orchestration for Computer Use Agents",
+        "ToolCUA: Towards Optimal GUI-Tool Path Orchestration for Computer Use Agents"
+      ],
+      "seed": false
+    },
+    {
+      "term": "effective memory",
+      "score": 6.47,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "MemPrivacy: Privacy-Preserving Personalized Memory Management for Edge-Cloud Agents",
+        "δ-mem: Efficient Online Memory for Large Language Models",
+        "$δ$-mem: Efficient Online Memory for Large Language Models"
+      ],
+      "seed": false
+    },
+    {
+      "term": "autonomous agents",
+      "score": 6.47,
+      "count": 3,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Multi-Stream LLMs: Unblocking Language Models with Parallel Streams of Thoughts, Inputs and Outputs",
+        "Multi-Stream LLMs: Unblocking Language Models with Parallel Streams of Thoughts, Inputs and Outputs",
+        "TriBand-BEV: Real-Time LiDAR-Only 3D Pedestrian Detection via Height-Aware BEV and High-Resolution Feature Fusion"
+      ],
+      "seed": false
+    },
+    {
+      "term": "use agent",
+      "score": 6.36,
+      "count": 6,
+      "sources": [
+        "hf_space"
+      ],
+      "examples": [
+        "Mmmma4iio/computer-use-agent",
+        "likhonsheikh/open-computer-use-agent",
+        "smolagents/computer-use-agent"
+      ],
+      "seed": false
+    },
+    {
+      "term": "computer use agent",
+      "score": 6.36,
+      "count": 6,
+      "sources": [
+        "hf_space"
+      ],
+      "examples": [
+        "Mmmma4iio/computer-use-agent",
+        "likhonsheikh/open-computer-use-agent",
+        "smolagents/computer-use-agent"
+      ],
+      "seed": false
+    },
+    {
+      "term": "reasoning benchmarks",
+      "score": 5.98,
+      "count": 5,
+      "sources": [
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key",
+        "LLMs Improving LLMs: Agentic Discovery for Test-Time Scaling",
+        "4DThinker: Thinking with 4D Imagery for Dynamic Spatial Understanding"
+      ],
+      "seed": false
+    },
+    {
+      "term": "language agents",
+      "score": 5.75,
+      "count": 2,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction",
+        "PRISM: Pareto-Efficient Retrieval over Intent-Aware Structured Memory for Long-Horizon Agents"
+      ],
+      "seed": false
+    },
+    {
+      "term": "model agents to reuse",
+      "score": 5.75,
+      "count": 2,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Skill1: Unified Evolution of Skill-Augmented Agents via Reinforcement Learning",
+        "SkillGraph: Skill-Augmented Reinforcement Learning for Agents via Evolving Skill Graphs"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agents to reuse",
+      "score": 5.75,
+      "count": 2,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "Skill1: Unified Evolution of Skill-Augmented Agents via Reinforcement Learning",
+        "SkillGraph: Skill-Augmented Reinforcement Learning for Agents via Evolving Skill Graphs"
+      ],
+      "seed": false
+    },
+    {
+      "term": "agentic systems",
+      "score": 5.75,
+      "count": 2,
+      "sources": [
+        "arxiv",
+        "hf_daily_papers"
+      ],
+      "examples": [
+        "MiA-Signature: Approximating Global Activation for Long-Context Understanding",
+        "Intermediate Artifacts as First-Class Citizens: A Data Model for Durable Intermediate Artifacts in Agentic Systems"
+      ],
+      "seed": false
+    }
+  ]
+}

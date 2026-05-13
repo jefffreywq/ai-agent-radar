@@ -73,8 +73,9 @@ weekly:
 company:
   output_dir: company
   max_items_per_source: 8
-  max_items_for_ai: 30
-  max_summary_chars_per_item: 700
+  max_items_for_ai: 20
+  max_summary_chars_per_item: 420
+  seen_ttl_days: 14
   lookback_days: 10
   focus_terms:
     - agent
@@ -134,9 +135,9 @@ company:
         type: page
         url: https://www.cursor.com/changelog
     china:
-      - name: DeepSeek News
+      - name: DeepSeek Docs
         type: page
-        url: https://api-docs.deepseek.com/news
+        url: https://api-docs.deepseek.com/
       - name: Qwen Blog
         type: page
         url: https://qwenlm.github.io/blog/
@@ -169,7 +170,7 @@ ai:
   model: deepseek-v4-flash
   max_tokens_daily: 3500
   max_tokens_weekly: 6000
-  max_tokens_company: 3500
+  max_tokens_company: 2200
   max_items: 15
   max_summary_chars_per_item: 1200
   language: zh-CN

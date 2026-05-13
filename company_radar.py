@@ -16,6 +16,7 @@ from radar import get_text, load_config, normalize, today_local
 
 
 ROOT = Path(__file__).resolve().parent
+COMPANY_STATE_PATH = ROOT / "state" / "company_seen.json"
 
 NOISE_TEXT_TERMS = {
     "about us",
@@ -231,6 +232,43 @@ def extract_date_from_text(text: str | None) -> str | None:
     return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
 
 
+def company_item_id(item: dict[str, Any]) -> str:
+    return str(item.get("url") or f"{item.get('company')}::{item.get('title')}")
+
+
+def load_company_seen() -> dict[str, str]:
+    if not COMPANY_STATE_PATH.exists():
+        return {}
+    try:
+        data = json.loads(COMPANY_STATE_PATH.read_text(encoding="utf-8"))
+    except Exception as exc:
+        print(f"Failed to load company seen state; continuing fresh. Error: {exc}")
+        return {}
+    seen = data.get("seen", data) if isinstance(data, dict) else {}
+    return seen if isinstance(seen, dict) else {}
+
+
+def save_company_seen(seen: dict[str, str]) -> None:
+    COMPANY_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    COMPANY_STATE_PATH.write_text(json.dumps({"seen": seen}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def prune_company_seen(seen: dict[str, str], day: dt.date, ttl_days: int) -> dict[str, str]:
+    keep: dict[str, str] = {}
+    for key, value in seen.items():
+        try:
+            seen_day = dt.date.fromisoformat(str(value))
+        except ValueError:
+            continue
+        if (day - seen_day).days < ttl_days:
+            keep[key] = str(value)
+    return keep
+
+
+def filter_seen_company_items(items: list[dict[str, Any]], seen: dict[str, str]) -> list[dict[str, Any]]:
+    return [item for item in items if company_item_id(item) not in seen]
+
+
 def fetch_company_items(config: dict[str, Any]) -> list[dict[str, Any]]:
     company_config = config.get("company", {})
     limit = int(company_config.get("max_items_per_source", 8))
@@ -334,6 +372,15 @@ def parse_json_object(text: str) -> dict[str, Any] | None:
         data = json.loads(text)
         return data if isinstance(data, dict) else None
     except json.JSONDecodeError:
+        repaired = text.strip()
+        if repaired.startswith("{"):
+            repaired = repaired.rstrip().rstrip(",")
+            repaired += "}" * max(0, repaired.count("{") - repaired.count("}"))
+            try:
+                data = json.loads(repaired)
+                return data if isinstance(data, dict) else None
+            except json.JSONDecodeError:
+                pass
         match = re.search(r"\{.*\}", text, re.S)
         if not match:
             return None
@@ -346,45 +393,40 @@ def parse_json_object(text: str) -> dict[str, Any] | None:
 
 def build_company_classifier_prompt(day: dt.date, items: list[dict[str, Any]], config: dict[str, Any]) -> list[dict[str, str]]:
     system = (
-        "You are a strict AI company intelligence classifier focused on AI agents, AI applications, "
-        "developer tools, model releases, and product capabilities. "
-        "Return only valid JSON. Be selective and skeptical. "
-        "Use only the supplied company items and URLs. Do not invent announcements, dates, features, links, or claims. "
-        "Pay attention to both global AI companies and Chinese AI companies."
+        "You are a strict AI company intelligence classifier. Return compact valid JSON only. "
+        "Use only supplied ids. Do not invent announcements, dates, features, links, or claims."
     )
     user = f"""
 Date: {day.isoformat()}
 
-Classify the supplied company candidates into these buckets:
-- global_important: global company updates that are real product/model/API/developer/agent/application events worth tracking.
-- china_important: China ecosystem updates with the same bar.
-- watch: relevant but weaker, older, uncertain, or mostly product-page evidence.
-- noise: navigation links, generic landing pages, marketing-only pages, jobs, footer/header links, social share links, support/contact, or evidence-insufficient items.
+Classify the supplied company candidates into compact buckets:
+- global_important: global company updates worth tracking.
+- china_important: China ecosystem updates worth tracking.
+- watch: relevant but weaker or uncertain.
 
 Selection rules:
 - Prefer concrete announcements, releases, changelogs, benchmark/product capabilities, open-source models, APIs, coding agents, browser/computer/mobile agents, workflow automation, and enterprise agent/application moves.
 - Downrank generic pages such as "Try ChatGPT", "Research", "Business", "Products", "Download", "Contact", "Careers", "Publication", ICP/license pages, and social links.
 - Manus is a company/product name; classify it only if the item is a concrete capability or announcement, not because the word appears in unrelated text.
-- Keep global_important <= 6, china_important <= 6, watch <= 8, noise <= 12.
+- Keep global_important <= 4, china_important <= 4, watch <= 4.
 - Every id must exactly match an input id. Do not create new ids.
-- Notes must be Simplified Chinese, <= 40 Chinese characters each.
+- Notes are optional. Only include notes for important ids. Each note <= 20 Chinese characters.
 
 Return exactly this JSON shape:
 {{
   "global_important": ["item_1"],
   "china_important": ["item_2"],
   "watch": ["item_3"],
-  "noise": ["item_4"],
   "notes": {{
-    "item_1": "一句中文说明为什么重要"
+    "item_1": "中文短理由"
   }}
 }}
 
 Few-shot guidance:
-- "press@anthropic.com", "Skip to content", "Try Claude", "Careers" => noise.
+- "press@anthropic.com", "Skip to content", "Try Claude", "Careers" => omit.
 - "Cursor changelog: agent/code review feature" => global_important or watch.
 - "Kimi Agent Swarm", "Qwen agent/API/model release", "DeepSeek model/API release" => china_important when evidence is concrete.
-- "OpenAI API generic page" => watch only if it indicates a new/changed capability; otherwise noise.
+- "OpenAI API generic page" => watch only if it indicates a new/changed capability; otherwise omit.
 
 Company candidates JSON:
 {json.dumps(compact_items(items, config), ensure_ascii=False, indent=2)}
@@ -393,6 +435,8 @@ Company candidates JSON:
 
 
 def normalize_id_list(value: Any, allowed: set[str], limit: int) -> list[str]:
+    if limit <= 0:
+        return []
     if not isinstance(value, list):
         return []
     seen: set[str] = set()
@@ -414,10 +458,10 @@ def validate_company_classification(data: dict[str, Any] | None, items: list[dic
     if not allowed:
         return None
     curated = {
-        "global_important": normalize_id_list(data.get("global_important"), allowed, 6),
-        "china_important": normalize_id_list(data.get("china_important"), allowed, 6),
-        "watch": normalize_id_list(data.get("watch"), allowed, 8),
-        "noise": normalize_id_list(data.get("noise"), allowed, 12),
+        "global_important": normalize_id_list(data.get("global_important"), allowed, 4),
+        "china_important": normalize_id_list(data.get("china_important"), allowed, 4),
+        "watch": normalize_id_list(data.get("watch"), allowed, 4),
+        "noise": normalize_id_list(data.get("noise"), allowed, 0),
         "notes": {},
     }
     assigned = set(curated["global_important"]) | set(curated["china_important"])
@@ -430,7 +474,7 @@ def validate_company_classification(data: dict[str, Any] | None, items: list[dic
         for item_id_value, note in notes.items():
             item_id_value = str(item_id_value).strip()
             if item_id_value in allowed and isinstance(note, str):
-                curated["notes"][item_id_value] = normalize(note)[:80]
+                curated["notes"][item_id_value] = normalize(note)[:40]
 
     if not curated["global_important"] and not curated["china_important"] and not curated["watch"]:
         return None
@@ -555,6 +599,7 @@ def render_ai_company_markdown(day: dt.date, items: list[dict[str, Any]], curate
 
 
 def render_company_markdown(day: dt.date, items: list[dict[str, Any]]) -> str:
+    items = items[:12]
     lines = [
         f"# AI Company Radar - {day.isoformat()}",
         "",
@@ -599,7 +644,11 @@ def append_chatgpt_request(markdown: str) -> str:
 def main() -> None:
     config = load_config()
     day = today_local()
-    items = fetch_company_items(config)
+    company_config = config.get("company", {})
+    ttl_days = int(company_config.get("seen_ttl_days", 14))
+    seen = prune_company_seen(load_company_seen(), day, ttl_days)
+
+    items = filter_seen_company_items(fetch_company_items(config), seen)
     for item in items:
         item["score"], item["reasons"] = score_company_item(item, config)
     items = [item for item in items if item.get("score", 0) >= 2.0]
@@ -613,6 +662,10 @@ def main() -> None:
 
     ai_markdown = call_deepseek_company(day, items, config)
     output_path.write_text(append_chatgpt_request(ai_markdown or render_company_markdown(day, items)), encoding="utf-8")
+
+    for item in items[: int(company_config.get("max_items_for_ai", 20))]:
+        seen[company_item_id(item)] = day.isoformat()
+    save_company_seen(seen)
     print(f"Wrote {output_path} with {len(items)} filtered company items")
 
 

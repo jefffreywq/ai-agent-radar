@@ -70,8 +70,8 @@ weekly:
 company:
   output_dir: company
   max_items_per_source: 8
-  max_items_for_ai: 40
-  max_summary_chars_per_item: 900
+  max_items_for_ai: 30
+  max_summary_chars_per_item: 700
   lookback_days: 10
   focus_terms:
     - agent
@@ -165,10 +165,13 @@ ai:
   base_url: https://api.deepseek.com
   model: deepseek-v4-flash
   max_tokens_daily: 3500
+  max_tokens_deep_read_daily: 4500
   max_tokens_weekly: 6000
   max_tokens_company: 3500
   max_items: 15
   max_summary_chars_per_item: 1200
+  deep_read_max_items: 5
+  deep_read_summary_chars_per_item: 1800
   language: zh-CN
 
 search:

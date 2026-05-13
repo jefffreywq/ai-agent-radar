@@ -117,6 +117,40 @@ def apply_weekly_trend_boost(text: str, config: dict[str, Any], trends: dict[str
     return boost
 
 
+def apply_weekly_trend_penalty(text: str, trends: dict[str, Any], reasons: list[str]) -> float:
+    protected_terms = {
+        "agentic search",
+        "computer use",
+        "computer use agent",
+        "coding agent",
+        "browser automation",
+        "mobile agent",
+        "research agent",
+        "agent memory",
+        "agentic workflow",
+        "gui agent",
+        "swe-bench",
+        "osworld",
+        "gaia",
+        "manus",
+        "deepseek",
+        "qwen",
+        "kimi",
+        "glm",
+        "doubao",
+        "hunyuan",
+    }
+    penalty = 0.0
+    for term in trends.get("downrank", []):
+        term_l = str(term).lower().strip()
+        if not term_l or term_l in protected_terms:
+            continue
+        if term_l in text:
+            penalty += 1.0
+            reasons.append(f"weekly-downrank: {term}")
+    return min(penalty, 3.0)
+
+
 def score_item(item: dict[str, Any], config: dict[str, Any], trends: dict[str, Any] | None = None) -> tuple[float, list[str]]:
     text = f"{normalize(item.get('title')).lower()} {normalize(item.get('summary')).lower()}"
     score = 0.0
@@ -138,6 +172,7 @@ def score_item(item: dict[str, Any], config: dict[str, Any], trends: dict[str, A
             reasons.append(f"downrank: {term}")
 
     score += apply_weekly_trend_boost(text, config, trends or {}, reasons)
+    score -= apply_weekly_trend_penalty(text, trends or {}, reasons)
 
     source_bonus = {
         "hf_daily_papers": (2.5, "appeared on HF Daily Papers"),
@@ -171,6 +206,7 @@ def compact_for_ai(item: dict[str, Any], max_summary_chars: int) -> dict[str, An
     if len(summary) > max_summary_chars:
         summary = summary[:max_summary_chars].rsplit(" ", 1)[0] + "..."
     return {
+        "id": item.get("id"),
         "title": item.get("title"),
         "source": item.get("source"),
         "url": item.get("url"),
@@ -180,6 +216,252 @@ def compact_for_ai(item: dict[str, Any], max_summary_chars: int) -> dict[str, An
         "published": item.get("published"),
         "summary": summary,
     }
+
+
+def parse_json_object(text: str) -> dict[str, Any] | None:
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    match = re.search(r"\{.*\}", text, re.DOTALL)
+    if not match:
+        return None
+    try:
+        return json.loads(match.group(0))
+    except json.JSONDecodeError:
+        return None
+
+
+def build_daily_classifier_prompt(day: dt.date, items: list[dict[str, Any]], config: dict[str, Any]) -> list[dict[str, str]]:
+    ai_config = config.get("ai", {})
+    compact_items = [
+        compact_for_ai(item, int(ai_config.get("max_summary_chars_per_item", 1200)))
+        for item in items[: int(ai_config.get("max_items", 15))]
+    ]
+    system = (
+        "You are a strict classifier for daily AI agent and multi-agent research radar items. "
+        "Return valid JSON only. Use only supplied item ids. "
+        "Do not invent papers, links, authors, dates, metrics, claims, or ids."
+    )
+    user = f"""
+Classify today's candidate items for an AI agent / AI application research radar.
+
+Date: {day.isoformat()}
+
+Class definitions:
+- must_read: High-value item worth reading today. It should be clearly related to AI agents, AI applications, benchmarks, coding agents, computer-use agents, tool use, memory, evaluation, or multi-agent systems.
+- scan: Relevant item worth a quick look, but not urgent or evidence is narrower.
+- skip: Low-value, weakly related, generic, marketing-like, duplicated, or evidence-insufficient item.
+
+Few-shot examples:
+- ToolCUA / computer-use agent benchmark -> must_read
+- New agentic search paper with retrieval + tool use -> must_read
+- Generic planning paper without clear agent evaluation -> scan
+- Prompt collection or generic tutorial -> skip
+- Space/demo with no description or weak evidence -> scan or skip
+
+Output valid JSON only. Do not output Markdown.
+
+JSON schema:
+{{
+  "must_read": ["item_1", "item_3"],
+  "scan": ["item_4"],
+  "skip": ["item_7"],
+  "notes": {{
+    "item_1": "40字内中文理由",
+    "item_3": "40字内中文理由"
+  }},
+  "background": "80字内中文基础知识"
+}}
+
+Rules:
+- must_read max 5 ids.
+- scan max 8 ids.
+- skip max 10 ids.
+- notes values must be Simplified Chinese, max 40 Chinese characters.
+- background must be Simplified Chinese, max 80 Chinese characters.
+- Every id must exactly match an input item id.
+- If evidence is weak, use scan or skip; do not put weak items in must_read.
+
+Candidate items JSON:
+{json.dumps(compact_items, ensure_ascii=False, indent=2)}
+""".strip()
+    return [{"role": "system", "content": system}, {"role": "user", "content": user}]
+
+
+def normalize_id_list(value: Any, allowed_ids: set[str], limit: int) -> list[str]:
+    if not isinstance(value, list):
+        return []
+    result = []
+    for entry in value:
+        item_id_value = entry.get("id") if isinstance(entry, dict) else entry
+        if not isinstance(item_id_value, str):
+            continue
+        if item_id_value in allowed_ids and item_id_value not in result:
+            result.append(item_id_value)
+        if len(result) >= limit:
+            break
+    return result
+
+
+def validate_daily_classification(curated: dict[str, Any] | None, items: list[dict[str, Any]]) -> dict[str, Any] | None:
+    if not isinstance(curated, dict):
+        return None
+    allowed_ids = {item["id"] for item in items if item.get("id")}
+    must_read = normalize_id_list(curated.get("must_read"), allowed_ids, 5)
+    scan = [item_id for item_id in normalize_id_list(curated.get("scan"), allowed_ids, 8) if item_id not in must_read]
+    skip = [
+        item_id
+        for item_id in normalize_id_list(curated.get("skip"), allowed_ids, 10)
+        if item_id not in must_read and item_id not in scan
+    ]
+    notes = {}
+    raw_notes = curated.get("notes", {})
+    if isinstance(raw_notes, dict):
+        for key, value in raw_notes.items():
+            if key in allowed_ids and isinstance(value, str):
+                notes[key] = value[:100]
+    background = curated.get("background", "")
+    if not isinstance(background, str):
+        background = ""
+    if not must_read and not scan:
+        return None
+    return {"must_read": must_read, "scan": scan, "skip": skip, "notes": notes, "background": background[:160]}
+
+
+def build_deep_read_prompt(day: dt.date, items: list[dict[str, Any]], curated: dict[str, Any], config: dict[str, Any]) -> list[dict[str, str]]:
+    ai_config = config.get("ai", {})
+    by_id = {item["id"]: item for item in items if item.get("id")}
+    must_read_ids = curated.get("must_read", [])[: int(ai_config.get("deep_read_max_items", 5))]
+    deep_items = [
+        compact_for_ai(by_id[item_id], int(ai_config.get("deep_read_summary_chars_per_item", 1800)))
+        for item_id in must_read_ids
+        if item_id in by_id
+    ]
+    system = (
+        "You are a careful technical research analyst for AI agents, AI applications, and multi-agent systems. "
+        "Return valid JSON only. Use only the supplied item ids and evidence. "
+        "Do not invent details, experiments, metrics, authors, dates, links, or claims. "
+        "If the abstract/summary is insufficient, say evidence is insufficient in Chinese."
+    )
+    user = f"""
+Create deep-read notes for today's must-read AI agent radar items.
+
+Date: {day.isoformat()}
+
+For each item, explain only what can be supported by its title, summary, source, URL, score, and rule reasons.
+Write all values in Simplified Chinese. Keep it concise and useful.
+
+Return exactly this JSON shape:
+{{
+  "deep_reads": [
+    {{
+      "id": "item_1",
+      "type": "论文 / 工具 / benchmark / 产品 / 公司动态 / 数据集",
+      "priority": "高 / 中 / 低",
+      "one_liner": "一句话说明它是什么",
+      "problem": "它解决什么问题",
+      "innovation": ["创新点1", "创新点2", "创新点3"],
+      "why_it_matters": "为什么对 AI agent / AI 应用重要",
+      "background": "读懂它需要知道的基础知识",
+      "follow_up": "后续值得追踪什么"
+    }}
+  ]
+}}
+
+Rules:
+- Include only supplied ids.
+- deep_reads length must be <= {int(ai_config.get("deep_read_max_items", 5))}.
+- one_liner <= 60 Chinese characters.
+- problem, why_it_matters, background, follow_up <= 90 Chinese characters each.
+- innovation must contain 1-3 short Chinese bullets.
+- priority must be 高, 中, or 低.
+- If evidence is insufficient, explicitly write "证据不足" in the relevant field.
+
+Must-read items JSON:
+{json.dumps(deep_items, ensure_ascii=False, indent=2)}
+""".strip()
+    return [{"role": "system", "content": system}, {"role": "user", "content": user}]
+
+
+def clean_deep_read_text(value: Any, limit: int) -> str:
+    if not isinstance(value, str):
+        return ""
+    return normalize(value)[:limit]
+
+
+def validate_deep_reads(data: dict[str, Any] | None, items: list[dict[str, Any]], curated: dict[str, Any]) -> list[dict[str, Any]]:
+    if not isinstance(data, dict):
+        return []
+    allowed_ids = set(curated.get("must_read", [])) & {item["id"] for item in items if item.get("id")}
+    raw_reads = data.get("deep_reads", [])
+    if not isinstance(raw_reads, list):
+        return []
+    result = []
+    seen: set[str] = set()
+    for raw in raw_reads:
+        if not isinstance(raw, dict):
+            continue
+        item_id_value = raw.get("id")
+        if item_id_value not in allowed_ids or item_id_value in seen:
+            continue
+        seen.add(item_id_value)
+        raw_innovation = raw.get("innovation", [])
+        innovation = []
+        if isinstance(raw_innovation, list):
+            for entry in raw_innovation[:3]:
+                text = clean_deep_read_text(entry, 80)
+                if text:
+                    innovation.append(text)
+        priority = clean_deep_read_text(raw.get("priority"), 4)
+        if priority not in {"高", "中", "低"}:
+            priority = "中"
+        result.append(
+            {
+                "id": item_id_value,
+                "type": clean_deep_read_text(raw.get("type"), 20) or "未分类",
+                "priority": priority,
+                "one_liner": clean_deep_read_text(raw.get("one_liner"), 120),
+                "problem": clean_deep_read_text(raw.get("problem"), 180),
+                "innovation": innovation,
+                "why_it_matters": clean_deep_read_text(raw.get("why_it_matters"), 180),
+                "background": clean_deep_read_text(raw.get("background"), 180),
+                "follow_up": clean_deep_read_text(raw.get("follow_up"), 180),
+            }
+        )
+    return result
+
+
+def call_deepseek_deep_read(
+    day: dt.date,
+    items: list[dict[str, Any]],
+    curated: dict[str, Any],
+    config: dict[str, Any],
+    base_url: str,
+    headers: dict[str, str],
+) -> list[dict[str, Any]]:
+    if not curated.get("must_read"):
+        return []
+    ai_config = config.get("ai", {})
+    payload = {
+        "model": ai_config.get("model", "deepseek-v4-flash"),
+        "messages": build_deep_read_prompt(day, items, curated, config),
+        "temperature": 0.1,
+        "max_tokens": int(ai_config.get("max_tokens_deep_read_daily", 4500)),
+        "response_format": {"type": "json_object"},
+    }
+    try:
+        response = requests.post(f"{base_url}/chat/completions", headers=headers, json=payload, timeout=90)
+        response.raise_for_status()
+        data = response.json()
+        content = data["choices"][0]["message"]["content"].strip()
+        deep_reads = validate_deep_reads(parse_json_object(content), items, curated)
+        if not deep_reads:
+            print("DeepSeek deep-read JSON was empty or invalid; continuing without deep reads.")
+        return deep_reads
+    except Exception as exc:
+        print(f"DeepSeek deep-read call failed; continuing without deep reads. Error: {exc}")
+        return []
 
 
 def build_ai_prompt(day: dt.date, items: list[dict[str, Any]], config: dict[str, Any]) -> list[dict[str, str]]:
@@ -264,9 +546,10 @@ def call_deepseek(day: dt.date, items: list[dict[str, Any]], config: dict[str, A
     base_url = str(ai_config.get("base_url", "https://api.deepseek.com")).rstrip("/")
     payload = {
         "model": ai_config.get("model", "deepseek-v4-flash"),
-        "messages": build_ai_prompt(day, items, config),
-        "temperature": 0.2,
-        "max_tokens": 3500,
+        "messages": build_daily_classifier_prompt(day, items, config),
+        "temperature": 0.1,
+        "max_tokens": int(ai_config.get("max_tokens_daily", 3500)),
+        "response_format": {"type": "json_object"},
     }
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -278,7 +561,18 @@ def call_deepseek(day: dt.date, items: list[dict[str, Any]], config: dict[str, A
         response = requests.post(f"{base_url}/chat/completions", headers=headers, json=payload, timeout=90)
         response.raise_for_status()
         data = response.json()
-        return data["choices"][0]["message"]["content"].strip()
+        content = data["choices"][0]["message"]["content"].strip()
+        parsed = parse_json_object(content)
+        if parsed is None:
+            print("DeepSeek daily JSON parse failed. Response head:")
+            print(content[:1200])
+            return None
+        curated = validate_daily_classification(parsed, items)
+        if curated is None:
+            print("DeepSeek daily JSON validation failed.")
+            return None
+        deep_reads = call_deepseek_deep_read(day, items, curated, config, base_url, headers)
+        return render_ai_daily_markdown(day, items, curated, deep_reads)
     except Exception as exc:
         print(f"DeepSeek call failed; using rule-based Markdown. Error: {exc}")
         return None
@@ -429,6 +723,126 @@ def render_markdown(day: dt.date, items: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
+def render_item_block(item: dict[str, Any], note: str | None = None) -> list[str]:
+    lines = [f"### {item['title']}"]
+    lines.append(f"- 来源：{item.get('source')}")
+    if item.get("authors"):
+        lines.append(f"- 作者：{item.get('authors')}")
+    if item.get("published"):
+        lines.append(f"- 日期：{item.get('published')}")
+    lines.append(f"- 链接：{item.get('url')}")
+    lines.append(f"- 规则分：{item.get('score')}/10")
+    if item.get("reasons"):
+        lines.append(f"- 规则命中：{', '.join(item.get('reasons', []))}")
+    if note:
+        lines.append(f"- AI 判断：{note}")
+    return lines
+
+
+def render_deep_read_block(item: dict[str, Any], read: dict[str, Any]) -> list[str]:
+    lines = [
+        f"### {item['title']}",
+        f"- 类型：{read.get('type') or '未分类'}",
+        f"- 优先级：{read.get('priority') or '中'}",
+        f"- 链接：{item.get('url')}",
+    ]
+    if read.get("one_liner"):
+        lines.append(f"- 一句话：{read['one_liner']}")
+    if read.get("problem"):
+        lines.extend(["", "**它解决什么问题**", "", read["problem"]])
+    innovation = read.get("innovation") or []
+    if innovation:
+        lines.extend(["", "**核心创新**", ""])
+        for idx, point in enumerate(innovation, 1):
+            lines.append(f"{idx}. {point}")
+    if read.get("why_it_matters"):
+        lines.extend(["", "**为什么重要**", "", read["why_it_matters"]])
+    if read.get("background"):
+        lines.extend(["", "**需要知道的基础知识**", "", read["background"]])
+    if read.get("follow_up"):
+        lines.extend(["", "**后续追踪**", "", read["follow_up"]])
+    return lines
+
+
+def render_ai_daily_markdown(
+    day: dt.date,
+    items: list[dict[str, Any]],
+    curated: dict[str, Any],
+    deep_reads: list[dict[str, Any]] | None = None,
+) -> str:
+    by_id = {item["id"]: item for item in items}
+    notes = curated.get("notes", {})
+    deep_by_id = {read["id"]: read for read in deep_reads or [] if read.get("id")}
+    lines = [
+        f"# AI Agent Radar - {day.isoformat()}",
+        "",
+        "## 今日结论",
+        "",
+    ]
+    must_read = [by_id[item_id] for item_id in curated.get("must_read", []) if item_id in by_id]
+    scan = [by_id[item_id] for item_id in curated.get("scan", []) if item_id in by_id]
+    skip = [by_id[item_id] for item_id in curated.get("skip", []) if item_id in by_id]
+
+    if must_read:
+        lines.append(f"今日有 {len(must_read)} 个高价值 agent / AI 应用相关条目，优先查看必看列表。")
+    else:
+        lines.append("今天高价值新增内容较少，可快速扫一眼相关条目。")
+    lines.append("")
+
+    lines.extend(["## 精读摘要", ""])
+    deep_read_items = [
+        by_id[item_id]
+        for item_id in curated.get("must_read", [])
+        if item_id in by_id and item_id in deep_by_id
+    ]
+    if deep_read_items:
+        for item in deep_read_items:
+            lines.extend(render_deep_read_block(item, deep_by_id[item["id"]]))
+            lines.append("")
+    else:
+        lines.append("暂无精读摘要。")
+        lines.append("")
+
+    lines.extend(["## 必看 Top 5", ""])
+    if must_read:
+        for item in must_read:
+            lines.extend(render_item_block(item, notes.get(item["id"])))
+            lines.append("")
+    else:
+        lines.append("暂无明确必看条目。")
+        lines.append("")
+
+    lines.extend(["## 值得扫一眼", ""])
+    if scan:
+        for item in scan:
+            lines.extend(render_item_block(item, notes.get(item["id"])))
+            lines.append("")
+    else:
+        lines.append("暂无。")
+        lines.append("")
+
+    lines.extend(["## 低优先级或可跳过", ""])
+    if skip:
+        for item in skip:
+            lines.append(f"- {item['title']}：{notes.get(item['id'], '相关性或证据不足')}")
+    else:
+        lines.append("暂无。")
+    lines.append("")
+
+    lines.extend(["## 你需要知道的基础知识", "", curated.get("background") or "暂无需要额外补充的基础知识。", ""])
+    lines.extend(
+        [
+            "## 后续行动",
+            "",
+            "- [ ] 打开必看条目的原文链接",
+            "- [ ] 判断是否加入长期关注 benchmark / leaderboard 列表",
+            "- [ ] 将有复现价值的代码或 Space 单独收藏",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def collect_items(config: dict[str, Any], day: dt.date) -> list[dict[str, Any]]:
     items = []
     for fetcher in [fetch_hf_daily_papers, fetch_hf_spaces, fetch_hf_competitions, fetch_arxiv]:
@@ -455,6 +869,8 @@ def main() -> None:
 
     fresh.sort(key=lambda x: x.get("score", 0), reverse=True)
     digest_items = fresh[: config["max_digest_items"]]
+    for idx, item in enumerate(digest_items, 1):
+        item["id"] = f"item_{idx}"
 
     output_dir = ROOT / config["output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)

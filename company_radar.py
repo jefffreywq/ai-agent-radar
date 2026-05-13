@@ -313,6 +313,7 @@ def compact_items(items: list[dict[str, Any]], config: dict[str, Any]) -> list[d
             summary = summary[:max_chars].rsplit(" ", 1)[0] + "..."
         compact.append(
             {
+                "id": item.get("id"),
                 "company": item.get("company"),
                 "region": item.get("region"),
                 "title": item.get("title"),
@@ -385,6 +386,114 @@ def build_company_prompt(day: dt.date, items: list[dict[str, Any]], config: dict
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
+def parse_json_object(text: str) -> dict[str, Any] | None:
+    try:
+        data = json.loads(text)
+        return data if isinstance(data, dict) else None
+    except json.JSONDecodeError:
+        match = re.search(r"\{.*\}", text, re.S)
+        if not match:
+            return None
+        try:
+            data = json.loads(match.group(0))
+            return data if isinstance(data, dict) else None
+        except json.JSONDecodeError:
+            return None
+
+
+def build_company_classifier_prompt(day: dt.date, items: list[dict[str, Any]], config: dict[str, Any]) -> list[dict[str, str]]:
+    system = (
+        "You are a strict AI company intelligence classifier focused on AI agents, AI applications, "
+        "developer tools, model releases, and product capabilities. "
+        "Return only valid JSON. Be selective and skeptical. "
+        "Use only the supplied company items and URLs. Do not invent announcements, dates, features, links, or claims. "
+        "Pay attention to both global AI companies and Chinese AI companies."
+    )
+    user = f"""
+Date: {day.isoformat()}
+
+Classify the supplied company candidates into these buckets:
+- global_important: global company updates that are real product/model/API/developer/agent/application events worth tracking.
+- china_important: China ecosystem updates with the same bar.
+- watch: relevant but weaker, older, uncertain, or mostly product-page evidence.
+- noise: navigation links, generic landing pages, marketing-only pages, jobs, footer/header links, social share links, support/contact, or evidence-insufficient items.
+
+Selection rules:
+- Prefer concrete announcements, releases, changelogs, benchmark/product capabilities, open-source models, APIs, coding agents, browser/computer/mobile agents, workflow automation, and enterprise agent/application moves.
+- Downrank generic pages such as "Try ChatGPT", "Research", "Business", "Products", "Download", "Contact", "Careers", "Publication", ICP/license pages, and social links.
+- Manus is a company/product name; classify it only if the item is a concrete capability or announcement, not because the word appears in unrelated text.
+- Keep global_important <= 6, china_important <= 6, watch <= 8, noise <= 12.
+- Every id must exactly match an input id. Do not create new ids.
+- Notes must be Simplified Chinese, <= 40 Chinese characters each.
+
+Return exactly this JSON shape:
+{{
+  "global_important": ["item_1"],
+  "china_important": ["item_2"],
+  "watch": ["item_3"],
+  "noise": ["item_4"],
+  "notes": {{
+    "item_1": "一句中文说明为什么重要"
+  }}
+}}
+
+Few-shot guidance:
+- "press@anthropic.com", "Skip to content", "Try Claude", "Careers" => noise.
+- "Cursor changelog: agent/code review feature" => global_important or watch.
+- "Kimi Agent Swarm", "Qwen agent/API/model release", "DeepSeek model/API release" => china_important when evidence is concrete.
+- "OpenAI API generic page" => watch only if it indicates a new/changed capability; otherwise noise.
+
+Company candidates JSON:
+{json.dumps(compact_items(items, config), ensure_ascii=False, indent=2)}
+""".strip()
+    return [{"role": "system", "content": system}, {"role": "user", "content": user}]
+
+
+def normalize_id_list(value: Any, allowed: set[str], limit: int) -> list[str]:
+    if not isinstance(value, list):
+        return []
+    seen: set[str] = set()
+    result: list[str] = []
+    for raw in value:
+        item_id_value = str(raw).strip()
+        if item_id_value in allowed and item_id_value not in seen:
+            seen.add(item_id_value)
+            result.append(item_id_value)
+        if len(result) >= limit:
+            break
+    return result
+
+
+def validate_company_classification(data: dict[str, Any] | None, items: list[dict[str, Any]]) -> dict[str, Any] | None:
+    if not data:
+        return None
+    allowed = {str(item.get("id")) for item in items if item.get("id")}
+    if not allowed:
+        return None
+    curated = {
+        "global_important": normalize_id_list(data.get("global_important"), allowed, 6),
+        "china_important": normalize_id_list(data.get("china_important"), allowed, 6),
+        "watch": normalize_id_list(data.get("watch"), allowed, 8),
+        "noise": normalize_id_list(data.get("noise"), allowed, 12),
+        "notes": {},
+    }
+    assigned = set(curated["global_important"]) | set(curated["china_important"])
+    curated["watch"] = [item_id_value for item_id_value in curated["watch"] if item_id_value not in assigned]
+    assigned |= set(curated["watch"])
+    curated["noise"] = [item_id_value for item_id_value in curated["noise"] if item_id_value not in assigned]
+
+    notes = data.get("notes", {})
+    if isinstance(notes, dict):
+        for item_id_value, note in notes.items():
+            item_id_value = str(item_id_value).strip()
+            if item_id_value in allowed and isinstance(note, str):
+                curated["notes"][item_id_value] = normalize(note)[:80]
+
+    if not curated["global_important"] and not curated["china_important"] and not curated["watch"]:
+        return None
+    return curated
+
+
 def call_deepseek_company(day: dt.date, items: list[dict[str, Any]], config: dict[str, Any]) -> str | None:
     ai_config = config.get("ai", {})
     if not ai_config.get("enabled", False) or ai_config.get("provider") != "deepseek":
@@ -396,9 +505,10 @@ def call_deepseek_company(day: dt.date, items: list[dict[str, Any]], config: dic
 
     payload = {
         "model": ai_config.get("model", "deepseek-v4-flash"),
-        "messages": build_company_prompt(day, items, config),
-        "temperature": 0.2,
-        "max_tokens": 3500,
+        "messages": build_company_classifier_prompt(day, items, config),
+        "temperature": 0.1,
+        "response_format": {"type": "json_object"},
+        "max_tokens": int(ai_config.get("max_tokens_company", 3500)),
     }
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -410,10 +520,95 @@ def call_deepseek_company(day: dt.date, items: list[dict[str, Any]], config: dic
         response = requests.post(f"{base_url}/chat/completions", headers=headers, json=payload, timeout=90)
         response.raise_for_status()
         data = response.json()
-        return data["choices"][0]["message"]["content"].strip()
+        content = data["choices"][0]["message"]["content"].strip()
+        curated = validate_company_classification(parse_json_object(content), items)
+        if not curated:
+            print("DeepSeek company JSON was empty or invalid; using rule-based Markdown.")
+            return None
+        return render_ai_company_markdown(day, items, curated)
     except Exception as exc:
         print(f"DeepSeek company call failed; using rule-based Markdown. Error: {exc}")
         return None
+
+
+def item_by_id(items: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    return {str(item.get("id")): item for item in items if item.get("id")}
+
+
+def render_item_lines(item: dict[str, Any], note: str | None = None) -> list[str]:
+    lines = [
+        f"### {item.get('company')}: {item.get('title')}",
+        f"- 区域：{item.get('region')}",
+        f"- 分数：{item.get('score')}/10",
+        f"- 链接：{item.get('url')}",
+    ]
+    if item.get("published"):
+        lines.append(f"- 日期：{item.get('published')}")
+    if note:
+        lines.append(f"- 判断：{note}")
+    elif item.get("reasons"):
+        lines.append(f"- 规则理由：{', '.join(item.get('reasons', []))}")
+    return lines
+
+
+def render_ai_company_markdown(day: dt.date, items: list[dict[str, Any]], curated: dict[str, Any]) -> str:
+    by_id = item_by_id(items)
+    notes = curated.get("notes", {})
+    global_ids = curated.get("global_important", [])
+    china_ids = curated.get("china_important", [])
+    watch_ids = curated.get("watch", [])
+    noise_ids = curated.get("noise", [])
+
+    lines = [
+        f"# AI Company Radar - {day.isoformat()}",
+        "",
+        "## 今日结论",
+        "",
+    ]
+    if global_ids or china_ids:
+        total = len(global_ids) + len(china_ids)
+        lines.append(f"DeepSeek 已从候选动态中筛出 {total} 条重点公司动态，并保留低置信度内容供观察。")
+    else:
+        lines.append("今天没有筛出高置信度的重点公司动态，建议只扫一眼观察项。")
+    lines.append("")
+
+    sections = [
+        ("## 全球公司重点动态", global_ids, "暂无高价值新增动态。"),
+        ("## 中国公司重点动态", china_ids, "暂无高价值新增动态。"),
+        ("## 值得观察", watch_ids, "暂无观察项。"),
+    ]
+    for title, ids, empty_text in sections:
+        lines.extend([title, ""])
+        if not ids:
+            lines.extend([empty_text, ""])
+            continue
+        for item_id_value in ids:
+            item = by_id.get(item_id_value)
+            if not item:
+                continue
+            lines.extend(render_item_lines(item, notes.get(item_id_value)))
+            lines.append("")
+
+    lines.extend(["## 噪音和低优先级", ""])
+    if noise_ids:
+        for item_id_value in noise_ids:
+            item = by_id.get(item_id_value)
+            if item:
+                lines.append(f"- {item.get('company')}: {item.get('title')}")
+    else:
+        lines.append("未单独标出噪音项。")
+    lines.append("")
+
+    lines.extend(
+        [
+            "## 后续行动",
+            "",
+            "- [ ] 对重点动态中涉及 agent、API、coding、browser/computer use 的条目做二次确认。",
+            "- [ ] 把高价值中国公司动态同步进每日雷达的关注词。",
+            "- [ ] 对观察项等待下一次公告或更多证据后再升级。",
+        ]
+    )
+    return "\n".join(lines)
 
 
 def render_company_markdown(day: dt.date, items: list[dict[str, Any]]) -> str:
@@ -449,6 +644,8 @@ def main() -> None:
         item["score"], item["reasons"] = score_company_item(item, config)
     items = [item for item in items if item.get("score", 0) >= 2.0]
     items.sort(key=lambda x: x.get("score", 0), reverse=True)
+    for idx, item in enumerate(items, 1):
+        item["id"] = f"item_{idx}"
 
     output_dir = ROOT / config.get("company", {}).get("output_dir", "company")
     output_dir.mkdir(parents=True, exist_ok=True)

@@ -296,20 +296,20 @@ def extract_candidate_terms(items: list[dict[str, Any]], config: dict[str, Any])
         )
 
     scored.sort(key=lambda x: (x["seed"], x["score"], x["count"]), reverse=True)
-    return scored[: int(weekly.get("max_terms", 80))]
+    return scored[: int(weekly.get("max_terms", 50))]
 
 
 def select_representative_items(items: list[dict[str, Any]], candidate_terms: list[dict[str, Any]], limit: int) -> list[dict[str, Any]]:
     selected = []
-    term_list = [t["term"] for t in candidate_terms[:40]]
+    term_list = [t["term"] for t in candidate_terms[:30]]
     for item in items:
         text = clean_term(f"{item.get('title', '')} {item.get('summary', '')}")
         matched = [term for term in term_list if term in text]
         if not matched:
             continue
         summary = normalize(item.get("summary"))
-        if len(summary) > 800:
-            summary = summary[:800].rsplit(" ", 1)[0] + "..."
+        if len(summary) > 500:
+            summary = summary[:500].rsplit(" ", 1)[0] + "..."
         selected.append(
             {
                 "title": item.get("title"),
@@ -340,7 +340,7 @@ def build_curation_prompt(
         "Do not invent links, papers, metrics, company claims, or facts."
     )
     user = f"""
-请筛选最近一周 AI agent / AI 应用领域的真实热词，并生成严格 JSON。
+请筛选最近一周 AI agent / AI 应用领域的真实热词，并生成短 JSON。
 
 时间范围：{start_day.isoformat()} 到 {end_day.isoformat()}
 
@@ -357,42 +357,98 @@ JSON schema:
   "tier1": [
     {{
       "term": "computer-use agent",
-      "category": "real-world agent",
-      "heat": "high",
-      "why": "中文解释，基于输入证据",
-      "search_suggestion": "computer-use agent OSWorld WebArena"
+      "cat": "real-world agent",
+      "why": "40字内中文理由"
     }}
   ],
   "tier2": [
     {{
       "term": "agent memory",
-      "category": "agent infrastructure",
-      "heat": "medium",
-      "why": "中文解释，基于输入证据",
-      "search_suggestion": "agent memory long-horizon task"
+      "cat": "agent infra",
+      "why": "40字内中文理由"
     }}
   ],
   "downrank": ["prompt collection", "beginner tutorial"],
-  "noise": [
-    {{
-      "term": "rather than",
-      "reason": "普通英语短语，不是领域趋势"
-    }}
-  ]
+  "noise": ["rather than", "this work"]
 }}
 
 硬性要求：
-- tier1 最多 10 个。
-- tier2 最多 15 个。
+- tier1 最多 8 个。
+- tier2 最多 10 个。
+- downrank 最多 8 个。
+- noise 最多 10 个。
+- why 不超过 40 个中文字符。
 - term 必须来自候选词，不要自造新词。
 - 只有真正和 AI agent / AI 应用相关的词才能进入 tier1/tier2。
 - 如果证据不足，不要放入 tier1。
-- 所有 why/reason 必须是简体中文。
+- 所有 why 必须是简体中文。
 
 候选词 JSON：
 {json.dumps(candidate_terms, ensure_ascii=False, indent=2)}
 
 代表性条目 JSON：
+{json.dumps(representative_items, ensure_ascii=False, indent=2)}
+""".strip()
+    return [{"role": "system", "content": system}, {"role": "user", "content": user}]
+
+
+def build_classifier_prompt(
+    end_day: dt.date,
+    start_day: dt.date,
+    candidate_terms: list[dict[str, Any]],
+    representative_items: list[dict[str, Any]],
+) -> list[dict[str, str]]:
+    system = (
+        "You are a strict classifier for weekly AI agent and AI application trend terms. "
+        "Return valid JSON only. Use only supplied candidate terms. "
+        "Do not invent terms, facts, links, papers, metrics, or company claims."
+    )
+    user = f"""
+Classify weekly trend candidate terms for AI agent / AI application monitoring.
+
+Range: {start_day.isoformat()} to {end_day.isoformat()}
+
+Class definitions:
+- tier1: Strong weekly trend. Use it to boost Daily Radar. Must be clearly related to AI agents or AI applications and supported by multiple sources, seed status, or strong representative items.
+- tier2: Relevant watch term. Related to AI agents or AI applications, but evidence is weaker, narrower, or still emerging.
+- downrank: Related but too broad or likely to over-rank low-value items in Daily Radar.
+- noise: Generic phrase, URL fragment, academic filler, navigation text, or non-domain phrase.
+
+Few-shot examples:
+- "computer use" -> tier1. Note: "真实环境操作方向升温"
+- "agentic search" -> tier1. Note: "多步检索型研究代理升温"
+- "planning" -> downrank. Note: "相关但过泛，需结合上下文"
+- "rather than" -> noise. Note: "普通英语短语"
+- "github com" -> noise. Note: "URL 片段"
+
+Output valid JSON only. Do not output Markdown.
+
+JSON schema:
+{{
+  "tier1": ["computer use", "agentic search"],
+  "tier2": ["agent memory"],
+  "downrank": ["prompt collection", "beginner tutorial"],
+  "noise": ["rather than", "this work"],
+  "notes": {{
+    "computer use": "真实环境操作方向升温",
+    "agentic search": "多步检索型研究代理升温"
+  }}
+}}
+
+Rules:
+- tier1 max 8 terms.
+- tier2 max 10 terms.
+- downrank max 8 terms.
+- noise max 10 terms.
+- notes values must be Simplified Chinese, max 30 Chinese characters.
+- Every term in tier1/tier2/downrank/noise must exactly match a candidate term.
+- If evidence is weak, use tier2 or omit; do not put weak terms in tier1.
+- Do not create new terms.
+
+Candidate terms JSON:
+{json.dumps(candidate_terms, ensure_ascii=False, indent=2)}
+
+Representative items JSON:
 {json.dumps(representative_items, ensure_ascii=False, indent=2)}
 """.strip()
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
@@ -412,6 +468,44 @@ def parse_json_object(text: str) -> dict[str, Any] | None:
         return None
 
 
+def normalize_term_list(value: Any, allowed_terms: set[str], limit: int) -> list[str]:
+    if not isinstance(value, list):
+        return []
+    result = []
+    for entry in value:
+        term = entry.get("term") if isinstance(entry, dict) else entry
+        if not isinstance(term, str):
+            continue
+        term = clean_term(term)
+        if term in allowed_terms and term not in result:
+            result.append(term)
+        if len(result) >= limit:
+            break
+    return result
+
+
+def validate_curated(curated: dict[str, Any] | None, candidate_terms: list[dict[str, Any]]) -> dict[str, Any] | None:
+    if not isinstance(curated, dict):
+        return None
+    allowed_terms = {term["term"] for term in candidate_terms}
+    tier1 = normalize_term_list(curated.get("tier1"), allowed_terms, 8)
+    tier2 = [term for term in normalize_term_list(curated.get("tier2"), allowed_terms, 10) if term not in tier1]
+    downrank = normalize_term_list(curated.get("downrank"), allowed_terms, 8)
+    noise = normalize_term_list(curated.get("noise"), allowed_terms, 10)
+
+    raw_notes = curated.get("notes", {})
+    notes = {}
+    if isinstance(raw_notes, dict):
+        for key, value in raw_notes.items():
+            term = clean_term(str(key))
+            if term in allowed_terms and isinstance(value, str):
+                notes[term] = value[:80]
+
+    if not tier1 and not tier2:
+        return None
+    return {"tier1": tier1, "tier2": tier2, "downrank": downrank, "noise": noise, "notes": notes}
+
+
 def call_deepseek_json(
     end_day: dt.date,
     start_day: dt.date,
@@ -429,9 +523,9 @@ def call_deepseek_json(
 
     payload = {
         "model": ai_config.get("model", "deepseek-v4-flash"),
-        "messages": build_curation_prompt(end_day, start_day, candidate_terms, representative_items),
+        "messages": build_classifier_prompt(end_day, start_day, candidate_terms, representative_items),
         "temperature": 0.1,
-        "max_tokens": 3500,
+        "max_tokens": int(ai_config.get("max_tokens_weekly", 6000)),
         "response_format": {"type": "json_object"},
     }
     headers = {
@@ -445,7 +539,16 @@ def call_deepseek_json(
         response.raise_for_status()
         data = response.json()
         content = data["choices"][0]["message"]["content"].strip()
-        return parse_json_object(content)
+        parsed = parse_json_object(content)
+        if parsed is None:
+            print("DeepSeek weekly JSON parse failed. Response head:")
+            print(content[:1500])
+            print("DeepSeek weekly response tail:")
+            print(content[-500:])
+        validated = validate_curated(parsed, candidate_terms)
+        if validated is None:
+            print("DeepSeek weekly JSON validation failed.")
+        return validated
     except Exception as exc:
         print(f"DeepSeek weekly JSON curation failed. Error: {exc}")
         return None

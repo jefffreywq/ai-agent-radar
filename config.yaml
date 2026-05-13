@@ -10,8 +10,8 @@ weekly:
   max_arxiv_results: 40
   max_hf_papers_per_day: 20
   max_hf_spaces_per_query: 12
-  max_terms: 30
-  ai_max_items: 35
+  max_terms: 50
+  ai_max_items: 15
   ai_max_terms: 20
   seed_terms:
     - computer-use agent
@@ -164,6 +164,9 @@ ai:
   provider: deepseek
   base_url: https://api.deepseek.com
   model: deepseek-v4-flash
+  max_tokens_daily: 3500
+  max_tokens_weekly: 6000
+  max_tokens_company: 3500
   max_items: 15
   max_summary_chars_per_item: 1200
   language: zh-CN

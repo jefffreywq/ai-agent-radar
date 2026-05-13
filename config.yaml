@@ -3,6 +3,162 @@ timezone: Australia/Sydney
 max_items_per_source: 12
 max_digest_items: 30
 
+weekly:
+  output_dir: weekly
+  state_dir: state
+  lookback_days: 7
+  max_arxiv_results: 80
+  max_hf_papers_per_day: 20
+  max_hf_spaces_per_query: 12
+  max_terms: 30
+  ai_max_items: 35
+  ai_max_terms: 20
+  seed_terms:
+    - computer-use agent
+    - GUI agent
+    - desktop agent
+    - browser agent
+    - mobile agent
+    - coding agent
+    - SWE-bench
+    - SWE-bench Live
+    - Terminal-Bench
+    - OSWorld
+    - WebArena
+    - AndroidWorld
+    - MobileWorld
+    - GAIA
+    - agent evaluation
+    - benchmark saturation
+    - verified benchmark
+    - tool-use reliability
+    - function calling
+    - long-horizon task
+    - agent memory
+    - planning
+    - multi-agent orchestration
+    - agent observability
+    - tracing
+    - auditability
+    - human intervention
+    - self-improving agent
+    - reflection
+    - agentic workflow
+    - workflow automation
+    - personal AI assistant
+    - AI productivity
+    - knowledge management agent
+    - research agent
+    - browser automation
+    - mobile automation
+    - RPA agent
+    - vertical agent
+    - enterprise agent
+    - agentic commerce
+    - agentic search
+    - AI coding assistant
+    - developer agent
+    - Qwen agent
+    - DeepSeek agent
+    - Kimi agent
+    - GLM agent
+    - Doubao agent
+    - Hunyuan agent
+    - Manus
+    - AutoGLM
+
+company:
+  output_dir: company
+  max_items_per_source: 8
+  max_items_for_ai: 40
+  max_summary_chars_per_item: 900
+  lookback_days: 10
+  focus_terms:
+    - agent
+    - agents
+    - agentic
+    - multi-agent
+    - workflow
+    - automation
+    - coding
+    - developer
+    - browser
+    - computer use
+    - tool use
+    - function calling
+    - model release
+    - open source
+    - API
+    - assistant
+    - productivity
+    - enterprise
+    - benchmark
+    - evaluation
+    - memory
+    - planning
+    - reasoning
+    - Qwen
+    - DeepSeek
+    - Kimi
+    - GLM
+    - Doubao
+    - Hunyuan
+    - Manus
+  sources:
+    global:
+      - name: OpenAI News
+        type: page
+        url: https://openai.com/news/
+      - name: Anthropic News
+        type: page
+        url: https://www.anthropic.com/news
+      - name: Google DeepMind Blog
+        type: page
+        url: https://blog.google/technology/google-deepmind/
+      - name: Microsoft AI Blog
+        type: page
+        url: https://www.microsoft.com/en-us/ai/blog/
+      - name: Meta AI Blog
+        type: page
+        url: https://ai.meta.com/blog/
+      - name: Mistral News
+        type: page
+        url: https://mistral.ai/news/
+      - name: GitHub AI Blog
+        type: page
+        url: https://github.blog/ai-and-ml/
+      - name: Cursor Changelog
+        type: page
+        url: https://www.cursor.com/changelog
+    china:
+      - name: DeepSeek News
+        type: page
+        url: https://api-docs.deepseek.com/news
+      - name: Qwen Blog
+        type: page
+        url: https://qwenlm.github.io/blog/
+      - name: Moonshot AI
+        type: page
+        url: https://www.moonshot.cn/
+      - name: Zhipu AI
+        type: page
+        url: https://www.zhipuai.cn/
+      - name: Baidu AI Cloud
+        type: page
+        url: https://cloud.baidu.com/
+      - name: Tencent Hunyuan
+        type: page
+        url: https://hunyuan.tencent.com/
+      - name: ByteDance Seed
+        type: page
+        url: https://seed.bytedance.com/
+      - name: MiniMax
+        type: page
+        url: https://www.minimax.io/
+      - name: Manus
+        type: page
+        url: https://manus.im/
+
 ai:
   enabled: true
   provider: deepseek
@@ -26,6 +182,11 @@ search:
     - WebArena agent
 
 ranking:
+  weekly_trend_boost:
+    enabled: true
+    tier1: 2.0
+    tier2: 1.0
+    max_total: 4.0
   downrank_terms:
     - beginner
     - tutorial

@@ -50,3 +50,30 @@ Value: your DeepSeek API key
 ```
 
 If the secret is missing or the API call fails, the workflow falls back to the rule-based Markdown digest.
+
+## Weekly Trend Radar
+
+The repository also includes a weekly trend radar:
+
+- Script: `weekly_trends.py`
+- Workflow: `.github/workflows/weekly-trends.yml`
+- Output: `weekly/YYYY-MM-DD.md`
+- Dynamic terms state: `state/trending_terms.json`
+
+It scans the last 7 days of Hugging Face Daily Papers, Hugging Face Spaces, and recent arXiv papers, extracts rising terms, and asks DeepSeek to write a Chinese weekly trend digest when `DEEPSEEK_API_KEY` is available.
+
+The scheduled run is set for Sunday 00:15 Australia/Sydney time during AEST, expressed as Saturday `14:15 UTC` in GitHub Actions cron.
+
+For first-time setup, run **Agent Weekly Trend Radar** manually once before the daily radar. This creates `state/trending_terms.json`. The daily radar reads that file and boosts items that match current weekly tier1/tier2 terms. If the file does not exist yet, the daily radar still works and simply skips the weekly trend boost.
+
+## Company Radar
+
+The repository also includes a company dynamics radar:
+
+- Script: `company_radar.py`
+- Workflow: `.github/workflows/company-radar.yml`
+- Output: `company/YYYY-MM-DD.md`
+
+It scans configured global and Chinese company sources, filters for AI agent / AI application / model and product release signals, and asks DeepSeek to write a Chinese company intelligence digest when `DEEPSEEK_API_KEY` is available.
+
+The scheduled run is set for 00:30 Australia/Sydney time during AEST, expressed as `14:30 UTC` in GitHub Actions cron.

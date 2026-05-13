@@ -1,0 +1,46 @@
+output_dir: inbox
+timezone: Australia/Sydney
+max_items_per_source: 12
+max_digest_items: 30
+
+keywords:
+  - agent
+  - agents
+  - ai agent
+  - llm agent
+  - multi-agent
+  - multiagent
+  - web agent
+  - tool use
+  - computer use
+  - autonomous agent
+  - agent benchmark
+  - agent leaderboard
+  - agentic workflow
+  - multi-agent collaboration
+
+arxiv_categories:
+  - cs.AI
+  - cs.CL
+  - cs.LG
+  - cs.MA
+  - cs.RO
+  - stat.ML
+
+high_value_terms:
+  - benchmark
+  - leaderboard
+  - evaluation
+  - dataset
+  - framework
+  - survey
+  - open-source
+  - code
+  - tool
+  - web
+  - computer use
+  - multi-agent
+  - multiagent
+  - planning
+  - memory
+

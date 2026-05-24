@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import datetime as dt
 import json
@@ -12,6 +12,7 @@ import feedparser
 import requests
 from bs4 import BeautifulSoup
 
+# 注意：确保radar模块在Python路径中
 from radar import get_text, load_config, normalize, today_local
 
 
@@ -101,6 +102,7 @@ DYNAMIC_URL_PARTS = {
     "research",
 }
 
+# 大幅扩展动态标题关键词
 DYNAMIC_TITLE_TERMS = {
     "agent",
     "agentic",
@@ -132,6 +134,29 @@ DYNAMIC_TITLE_TERMS = {
     "research agent",
     "tool",
     "workflow",
+    "codex",
+    "chatgpt",
+    "gemini",
+    "gpt",
+    "llm",
+    "partnership",
+    "collaboration",
+    "launch",
+    "announce",
+    "update",
+    "upgrade",
+    "new",
+    "introduce",
+    "unveil",
+    "deploy",
+    "rollout",
+    "integration",
+    "feature",
+    "capability",
+    "performance",
+    "improvement",
+    "changelog",
+    "roadmap",
 }
 
 
@@ -185,8 +210,7 @@ def looks_dynamic(title: str, url: str) -> bool:
 
 
 def fetch_page_source(source: dict[str, Any], limit: int) -> list[dict[str, Any]]:
-    # Company homepages are navigation-heavy; keep only links that look like
-    # concrete product, model, API, feature, news, or changelog updates.
+    # 修复：同时查找<a>和<link>标签（解决OpenAI等网站使用<link>标签的问题）
     headers = {"User-Agent": "ai-agent-radar-company/0.2"}
     response = requests.get(source["url"], headers=headers, timeout=30)
     response.raise_for_status()
@@ -194,17 +218,36 @@ def fetch_page_source(source: dict[str, Any], limit: int) -> list[dict[str, Any]
 
     items = []
     seen: set[str] = set()
-    for anchor in soup.find_all("a"):
-        title = normalize(anchor.get_text(" "))
-        href = anchor.get("href")
+    all_anchors = soup.find_all(["a", "link"])
+    
+    # 调试日志（需要时取消注释）
+    # print(f"Found {len(all_anchors)} anchors on {source['name']}")
+    
+    for anchor in all_anchors:
+        # 处理<link>标签
+        if anchor.name == "link":
+            title = normalize(anchor.get("text", ""))
+            href = anchor.get("href", "")
+        # 处理<a>标签
+        else:
+            title = normalize(anchor.get_text(" "))
+            href = anchor.get("href", "")
+        
         if not href:
             continue
         url = urljoin(source["url"], href)
         parsed = urlparse(url)
         if parsed.scheme not in {"http", "https"}:
             continue
-        if url in seen or is_noise_link(title, url) or not looks_dynamic(title, url):
+        if url in seen:
             continue
+        if is_noise_link(title, url):
+            # print(f"Filtered as noise: {title} ({url})")
+            continue
+        if not looks_dynamic(title, url):
+            # print(f"Not dynamic: {title} ({url})")
+            continue
+        
         seen.add(url)
         items.append(
             {
@@ -219,17 +262,51 @@ def fetch_page_source(source: dict[str, Any], limit: int) -> list[dict[str, Any]
         )
         if len(items) >= limit:
             break
+    
+    # print(f"Kept {len(items)} items from {source['name']}")
     return items
 
 
 def extract_date_from_text(text: str | None) -> str | None:
+    # 修复：支持中文日期和英文月份日期格式
     if not text:
         return None
+    
+    # 匹配YYYY-MM-DD, YYYY/MM/DD, YYYY.MM.DD格式
     match = re.search(r"(20\d{2})[-/\.](\d{1,2})[-/\.](\d{1,2})", text)
-    if not match:
-        return None
-    year, month, day = match.groups()
-    return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
+    if match:
+        year, month, day = match.groups()
+        return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
+    
+    # 匹配中文日期格式：YYYY年MM月DD日
+    match = re.search(r"(20\d{2})年(\d{1,2})月(\d{1,2})日", text)
+    if match:
+        year, month, day = match.groups()
+        return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
+    
+    # 匹配英文日期格式
+    months = {
+        "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+        "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12
+    }
+    
+    # 匹配MMM DD, YYYY格式（如May 18, 2026）
+    match = re.search(r"([A-Za-z]{3}) (\d{1,2}), (20\d{2})", text)
+    if match:
+        month_str, day, year = match.groups()
+        month = months.get(month_str.lower())
+        if month:
+            return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
+    
+    # 匹配DD MMM YYYY格式（如18 May 2026）
+    match = re.search(r"(\d{1,2}) ([A-Za-z]{3}) (20\d{2})", text)
+    if match:
+        day, month_str, year = match.groups()
+        month = months.get(month_str.lower())
+        if month:
+            return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
+    
+    return None
 
 
 def company_item_id(item: dict[str, Any]) -> str:
@@ -651,7 +728,9 @@ def main() -> None:
     items = filter_seen_company_items(fetch_company_items(config), seen)
     for item in items:
         item["score"], item["reasons"] = score_company_item(item, config)
-    items = [item for item in items if item.get("score", 0) >= 2.0]
+    
+    # 修复：将评分阈值从2.0降低到1.0，保留更多有价值的候选
+    items = [item for item in items if item.get("score", 0) >= 1.0]
     items.sort(key=lambda x: x.get("score", 0), reverse=True)
     for idx, item in enumerate(items, 1):
         item["id"] = f"item_{idx}"
@@ -671,4 +750,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

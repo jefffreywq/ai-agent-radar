@@ -140,13 +140,13 @@ company:
         url: https://api-docs.deepseek.com/
       - name: Qwen Blog
         type: page
-        url: https://qwenlm.github.io/blog/
+        url: https://qwen.ai/
       - name: Moonshot AI
         type: page
         url: https://www.moonshot.cn/
       - name: Zhipu AI
         type: page
-        url: https://www.zhipuai.cn/
+        url: https://www.zhipuai.cn/blog/
       - name: Baidu AI Cloud
         type: page
         url: https://cloud.baidu.com/

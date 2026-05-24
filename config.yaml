@@ -72,8 +72,8 @@ weekly:
 
 company:
   output_dir: company
-  max_items_per_source: 8
-  max_items_for_ai: 20
+  max_items_per_source: 12  # 从8增加到12，获取更多候选
+  max_items_for_ai: 30     # 从20增加到30，让AI有更多选择
   max_summary_chars_per_item: 420
   seen_ttl_days: 14
   lookback_days: 10
@@ -108,45 +108,72 @@ company:
     - Doubao
     - Hunyuan
     - Manus
+    - codex
+    - chatgpt
+    - claude
+    - gemini
+    - gpt
+    - llm
+    - partnership
+    - collaboration
+    - launch
+    - announce
+    - release
+    - update
+    - upgrade
+    - new
+    - introduce
+    - unveil
+    - deploy
+    - rollout
+    - integration
+    - feature
+    - capability
+    - performance
+    - improvement
+    - changelog
+    - roadmap
   sources:
     global:
+      # 全部优先使用RSS源（最可靠、最准确）
       - name: OpenAI News
-        type: page
-        url: https://openai.com/news/
+        type: rss
+        url: https://openai.com/news/rss
       - name: Anthropic News
-        type: page
-        url: https://www.anthropic.com/news
+        type: rss
+        url: https://www.anthropic.com/news/rss
       - name: Google DeepMind Blog
-        type: page
-        url: https://blog.google/technology/google-deepmind/
+        type: rss
+        url: https://blog.google/technology/google-deepmind/rss
       - name: Microsoft AI Blog
-        type: page
-        url: https://www.microsoft.com/en-us/ai/blog/
+        type: rss
+        url: https://www.microsoft.com/en-us/ai/blog/rss
       - name: Meta AI Blog
-        type: page
-        url: https://ai.meta.com/blog/
+        type: rss
+        url: https://ai.meta.com/blog/rss
       - name: Mistral News
-        type: page
-        url: https://mistral.ai/news/
+        type: rss
+        url: https://mistral.ai/news/rss
       - name: GitHub AI Blog
-        type: page
-        url: https://github.blog/ai-and-ml/
+        type: rss
+        url: https://github.blog/ai-and-ml/rss
       - name: Cursor Changelog
-        type: page
-        url: https://www.cursor.com/changelog
+        type: rss
+        url: https://www.cursor.com/changelog/rss
     china:
+      # 中国公司优先使用RSS源，没有的保留page类型
       - name: DeepSeek Docs
         type: page
         url: https://api-docs.deepseek.com/
       - name: Qwen Blog
-        type: page
-        url: https://qwen.ai/
+        type: rss
+        url: https://qwenlm.github.io/blog/feed.xml
       - name: Moonshot AI
         type: page
         url: https://www.moonshot.cn/
       - name: Zhipu AI
         type: page
-        url: https://www.zhipuai.cn/blog/
+        url: https://www.zhipuai.cn/
       - name: Baidu AI Cloud
         type: page
         url: https://cloud.baidu.com/

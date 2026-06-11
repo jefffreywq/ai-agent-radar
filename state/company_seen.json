@@ -1,12 +1,5 @@
 {
   "seen": {
-    "https://www.minimax.io/news/a-deep-dive-into-the-minimax-m2-her-2": "2026-05-29",
-    "https://www.minimax.io/news/minimax-m21": "2026-05-29",
-    "https://www.minimax.io/news/minimax-m2": "2026-05-29",
-    "https://www.minimax.io/news/minimax-speech-28": "2026-05-29",
-    "https://cloud.baidu.com/product/huiboxing-api.html?from=cloud_banner": "2026-05-29",
-    "https://www.minimax.io/models/text/m27": "2026-05-29",
-    "https://www.minimax.io/models/text": "2026-05-29",
     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/": "2026-05-30",
     "https://www.minimax.io/news/minimax-agent": "2026-06-02",
     "https://platform.minimax.io/subscribe/token-plan": "2026-06-02",
@@ -79,6 +72,10 @@
     "https://www.kimi.com/code": "2026-06-11",
     "https://www.kimi.com/bot": "2026-06-11",
     "https://manus.im/team": "2026-06-11",
-    "https://github.blog/ai-and-ml/github-copilot/give-github-copilot-cli-real-code-intelligence-with-language-servers/": "2026-06-11"
+    "https://github.blog/ai-and-ml/github-copilot/give-github-copilot-cli-real-code-intelligence-with-language-servers/": "2026-06-11",
+    "https://github.blog/security/making-secret-scanning-more-trustworthy-reducing-false-positives-at-scale/": "2026-06-12",
+    "https://www.minimax.io/news/minimax-speech-28": "2026-06-12",
+    "https://www.minimax.io/models/text/m27": "2026-06-12",
+    "https://www.minimax.io/models/text": "2026-06-12"
   }
 }

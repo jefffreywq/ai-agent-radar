@@ -1,6 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/": "2026-05-30",
     "https://www.minimax.io/news/minimax-agent": "2026-06-02",
     "https://platform.minimax.io/subscribe/token-plan": "2026-06-02",
     "https://www.minimax.io/models/text/m3": "2026-06-02",
@@ -76,6 +75,7 @@
     "https://github.blog/security/making-secret-scanning-more-trustworthy-reducing-false-positives-at-scale/": "2026-06-12",
     "https://www.minimax.io/news/minimax-speech-28": "2026-06-12",
     "https://www.minimax.io/models/text/m27": "2026-06-12",
-    "https://www.minimax.io/models/text": "2026-06-12"
+    "https://www.minimax.io/models/text": "2026-06-12",
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/": "2026-06-13"
   }
 }

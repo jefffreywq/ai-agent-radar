@@ -1,11 +1,5 @@
 {
   "seen": {
-    "https://www.minimax.io/news/minimax-agent": "2026-06-02",
-    "https://platform.minimax.io/subscribe/token-plan": "2026-06-02",
-    "https://www.minimax.io/models/text/m3": "2026-06-02",
-    "https://code.minimax.io": "2026-06-02",
-    "https://platform.minimax.io/docs/token-plan/quickstart": "2026-06-02",
-    "https://www.minimax.io/blog": "2026-06-02",
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/": "2026-06-06",
     "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/": "2026-06-07",
     "https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/": "2026-06-07",
@@ -79,6 +73,12 @@
     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/": "2026-06-13",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/10/ai-amplifies-creativity-by-removing-friction/": "2026-06-14",
     "https://github.blog/ai-and-ml/how-we-made-github-copilot-cli-more-selective-about-delegation/": "2026-06-14",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/11/the-cmo-on-the-frontier-from-ai-experimentation-to-ai-at-work/": "2026-06-14"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/11/the-cmo-on-the-frontier-from-ai-experimentation-to-ai-at-work/": "2026-06-14",
+    "https://www.minimax.io/news/minimax-agent": "2026-06-16",
+    "https://platform.minimax.io/subscribe/token-plan": "2026-06-16",
+    "https://www.minimax.io/models/text/m3": "2026-06-16",
+    "https://code.minimax.io": "2026-06-16",
+    "https://platform.minimax.io/docs/token-plan/quickstart": "2026-06-16",
+    "https://www.minimax.io/blog": "2026-06-16"
   }
 }

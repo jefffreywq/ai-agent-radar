@@ -1,6 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/": "2026-06-06",
     "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/": "2026-06-07",
     "https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/": "2026-06-07",
     "https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/": "2026-06-07",
@@ -86,6 +85,8 @@
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/": "2026-06-18",
     "https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/": "2026-06-18",
     "https://blogs.microsoft.com/blog/2026/06/16/achieving-success-with-ai/": "2026-06-19",
-    "https://github.blog/ai-and-ml/github-copilot/getting-more-from-each-token-how-copilot-improves-context-handling-and-model-routing/": "2026-06-19"
+    "https://github.blog/ai-and-ml/github-copilot/getting-more-from-each-token-how-copilot-improves-context-handling-and-model-routing/": "2026-06-19",
+    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/": "2026-06-20",
+    "https://github.blog/ai-and-ml/github-copilot/how-we-built-an-internal-data-analytics-agent/": "2026-06-20"
   }
 }

@@ -1,22 +1,5 @@
 {
   "seen": {
-    "https://github.blog/news-insights/product-news/take-your-local-github-sessions-anywhere/": "2026-06-08",
-    "https://github.blog/ai-and-ml/github-copilot/building-a-general-purpose-accessibility-agent-and-what-we-learned-in-the-process/": "2026-06-08",
-    "https://github.blog/ai-and-ml/generative-ai/agent-pull-requests-are-everywhere-heres-how-to-review-them/": "2026-06-08",
-    "https://blog.google/innovation-and-ai/products/identifying-ai-generated-media-online/": "2026-06-08",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/": "2026-06-08",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/measuring-agi-cognitive-framework/": "2026-06-08",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/21/ai-needs-more-than-intelligence-it-needs-humanity/": "2026-06-08",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/18/youre-not-late-to-ai-youre-early-to-frontier-transformation/": "2026-06-08",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/07/your-ai-steering-committees-2026-checklist-sovereignty/": "2026-06-08",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/03/31/ai-decision-brief-how-leaders-can-drive-frontier-transformation/": "2026-06-08",
-    "https://github.blog/ai-and-ml/github-copilot/dungeons-desktops-building-a-procedurally-generated-roguelike-with-github-copilot-cli/": "2026-06-08",
-    "https://github.blog/open-source/register-now-for-openclaw-after-hours-github/": "2026-06-08",
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-cli-for-beginners-interactive-v-non-interactive-mode/": "2026-06-08",
-    "https://github.blog/ai-and-ml/github-copilot/building-an-emoji-list-generator-with-the-github-copilot-cli/": "2026-06-08",
-    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-06-08",
-    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-06-08",
-    "https://cloud.baidu.com/products/index.html": "2026-06-08",
     "https://github.blog/ai-and-ml/github-copilot/from-one-off-prompts-to-workflows-how-to-use-custom-agents-in-github-copilot-cli/": "2026-06-10",
     "https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code": "2026-06-11",
     "https://manus.im/features/manus-browser-operator": "2026-06-11",
@@ -82,6 +65,17 @@
     "https://www.minimax.io/news/minimax-hailuo-23": "2026-06-21",
     "https://www.minimax.io/news/music-26": "2026-06-21",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/running-guide-agent/": "2026-06-21",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/14/from-ai-ambition-to-frontier-transformation-readiness-defines-the-leaders/": "2026-06-21"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/14/from-ai-ambition-to-frontier-transformation-readiness-defines-the-leaders/": "2026-06-21",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/04/16/your-ai-steering-committees-2026-checklist-observability/": "2026-06-22",
+    "https://news.microsoft.com/source/asia/features/cricket-australia-uses-ai-insights-to-bring-fans-closer-to-the-action/": "2026-06-22",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/04/15/frontier-transformation-is-powering-growth-and-innovation-across-industries/": "2026-06-22",
+    "https://blog.google/innovation-and-ai/products/identifying-ai-generated-media-online/": "2026-06-22",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/": "2026-06-22",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/21/ai-needs-more-than-intelligence-it-needs-humanity/": "2026-06-22",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/18/youre-not-late-to-ai-youre-early-to-frontier-transformation/": "2026-06-22",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/07/your-ai-steering-committees-2026-checklist-sovereignty/": "2026-06-22",
+    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-06-22",
+    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-06-22",
+    "https://cloud.baidu.com/products/index.html": "2026-06-22"
   }
 }

@@ -1,6 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/github-copilot/from-one-off-prompts-to-workflows-how-to-use-custom-agents-in-github-copilot-cli/": "2026-06-10",
     "https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code": "2026-06-11",
     "https://manus.im/features/manus-browser-operator": "2026-06-11",
     "https://manus.im/compare/vs-chatgpt": "2026-06-11",
@@ -77,6 +76,8 @@
     "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-06-22",
     "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-06-22",
     "https://cloud.baidu.com/products/index.html": "2026-06-22",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/deepmind-a24-research-partnership/": "2026-06-23"
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/deepmind-a24-research-partnership/": "2026-06-23",
+    "https://github.blog/ai-and-ml/github-copilot/from-one-off-prompts-to-workflows-how-to-use-custom-agents-in-github-copilot-cli/": "2026-06-24",
+    "https://github.blog/developer-skills/github/i-automated-my-job-and-it-made-me-a-better-leader/": "2026-06-24"
   }
 }

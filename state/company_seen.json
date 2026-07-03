@@ -1,7 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/": "2026-06-20",
-    "https://github.blog/ai-and-ml/github-copilot/how-we-built-an-internal-data-analytics-agent/": "2026-06-20",
     "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/": "2026-06-21",
     "https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/": "2026-06-21",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-robotics-er-1-6/": "2026-06-21",
@@ -83,6 +81,8 @@
     "https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/": "2026-07-02",
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/": "2026-07-03",
     "https://blogs.microsoft.com/blog/2026/06/16/achieving-success-with-ai/": "2026-07-03",
-    "https://github.blog/ai-and-ml/github-copilot/getting-more-from-each-token-how-copilot-improves-context-handling-and-model-routing/": "2026-07-03"
+    "https://github.blog/ai-and-ml/github-copilot/getting-more-from-each-token-how-copilot-improves-context-handling-and-model-routing/": "2026-07-03",
+    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/": "2026-07-04",
+    "https://github.blog/ai-and-ml/github-copilot/how-we-built-an-internal-data-analytics-agent/": "2026-07-04"
   }
 }

@@ -1,16 +1,5 @@
 {
   "seen": {
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/04/16/your-ai-steering-committees-2026-checklist-observability/": "2026-06-22",
-    "https://news.microsoft.com/source/asia/features/cricket-australia-uses-ai-insights-to-bring-fans-closer-to-the-action/": "2026-06-22",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/04/15/frontier-transformation-is-powering-growth-and-innovation-across-industries/": "2026-06-22",
-    "https://blog.google/innovation-and-ai/products/identifying-ai-generated-media-online/": "2026-06-22",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/": "2026-06-22",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/21/ai-needs-more-than-intelligence-it-needs-humanity/": "2026-06-22",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/18/youre-not-late-to-ai-youre-early-to-frontier-transformation/": "2026-06-22",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/07/your-ai-steering-committees-2026-checklist-sovereignty/": "2026-06-22",
-    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-06-22",
-    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-06-22",
-    "https://cloud.baidu.com/products/index.html": "2026-06-22",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/deepmind-a24-research-partnership/": "2026-06-23",
     "https://github.blog/ai-and-ml/github-copilot/from-one-off-prompts-to-workflows-how-to-use-custom-agents-in-github-copilot-cli/": "2026-06-24",
     "https://github.blog/developer-skills/github/i-automated-my-job-and-it-made-me-a-better-leader/": "2026-06-24",
@@ -80,6 +69,15 @@
     "https://www.minimax.io/news/minimax-hailuo-23": "2026-07-05",
     "https://www.minimax.io/news/music-26": "2026-07-05",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/running-guide-agent/": "2026-07-05",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/14/from-ai-ambition-to-frontier-transformation-readiness-defines-the-leaders/": "2026-07-05"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/14/from-ai-ambition-to-frontier-transformation-readiness-defines-the-leaders/": "2026-07-05",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/small-and-medium-businesses-arent-waiting-for-an-ai-invitation-theyre-already-leading/": "2026-07-06",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum/": "2026-07-06",
+    "https://blog.google/innovation-and-ai/products/identifying-ai-generated-media-online/": "2026-07-06",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/": "2026-07-06",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/21/ai-needs-more-than-intelligence-it-needs-humanity/": "2026-07-06",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/18/youre-not-late-to-ai-youre-early-to-frontier-transformation/": "2026-07-06",
+    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-07-06",
+    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-07-06",
+    "https://cloud.baidu.com/products/index.html": "2026-07-06"
   }
 }

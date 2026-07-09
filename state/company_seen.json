@@ -1,9 +1,5 @@
 {
   "seen": {
-    "https://github.blog/security/making-secret-scanning-more-trustworthy-reducing-false-positives-at-scale/": "2026-06-26",
-    "https://www.minimax.io/news/minimax-speech-28": "2026-06-26",
-    "https://www.minimax.io/models/text/m27": "2026-06-26",
-    "https://www.minimax.io/models/text": "2026-06-26",
     "https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/": "2026-06-27",
     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/": "2026-06-27",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/10/ai-amplifies-creativity-by-removing-friction/": "2026-06-28",
@@ -78,6 +74,11 @@
     "https://www.kimi.com/code": "2026-07-09",
     "https://www.kimi.com/bot": "2026-07-09",
     "https://manus.im/team": "2026-07-09",
-    "https://github.blog/ai-and-ml/github-copilot/how-github-copilot-enables-zero-dns-configuration-for-github-pages/": "2026-07-09"
+    "https://github.blog/ai-and-ml/github-copilot/how-github-copilot-enables-zero-dns-configuration-for-github-pages/": "2026-07-09",
+    "https://github.blog/ai-and-ml/github-copilot/automating-cross-repo-documentation-with-github-agentic-workflows/": "2026-07-10",
+    "https://www.minimax.io/news/minimax-speech-28": "2026-07-10",
+    "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/alphaevolve-on-cloud/": "2026-07-10",
+    "https://www.minimax.io/models/text/m27": "2026-07-10",
+    "https://www.minimax.io/models/text": "2026-07-10"
   }
 }

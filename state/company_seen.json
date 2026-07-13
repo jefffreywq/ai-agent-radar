@@ -1,11 +1,5 @@
 {
   "seen": {
-    "https://www.minimax.io/news/minimax-agent": "2026-06-30",
-    "https://platform.minimax.io/subscribe/token-plan": "2026-06-30",
-    "https://www.minimax.io/models/text/m3": "2026-06-30",
-    "https://code.minimax.io": "2026-06-30",
-    "https://platform.minimax.io/docs/token-plan/quickstart": "2026-06-30",
-    "https://www.minimax.io/blog": "2026-06-30",
     "https://github.blog/ai-and-ml/llms/accelerating-researchers-and-developers-building-multilingual-ai-with-a-new-open-dataset/": "2026-07-01",
     "https://autoglm.zhipuai.cn/?channel=official": "2026-07-01",
     "https://autoglm.zhipuai.cn": "2026-07-01",
@@ -79,6 +73,12 @@
     "https://github.blog/ai-and-ml/github-copilot/better-tools-made-copilot-code-review-worse-heres-how-we-actually-improved-it/": "2026-07-11",
     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/": "2026-07-11",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/10/ai-amplifies-creativity-by-removing-friction/": "2026-07-12",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/11/the-cmo-on-the-frontier-from-ai-experimentation-to-ai-at-work/": "2026-07-12"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/11/the-cmo-on-the-frontier-from-ai-experimentation-to-ai-at-work/": "2026-07-12",
+    "https://www.minimax.io/news/minimax-agent": "2026-07-14",
+    "https://platform.minimax.io/subscribe/token-plan": "2026-07-14",
+    "https://www.minimax.io/models/text/m3": "2026-07-14",
+    "https://code.minimax.io": "2026-07-14",
+    "https://platform.minimax.io/docs/token-plan/quickstart": "2026-07-14",
+    "https://www.minimax.io/blog": "2026-07-14"
   }
 }

@@ -1,10 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/llms/accelerating-researchers-and-developers-building-multilingual-ai-with-a-new-open-dataset/": "2026-07-01",
-    "https://autoglm.zhipuai.cn/?channel=official": "2026-07-01",
-    "https://autoglm.zhipuai.cn": "2026-07-01",
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-cli-for-beginners-overview-of-common-slash-commands/": "2026-07-01",
-    "https://bigmodel.cn": "2026-07-01",
     "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/": "2026-07-02",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/": "2026-07-02",
     "https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/": "2026-07-02",
@@ -79,6 +74,12 @@
     "https://www.minimax.io/models/text/m3": "2026-07-14",
     "https://code.minimax.io": "2026-07-14",
     "https://platform.minimax.io/docs/token-plan/quickstart": "2026-07-14",
-    "https://www.minimax.io/blog": "2026-07-14"
+    "https://www.minimax.io/blog": "2026-07-14",
+    "https://github.blog/ai-and-ml/llms/accelerating-researchers-and-developers-building-multilingual-ai-with-a-new-open-dataset/": "2026-07-15",
+    "https://autoglm.zhipuai.cn/?channel=official": "2026-07-15",
+    "https://autoglm.zhipuai.cn": "2026-07-15",
+    "https://github.blog/ai-and-ml/github-copilot/github-copilot-cli-for-beginners-overview-of-common-slash-commands/": "2026-07-15",
+    "https://bigmodel.cn": "2026-07-15",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/reconstructing-peles-lost-goal/": "2026-07-15"
   }
 }

@@ -1,8 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/": "2026-07-02",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/": "2026-07-02",
-    "https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/": "2026-07-02",
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/": "2026-07-03",
     "https://blogs.microsoft.com/blog/2026/06/16/achieving-success-with-ai/": "2026-07-03",
     "https://github.blog/ai-and-ml/github-copilot/getting-more-from-each-token-how-copilot-improves-context-handling-and-model-routing/": "2026-07-03",
@@ -80,6 +77,9 @@
     "https://autoglm.zhipuai.cn": "2026-07-15",
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-cli-for-beginners-overview-of-common-slash-commands/": "2026-07-15",
     "https://bigmodel.cn": "2026-07-15",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/reconstructing-peles-lost-goal/": "2026-07-15"
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/reconstructing-peles-lost-goal/": "2026-07-15",
+    "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/": "2026-07-16",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/": "2026-07-16",
+    "https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/": "2026-07-16"
   }
 }

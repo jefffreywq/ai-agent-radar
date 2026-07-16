@@ -1,8 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/": "2026-07-03",
-    "https://blogs.microsoft.com/blog/2026/06/16/achieving-success-with-ai/": "2026-07-03",
-    "https://github.blog/ai-and-ml/github-copilot/getting-more-from-each-token-how-copilot-improves-context-handling-and-model-routing/": "2026-07-03",
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/": "2026-07-04",
     "https://github.blog/ai-and-ml/github-copilot/how-we-built-an-internal-data-analytics-agent/": "2026-07-04",
     "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/": "2026-07-05",
@@ -80,6 +77,10 @@
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/reconstructing-peles-lost-goal/": "2026-07-15",
     "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/": "2026-07-16",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/": "2026-07-16",
-    "https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/": "2026-07-16"
+    "https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/": "2026-07-16",
+    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/": "2026-07-17",
+    "https://platform.minimax.io/docs/guides/music-generation": "2026-07-17",
+    "https://blogs.microsoft.com/blog/2026/06/16/achieving-success-with-ai/": "2026-07-17",
+    "https://github.blog/ai-and-ml/github-copilot/getting-more-from-each-token-how-copilot-improves-context-handling-and-model-routing/": "2026-07-17"
   }
 }

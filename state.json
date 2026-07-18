@@ -2,6 +2,7 @@
   "seen": [
     "hf_space::https://huggingface.co/spaces/00Boobs00/computer-use-agent",
     "hf_space::https://huggingface.co/spaces/Agents-MCP-Hackathon/computer-use-agent-mcp",
+    "hf_space::https://huggingface.co/spaces/AlwinXavier19/gaia-benchmark-agent",
     "hf_space::https://huggingface.co/spaces/Anup7695/gaia-benchmark-agent",
     "hf_space::https://huggingface.co/spaces/Hdhdhyd/computer-use-agent",
     "hf_space::https://huggingface.co/spaces/Leon4gr45/webagent",
@@ -1005,6 +1006,7 @@
     "paper::2607.14044",
     "paper::2607.14047",
     "paper::2607.14076",
+    "paper::2607.14187",
     "paper::2607.14189",
     "paper::2607.14202",
     "paper::2607.14777",

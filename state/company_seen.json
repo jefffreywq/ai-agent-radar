@@ -1,21 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/": "2026-07-05",
-    "https://api-docs.deepseek.com/guides/thinking_mode": "2026-07-05",
-    "https://api-docs.deepseek.com/guides/multi_round_chat": "2026-07-05",
-    "https://api-docs.deepseek.com/guides/chat_prefix_completion": "2026-07-05",
-    "https://api-docs.deepseek.com/guides/fim_completion": "2026-07-05",
-    "https://manus.im/integrations/slack": "2026-07-05",
-    "https://manus.im/updates": "2026-07-05",
-    "https://blog.google/innovation-and-ai/technology/research/gemini-for-science-io-2026/": "2026-07-05",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/accelerator-ai-for-the-planet/": "2026-07-05",
-    "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/alphaevolve-updates/": "2026-07-05",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/18/4-paths-to-frontier-transformation-from-ai-experimentation-to-real-business-value/": "2026-07-05",
-    "https://blogs.microsoft.com/blog/2026/05/05/how-frontier-firms-are-rebuilding-the-operating-model-for-the-age-of-ai/": "2026-07-05",
-    "https://www.minimax.io/news/minimax-hailuo-23": "2026-07-05",
-    "https://www.minimax.io/news/music-26": "2026-07-05",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/running-guide-agent/": "2026-07-05",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/14/from-ai-ambition-to-frontier-transformation-readiness-defines-the-leaders/": "2026-07-05",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/small-and-medium-businesses-arent-waiting-for-an-ai-invitation-theyre-already-leading/": "2026-07-06",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum/": "2026-07-06",
     "https://blog.google/innovation-and-ai/products/identifying-ai-generated-media-online/": "2026-07-06",
@@ -83,6 +67,18 @@
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/": "2026-07-18",
     "https://www.kimi.com/blog/kimi-k3": "2026-07-18",
     "https://www.kimi.com/blog/perception-bench": "2026-07-18",
-    "https://github.blog/ai-and-ml/github-copilot/how-we-built-an-internal-data-analytics-agent/": "2026-07-18"
+    "https://github.blog/ai-and-ml/github-copilot/how-we-built-an-internal-data-analytics-agent/": "2026-07-18",
+    "https://api-docs.deepseek.com/guides/thinking_mode": "2026-07-19",
+    "https://api-docs.deepseek.com/guides/multi_round_chat": "2026-07-19",
+    "https://api-docs.deepseek.com/guides/chat_prefix_completion": "2026-07-19",
+    "https://api-docs.deepseek.com/guides/fim_completion": "2026-07-19",
+    "https://manus.im/integrations/slack": "2026-07-19",
+    "https://manus.im/updates": "2026-07-19",
+    "https://blog.google/innovation-and-ai/technology/research/gemini-for-science-io-2026/": "2026-07-19",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/accelerator-ai-for-the-planet/": "2026-07-19",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/18/4-paths-to-frontier-transformation-from-ai-experimentation-to-real-business-value/": "2026-07-19",
+    "https://www.minimax.io/news/minimax-hailuo-23": "2026-07-19",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/running-guide-agent/": "2026-07-19",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/14/from-ai-ambition-to-frontier-transformation-readiness-defines-the-leaders/": "2026-07-19"
   }
 }

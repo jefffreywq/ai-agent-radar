@@ -1,7 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/deepmind-a24-research-partnership/": "2026-07-07",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/07/your-ai-steering-committees-2026-checklist-sovereignty/": "2026-07-07",
     "https://github.blog/developer-skills/github/i-automated-my-job-and-it-made-me-a-better-leader/": "2026-07-08",
     "https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code": "2026-07-09",
     "https://manus.im/features/manus-browser-operator": "2026-07-09",
@@ -76,6 +74,11 @@
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/": "2026-07-20",
     "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-07-20",
     "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-07-20",
-    "https://cloud.baidu.com/products/index.html": "2026-07-20"
+    "https://cloud.baidu.com/products/index.html": "2026-07-20",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/deepmind-a24-research-partnership/": "2026-07-21",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/small-and-medium-businesses-arent-waiting-for-an-ai-invitation-theyre-already-leading/": "2026-07-21",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum/": "2026-07-21",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/21/ai-needs-more-than-intelligence-it-needs-humanity/": "2026-07-21",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/18/youre-not-late-to-ai-youre-early-to-frontier-transformation/": "2026-07-21"
   }
 }

@@ -1,8 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/": "2026-07-16",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/": "2026-07-16",
-    "https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/": "2026-07-16",
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/": "2026-07-17",
     "https://platform.minimax.io/docs/guides/music-generation": "2026-07-17",
     "https://blogs.microsoft.com/blog/2026/06/16/achieving-success-with-ai/": "2026-07-17",
@@ -81,6 +78,10 @@
     "https://autoglm.zhipuai.cn/?channel=official": "2026-07-29",
     "https://autoglm.zhipuai.cn": "2026-07-29",
     "https://bigmodel.cn": "2026-07-29",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/reconstructing-peles-lost-goal/": "2026-07-29"
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/reconstructing-peles-lost-goal/": "2026-07-29",
+    "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/": "2026-07-30",
+    "https://www.minimax.io/blog/minimax-m3": "2026-07-30",
+    "https://www.minimax.io/blog/minimax-maxproof-math-proof-evolution": "2026-07-30",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/": "2026-07-30"
   }
 }

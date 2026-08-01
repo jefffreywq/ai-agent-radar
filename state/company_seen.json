@@ -1,17 +1,5 @@
 {
   "seen": {
-    "https://api-docs.deepseek.com/guides/thinking_mode": "2026-07-19",
-    "https://api-docs.deepseek.com/guides/multi_round_chat": "2026-07-19",
-    "https://api-docs.deepseek.com/guides/chat_prefix_completion": "2026-07-19",
-    "https://api-docs.deepseek.com/guides/fim_completion": "2026-07-19",
-    "https://manus.im/integrations/slack": "2026-07-19",
-    "https://manus.im/updates": "2026-07-19",
-    "https://blog.google/innovation-and-ai/technology/research/gemini-for-science-io-2026/": "2026-07-19",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/accelerator-ai-for-the-planet/": "2026-07-19",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/18/4-paths-to-frontier-transformation-from-ai-experimentation-to-real-business-value/": "2026-07-19",
-    "https://www.minimax.io/news/minimax-hailuo-23": "2026-07-19",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/running-guide-agent/": "2026-07-19",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/14/from-ai-ambition-to-frontier-transformation-readiness-defines-the-leaders/": "2026-07-19",
     "https://www.kimi.com/zh-cn/business": "2026-07-20",
     "https://blog.google/innovation-and-ai/products/identifying-ai-generated-media-online/": "2026-07-20",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/": "2026-07-20",
@@ -86,6 +74,16 @@
     "https://www.minimax.io/blog/minimax-agent-team-long-running-1779893953": "2026-08-01",
     "https://www.minimax.io/blog/minimax-h3": "2026-08-01",
     "https://hub.minimax.io/": "2026-08-01",
-    "https://github.blog/ai-and-ml/github-copilot/stacked-sessions-and-pull-requests-in-the-github-copilot-app/": "2026-08-01"
+    "https://github.blog/ai-and-ml/github-copilot/stacked-sessions-and-pull-requests-in-the-github-copilot-app/": "2026-08-01",
+    "https://api-docs.deepseek.com/guides/thinking_mode": "2026-08-02",
+    "https://api-docs.deepseek.com/guides/multi_round_chat": "2026-08-02",
+    "https://api-docs.deepseek.com/guides/chat_prefix_completion": "2026-08-02",
+    "https://api-docs.deepseek.com/guides/fim_completion": "2026-08-02",
+    "https://manus.im/integrations/slack": "2026-08-02",
+    "https://manus.im/updates": "2026-08-02",
+    "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/": "2026-08-02",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/18/4-paths-to-frontier-transformation-from-ai-experimentation-to-real-business-value/": "2026-08-02",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/running-guide-agent/": "2026-08-02",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/30/whats-the-tea-lessons-from-leaders-navigating-ai-transformation/": "2026-08-02"
   }
 }

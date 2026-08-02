@@ -1,11 +1,5 @@
 {
   "seen": {
-    "https://www.kimi.com/zh-cn/business": "2026-07-20",
-    "https://blog.google/innovation-and-ai/products/identifying-ai-generated-media-online/": "2026-07-20",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/": "2026-07-20",
-    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-07-20",
-    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-07-20",
-    "https://cloud.baidu.com/products/index.html": "2026-07-20",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/deepmind-a24-research-partnership/": "2026-07-21",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/small-and-medium-businesses-arent-waiting-for-an-ai-invitation-theyre-already-leading/": "2026-07-21",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum/": "2026-07-21",
@@ -84,6 +78,12 @@
     "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/": "2026-08-02",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/18/4-paths-to-frontier-transformation-from-ai-experimentation-to-real-business-value/": "2026-08-02",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/running-guide-agent/": "2026-08-02",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/30/whats-the-tea-lessons-from-leaders-navigating-ai-transformation/": "2026-08-02"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/30/whats-the-tea-lessons-from-leaders-navigating-ai-transformation/": "2026-08-02",
+    "https://www.kimi.com/zh-cn/business": "2026-08-03",
+    "https://blog.google/innovation-and-ai/products/identifying-ai-generated-media-online/": "2026-08-03",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/": "2026-08-03",
+    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-08-03",
+    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-08-03",
+    "https://cloud.baidu.com/products/index.html": "2026-08-03"
   }
 }

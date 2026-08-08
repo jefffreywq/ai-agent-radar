@@ -1,8 +1,5 @@
 {
   "seen": {
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/10/ai-amplifies-creativity-by-removing-friction/": "2026-07-26",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-07-26",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/11/the-cmo-on-the-frontier-from-ai-experimentation-to-ai-at-work/": "2026-07-26",
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-getting-started/": "2026-07-28",
     "https://www.minimax.io/news/minimax-agent": "2026-07-28",
     "https://platform.minimax.io/subscribe/token-plan": "2026-07-28",
@@ -100,6 +97,7 @@
     "https://www.minimax.io/models/text/m27": "2026-08-08",
     "https://www.minimax.io/models/text": "2026-08-08",
     "https://design.minimax.io/": "2026-08-08",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-08-08"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-08-08",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-08-09"
   }
 }

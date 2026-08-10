@@ -1,12 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-getting-started/": "2026-07-28",
-    "https://www.minimax.io/news/minimax-agent": "2026-07-28",
-    "https://platform.minimax.io/subscribe/token-plan": "2026-07-28",
-    "https://www.minimax.io/models/text/m3": "2026-07-28",
-    "https://code.minimax.io": "2026-07-28",
-    "https://platform.minimax.io/docs/token-plan/quickstart": "2026-07-28",
-    "https://www.minimax.io/blog": "2026-07-28",
     "https://github.blog/ai-and-ml/github-copilot/the-harness-is-all-you-need-mostly/": "2026-07-29",
     "https://autoglm.zhipuai.cn/?channel=official": "2026-07-29",
     "https://autoglm.zhipuai.cn": "2026-07-29",
@@ -98,6 +91,10 @@
     "https://www.minimax.io/models/text": "2026-08-08",
     "https://design.minimax.io/": "2026-08-08",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-08-08",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-08-09"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-08-09",
+    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-getting-started/": "2026-08-11",
+    "https://platform.minimax.io/subscribe/token-plan": "2026-08-11",
+    "https://www.minimax.io/models/text/m3": "2026-08-11",
+    "https://code.minimax.io": "2026-08-11"
   }
 }

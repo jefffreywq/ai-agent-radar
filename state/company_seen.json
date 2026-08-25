@@ -1,12 +1,5 @@
 {
   "seen": {
-    "https://github.blog/engineering/using-the-github-copilot-sdk-for-java/": "2026-08-12",
-    "https://github.blog/ai-and-ml/github-copilot/the-harness-is-all-you-need-mostly/": "2026-08-12",
-    "https://autoglm.zhipuai.cn/?channel=official": "2026-08-12",
-    "https://autoglm.zhipuai.cn": "2026-08-12",
-    "https://manus.im/notice": "2026-08-12",
-    "https://bigmodel.cn": "2026-08-12",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/reconstructing-peles-lost-goal/": "2026-08-12",
     "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/": "2026-08-13",
     "https://www.minimax.io/blog/minimax-m3": "2026-08-13",
     "https://mistral.ai/news/regional-inference-open-models-new-compute/": "2026-08-13",
@@ -97,6 +90,14 @@
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-getting-started/": "2026-08-25",
     "https://platform.minimax.io/subscribe/token-plan": "2026-08-25",
     "https://www.minimax.io/models/text/m3": "2026-08-25",
-    "https://code.minimax.io": "2026-08-25"
+    "https://code.minimax.io": "2026-08-25",
+    "https://github.blog/engineering/using-the-github-copilot-sdk-for-java/": "2026-08-26",
+    "https://github.blog/ai-and-ml/github-copilot/the-harness-is-all-you-need-mostly/": "2026-08-26",
+    "https://autoglm.zhipuai.cn/?channel=official": "2026-08-26",
+    "https://autoglm.zhipuai.cn": "2026-08-26",
+    "https://bigmodel.cn": "2026-08-26",
+    "https://mistral.ai/news/mistral-x-humain/": "2026-08-26",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/reconstructing-peles-lost-goal/": "2026-08-26",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/24/5-signals-of-trusted-ai-how-organizations-scale-ai-with-security-governance-and-observability/": "2026-08-26"
   }
 }

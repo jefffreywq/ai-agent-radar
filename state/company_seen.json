@@ -1,12 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/models-and-research/google-labs/lyria-3-5/": "2026-08-14",
-    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/": "2026-08-14",
-    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-experts-roundtable/": "2026-08-14",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-robotics-er-2/": "2026-08-14",
-    "https://platform.minimax.io/docs/guides/music-generation": "2026-08-14",
-    "https://blogs.microsoft.com/blog/2026/06/16/achieving-success-with-ai/": "2026-08-14",
-    "https://github.blog/ai-and-ml/github-copilot/write-your-first-prompt-with-the-github-copilot-app/": "2026-08-14",
     "https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart": "2026-08-15",
     "https://www.kimi.com/blog/kimi-k3": "2026-08-15",
     "https://www.kimi.com/blog/perception-bench": "2026-08-15",
@@ -98,6 +91,13 @@
     "https://design.minimax.io/media-plan/subscribe": "2026-08-27",
     "https://www.minimax.io/blog/minimax-maxproof-math-proof-evolution": "2026-08-27",
     "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/": "2026-08-27",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/": "2026-08-27"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/": "2026-08-27",
+    "https://blog.google/innovation-and-ai/models-and-research/google-labs/lyria-3-5/": "2026-08-28",
+    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/": "2026-08-28",
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-experts-roundtable/": "2026-08-28",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-robotics-er-2/": "2026-08-28",
+    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-automate-dependabot-pull-request-triage/": "2026-08-28",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/25/accelerating-ai-adoption-with-intelligent-discovery-in-microsoft-marketplace/": "2026-08-28",
+    "https://github.blog/ai-and-ml/github-copilot/write-your-first-prompt-with-the-github-copilot-app/": "2026-08-28"
   }
 }

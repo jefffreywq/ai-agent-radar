@@ -1,12 +1,5 @@
 {
   "seen": {
-    "https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart": "2026-08-15",
-    "https://www.kimi.com/blog/kimi-k3": "2026-08-15",
-    "https://www.kimi.com/blog/perception-bench": "2026-08-15",
-    "https://www.minimax.io/blog/minimax-agent-team-long-running-1779893953": "2026-08-15",
-    "https://www.minimax.io/blog/minimax-h3": "2026-08-15",
-    "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model": "2026-08-15",
-    "https://github.blog/ai-and-ml/github-copilot/stacked-sessions-and-pull-requests-in-the-github-copilot-app/": "2026-08-15",
     "https://github.blog/ai-and-ml/github-copilot/how-to-bring-your-software-delivery-workflow-into-github-with-agent-apps/": "2026-08-16",
     "https://api-docs.deepseek.com/guides/thinking_mode": "2026-08-16",
     "https://api-docs.deepseek.com/guides/multi_round_chat": "2026-08-16",
@@ -98,6 +91,12 @@
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-robotics-er-2/": "2026-08-28",
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-automate-dependabot-pull-request-triage/": "2026-08-28",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/25/accelerating-ai-adoption-with-intelligent-discovery-in-microsoft-marketplace/": "2026-08-28",
-    "https://github.blog/ai-and-ml/github-copilot/write-your-first-prompt-with-the-github-copilot-app/": "2026-08-28"
+    "https://github.blog/ai-and-ml/github-copilot/write-your-first-prompt-with-the-github-copilot-app/": "2026-08-28",
+    "https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart": "2026-08-29",
+    "https://www.minimax.io/blog/minimax-agent-team-long-running-1779893953": "2026-08-29",
+    "https://www.minimax.io/blog/minimax-h3": "2026-08-29",
+    "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model": "2026-08-29",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/26/accelerating-frontier-transformation-reinvent-customer-engagement/": "2026-08-29",
+    "https://github.blog/ai-and-ml/github-copilot/stacked-sessions-and-pull-requests-in-the-github-copilot-app/": "2026-08-29"
   }
 }

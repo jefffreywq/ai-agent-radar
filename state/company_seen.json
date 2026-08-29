@@ -1,15 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/github-copilot/how-to-bring-your-software-delivery-workflow-into-github-with-agent-apps/": "2026-08-16",
-    "https://api-docs.deepseek.com/guides/thinking_mode": "2026-08-16",
-    "https://api-docs.deepseek.com/guides/multi_round_chat": "2026-08-16",
-    "https://api-docs.deepseek.com/guides/chat_prefix_completion": "2026-08-16",
-    "https://api-docs.deepseek.com/guides/fim_completion": "2026-08-16",
-    "https://manus.im/integrations/slack": "2026-08-16",
-    "https://manus.im/updates": "2026-08-16",
-    "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/": "2026-08-16",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/18/4-paths-to-frontier-transformation-from-ai-experimentation-to-real-business-value/": "2026-08-16",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/30/whats-the-tea-lessons-from-leaders-navigating-ai-transformation/": "2026-08-16",
     "https://www.kimi.com/zh-cn/business": "2026-08-17",
     "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-08-17",
     "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-08-17",
@@ -97,6 +87,14 @@
     "https://www.minimax.io/blog/minimax-h3": "2026-08-29",
     "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model": "2026-08-29",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/26/accelerating-frontier-transformation-reinvent-customer-engagement/": "2026-08-29",
-    "https://github.blog/ai-and-ml/github-copilot/stacked-sessions-and-pull-requests-in-the-github-copilot-app/": "2026-08-29"
+    "https://github.blog/ai-and-ml/github-copilot/stacked-sessions-and-pull-requests-in-the-github-copilot-app/": "2026-08-29",
+    "https://github.blog/ai-and-ml/github-copilot/how-to-bring-your-software-delivery-workflow-into-github-with-agent-apps/": "2026-08-30",
+    "https://api-docs.deepseek.com/guides/thinking_mode": "2026-08-30",
+    "https://api-docs.deepseek.com/guides/multi_round_chat": "2026-08-30",
+    "https://api-docs.deepseek.com/guides/chat_prefix_completion": "2026-08-30",
+    "https://manus.im/integrations/slack": "2026-08-30",
+    "https://manus.im/updates": "2026-08-30",
+    "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/": "2026-08-30",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/30/whats-the-tea-lessons-from-leaders-navigating-ai-transformation/": "2026-08-30"
   }
 }

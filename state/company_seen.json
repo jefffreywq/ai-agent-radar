@@ -1,7 +1,5 @@
 {
   "seen": {
-    "https://mistral.ai/news/agentic-search/": "2026-08-21",
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-managing-your-work/": "2026-08-21",
     "https://api-docs.deepseek.com/guides/vision": "2026-08-22",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/21/the-ai-strategy-roadmap-five-drivers-of-successful-ai-transformation/": "2026-08-22",
     "https://www.minimax.io/news/minimax-speech-28": "2026-08-22",
@@ -95,6 +93,12 @@
     "https://www.kimi.com/bot": "2026-09-03",
     "https://blogs.microsoft.com/on-the-issues/2026/09/01/responsible-ai-in-2026-how-we-are-adapting-for-whats-ahead/": "2026-09-03",
     "https://github.blog/ai-and-ml/github-copilot/how-the-github-legal-team-used-copilot-cli-to-streamline-their-workflows/": "2026-09-03",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-extreme-weather-cyclone-predictions/": "2026-09-03"
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-extreme-weather-cyclone-predictions/": "2026-09-03",
+    "https://github.blog/ai-and-ml/decoding-the-new-ai-lingo-loops-harnesses-squads-hill-climbing-oh-my/": "2026-09-04",
+    "https://mistral.ai/news/agentic-search/": "2026-09-04",
+    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-run-several-agents-at-once/": "2026-09-04",
+    "https://github.blog/ai-and-ml/github-copilot/how-we-make-ai-coding-more-cost-efficient-without-sacrificing-task-quality/": "2026-09-04",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-09-04",
+    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-managing-your-work/": "2026-09-04"
   }
 }

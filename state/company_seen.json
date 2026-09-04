@@ -1,16 +1,5 @@
 {
   "seen": {
-    "https://api-docs.deepseek.com/guides/vision": "2026-08-22",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/21/the-ai-strategy-roadmap-five-drivers-of-successful-ai-transformation/": "2026-08-22",
-    "https://www.minimax.io/news/minimax-speech-28": "2026-08-22",
-    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-builders/": "2026-08-22",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-2-cyclones/": "2026-08-22",
-    "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/alphaevolve-on-cloud/": "2026-08-22",
-    "https://github.blog/ai-and-ml/github-copilot/a-guide-to-slash-commands-in-the-github-copilot-app/": "2026-08-22",
-    "https://www.minimax.io/models/text/m27": "2026-08-22",
-    "https://www.minimax.io/models/text": "2026-08-22",
-    "https://design.minimax.io/": "2026-08-22",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-08-22",
     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/what-full-stack-development-means/": "2026-08-23",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-08-23",
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-getting-started/": "2026-08-25",
@@ -99,6 +88,16 @@
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-run-several-agents-at-once/": "2026-09-04",
     "https://github.blog/ai-and-ml/github-copilot/how-we-make-ai-coding-more-cost-efficient-without-sacrificing-task-quality/": "2026-09-04",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-09-04",
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-managing-your-work/": "2026-09-04"
+    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-managing-your-work/": "2026-09-04",
+    "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/": "2026-09-05",
+    "https://api-docs.deepseek.com/guides/vision": "2026-09-05",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/21/the-ai-strategy-roadmap-five-drivers-of-successful-ai-transformation/": "2026-09-05",
+    "https://www.minimax.io/news/minimax-speech-28": "2026-09-05",
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-builders/": "2026-09-05",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-2-cyclones/": "2026-09-05",
+    "https://www.minimax.io/models/text/m27": "2026-09-05",
+    "https://www.minimax.io/models/text": "2026-09-05",
+    "https://design.minimax.io/": "2026-09-05",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-09-05"
   }
 }

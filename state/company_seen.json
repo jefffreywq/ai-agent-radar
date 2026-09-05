@@ -1,7 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/what-full-stack-development-means/": "2026-08-23",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-08-23",
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-getting-started/": "2026-08-25",
     "https://platform.minimax.io/subscribe/token-plan": "2026-08-25",
     "https://www.minimax.io/models/text/m3": "2026-08-25",
@@ -98,6 +96,8 @@
     "https://www.minimax.io/models/text/m27": "2026-09-05",
     "https://www.minimax.io/models/text": "2026-09-05",
     "https://design.minimax.io/": "2026-09-05",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-09-05"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-09-05",
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/what-full-stack-development-means/": "2026-09-06",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-09-06"
   }
 }

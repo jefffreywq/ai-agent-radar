@@ -1,11 +1,5 @@
 {
   "seen": {
-    "https://mistral.ai/news/regional-inference-open-models-new-compute/": "2026-08-27",
-    "https://github.blog/ai-and-ml/llms/how-to-evaluate-llms-before-production/": "2026-08-27",
-    "https://design.minimax.io/media-plan/subscribe": "2026-08-27",
-    "https://www.minimax.io/blog/minimax-maxproof-math-proof-evolution": "2026-08-27",
-    "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/": "2026-08-27",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/": "2026-08-27",
     "https://blog.google/innovation-and-ai/models-and-research/google-labs/lyria-3-5/": "2026-08-28",
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/": "2026-08-28",
     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-experts-roundtable/": "2026-08-28",
@@ -97,6 +91,17 @@
     "https://bigmodel.cn": "2026-09-09",
     "https://mistral.ai/news/mistral-x-humain/": "2026-09-09",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/": "2026-09-09",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/24/5-signals-of-trusted-ai-how-organizations-scale-ai-with-security-governance-and-observability/": "2026-09-09"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/24/5-signals-of-trusted-ai-how-organizations-scale-ai-with-security-governance-and-observability/": "2026-09-09",
+    "https://mistral.ai/news/legacy-code-modernization/": "2026-09-10",
+    "https://z.ai/blog/glm-5": "2026-09-10",
+    "https://www.zhipuai.cn/zh/research/156": "2026-09-10",
+    "https://www.zhipuai.cn/zh/research/155": "2026-09-10",
+    "https://www.zhipuai.cn/zh/research/145": "2026-09-10",
+    "https://mistral.ai/news/regional-inference-open-models-new-compute/": "2026-09-10",
+    "https://github.blog/ai-and-ml/llms/how-to-evaluate-llms-before-production/": "2026-09-10",
+    "https://design.minimax.io/media-plan/subscribe": "2026-09-10",
+    "https://www.minimax.io/blog/minimax-maxproof-math-proof-evolution": "2026-09-10",
+    "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/": "2026-09-10",
+    "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/": "2026-09-10"
   }
 }

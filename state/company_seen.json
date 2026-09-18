@@ -1,15 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/": "2026-09-05",
-    "https://api-docs.deepseek.com/guides/vision": "2026-09-05",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/21/the-ai-strategy-roadmap-five-drivers-of-successful-ai-transformation/": "2026-09-05",
-    "https://www.minimax.io/news/minimax-speech-28": "2026-09-05",
-    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-builders/": "2026-09-05",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-2-cyclones/": "2026-09-05",
-    "https://www.minimax.io/models/text/m27": "2026-09-05",
-    "https://www.minimax.io/models/text": "2026-09-05",
-    "https://design.minimax.io/": "2026-09-05",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-09-05",
     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/what-full-stack-development-means/": "2026-09-06",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-09-06",
     "https://platform.minimax.io/subscribe/token-plan": "2026-09-08",
@@ -99,6 +89,17 @@
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-run-several-agents-at-once/": "2026-09-18",
     "https://github.blog/ai-and-ml/github-copilot/how-we-make-ai-coding-more-cost-efficient-without-sacrificing-task-quality/": "2026-09-18",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-09-18",
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-managing-your-work/": "2026-09-18"
+    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-managing-your-work/": "2026-09-18",
+    "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/": "2026-09-19",
+    "https://api-docs.deepseek.com/guides/vision": "2026-09-19",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/21/the-ai-strategy-roadmap-five-drivers-of-successful-ai-transformation/": "2026-09-19",
+    "https://www.minimax.io/news/minimax-speech-28": "2026-09-19",
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-builders/": "2026-09-19",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-2-cyclones/": "2026-09-19",
+    "https://www.minimax.io/models/text/m27": "2026-09-19",
+    "https://www.minimax.io/models/text": "2026-09-19",
+    "https://design.minimax.io/": "2026-09-19",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-09-19",
+    "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp/": "2026-09-19"
   }
 }

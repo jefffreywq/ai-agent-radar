@@ -1,7 +1,5 @@
 {
   "seen": [
-    "hf_space::https://huggingface.co/spaces/likhonsheikh/open-computer-use-agent",
-    "hf_space::https://huggingface.co/spaces/ml6team/secret-agent-guardrail-challenge",
     "hf_space::https://huggingface.co/spaces/mmnosratii/gaia-agent-benchmarking",
     "hf_space::https://huggingface.co/spaces/mr-kush/gaia-benchmark-agent",
     "hf_space::https://huggingface.co/spaces/nkrishnas/gaia-benchmark-agent",
@@ -1965,6 +1963,7 @@
     "paper::2609.17708",
     "paper::2609.17909",
     "paper::2609.18094",
+    "paper::2609.18323",
     "paper::2609.18487",
     "paper::2609.18708",
     "paper::2609.18805",
@@ -1981,6 +1980,7 @@
     "paper::2609.19134",
     "paper::2609.19138",
     "paper::2609.19554",
+    "paper::2609.19656",
     "paper::2609.19969",
     "paper::2609.20423",
     "paper::2609.20511",

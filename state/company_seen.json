@@ -1,7 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/what-full-stack-development-means/": "2026-09-06",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-09-06",
     "https://platform.minimax.io/subscribe/token-plan": "2026-09-08",
     "https://www.minimax.io/models/text/m3": "2026-09-08",
     "https://code.minimax.io": "2026-09-08",
@@ -100,6 +98,8 @@
     "https://www.minimax.io/models/text": "2026-09-19",
     "https://design.minimax.io/": "2026-09-19",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-09-19",
-    "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp/": "2026-09-19"
+    "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp/": "2026-09-19",
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/what-full-stack-development-means/": "2026-09-20",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-09-20"
   }
 }

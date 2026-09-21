@@ -1,9 +1,5 @@
 {
   "seen": {
-    "https://platform.minimax.io/subscribe/token-plan": "2026-09-08",
-    "https://www.minimax.io/models/text/m3": "2026-09-08",
-    "https://code.minimax.io": "2026-09-08",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/ai-planet-accelerator-apac/": "2026-09-08",
     "https://autoglm.zhipuai.cn/?channel=official": "2026-09-09",
     "https://autoglm.zhipuai.cn": "2026-09-09",
     "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/": "2026-09-09",
@@ -112,6 +108,10 @@
     "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5": "2026-09-21",
     "https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model": "2026-09-21",
     "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro": "2026-09-21",
-    "https://blogs.microsoft.com/blog/2026/09/16/microsofts-commitment-for-ai-in-education/": "2026-09-21"
+    "https://blogs.microsoft.com/blog/2026/09/16/microsofts-commitment-for-ai-in-education/": "2026-09-21",
+    "https://platform.minimax.io/subscribe/token-plan": "2026-09-22",
+    "https://www.minimax.io/models/text/m3": "2026-09-22",
+    "https://code.minimax.io": "2026-09-22",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/ai-planet-accelerator-apac/": "2026-09-22"
   }
 }

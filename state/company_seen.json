@@ -1,11 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-experts-roundtable/": "2026-09-11",
-    "https://mistral.ai/news/mistral-x-cloudera/": "2026-09-11",
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-automate-dependabot-pull-request-triage/": "2026-09-11",
-    "https://zcode.z.ai/cn": "2026-09-11",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/25/accelerating-ai-adoption-with-intelligent-discovery-in-microsoft-marketplace/": "2026-09-11",
-    "https://github.blog/ai-and-ml/github-copilot/write-your-first-prompt-with-the-github-copilot-app/": "2026-09-11",
     "https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart": "2026-09-12",
     "https://www.kimi.com/agent": "2026-09-12",
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-using-the-diff-terminal-and-browser/": "2026-09-12",
@@ -117,6 +111,16 @@
     "https://design.minimax.io/media-plan/subscribe": "2026-09-24",
     "https://www.minimax.io/blog/minimax-maxproof-math-proof-evolution": "2026-09-24",
     "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/": "2026-09-24",
-    "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/": "2026-09-24"
+    "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/": "2026-09-24",
+    "https://api-docs.deepseek.com/updates": "2026-09-25",
+    "https://github.com/deepseek-ai/awesome-deepseek-integration/tree/main": "2026-09-25",
+    "https://status.deepseek.com/": "2026-09-25",
+    "https://api-docs.deepseek.com/api/create-chat-completion": "2026-09-25",
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-experts-roundtable/": "2026-09-25",
+    "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/": "2026-09-25",
+    "https://mistral.ai/news/mistral-x-cloudera/": "2026-09-25",
+    "https://zcode.z.ai/cn": "2026-09-25",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/25/accelerating-ai-adoption-with-intelligent-discovery-in-microsoft-marketplace/": "2026-09-25",
+    "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app/": "2026-09-25"
   }
 }

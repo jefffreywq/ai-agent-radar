@@ -1,8 +1,5 @@
 {
   "seen": {
-    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-09-14",
-    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-09-14",
-    "https://cloud.baidu.com/products/index.html": "2026-09-14",
     "https://www.kimi.com/resources/kimi-brand": "2026-09-15",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/small-and-medium-businesses-arent-waiting-for-an-ai-invitation-theyre-already-leading/": "2026-09-15",
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-july-2026/": "2026-09-16",
@@ -119,6 +116,9 @@
     "https://manus.im/updates": "2026-09-27",
     "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/": "2026-09-27",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/30/whats-the-tea-lessons-from-leaders-navigating-ai-transformation/": "2026-09-27",
-    "https://github.blog/ai-and-ml/github-copilot/marketing-ops-as-code-automating-events-from-planning-to-follow-up-on-github/": "2026-09-27"
+    "https://github.blog/ai-and-ml/github-copilot/marketing-ops-as-code-automating-events-from-planning-to-follow-up-on-github/": "2026-09-27",
+    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-09-28",
+    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-09-28",
+    "https://cloud.baidu.com/products/index.html": "2026-09-28"
   }
 }

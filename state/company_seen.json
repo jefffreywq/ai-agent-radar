@@ -1,14 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases/": "2026-09-26",
-    "https://www.kimi.com/agent": "2026-09-26",
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-using-the-diff-terminal-and-browser/": "2026-09-26",
-    "https://www.kimi.com/code": "2026-09-26",
-    "https://www.minimax.io/blog/minimax-agent-team-long-running-1779893953": "2026-09-26",
-    "https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui/": "2026-09-26",
-    "https://www.minimax.io/blog/minimax-h3": "2026-09-26",
-    "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model": "2026-09-26",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/26/accelerating-frontier-transformation-reinvent-customer-engagement/": "2026-09-26",
     "https://manus.im/integrations/slack": "2026-09-27",
     "https://manus.im/updates": "2026-09-27",
     "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/": "2026-09-27",
@@ -119,6 +110,15 @@
     "https://mistral.ai/news/mistral-x-cloudera/": "2026-10-09",
     "https://zcode.z.ai/cn": "2026-10-09",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/25/accelerating-ai-adoption-with-intelligent-discovery-in-microsoft-marketplace/": "2026-10-09",
-    "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app/": "2026-10-09"
+    "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app/": "2026-10-09",
+    "https://manus.im/features/automations": "2026-10-10",
+    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases/": "2026-10-10",
+    "https://www.kimi.com/agent": "2026-10-10",
+    "https://www.kimi.com/code": "2026-10-10",
+    "https://www.minimax.io/blog/minimax-agent-team-long-running-1779893953": "2026-10-10",
+    "https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui/": "2026-10-10",
+    "https://www.minimax.io/blog/minimax-h3": "2026-10-10",
+    "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model": "2026-10-10",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/26/accelerating-frontier-transformation-reinvent-customer-engagement/": "2026-10-10"
   }
 }

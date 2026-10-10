@@ -1,10 +1,5 @@
 {
   "seen": {
-    "https://manus.im/integrations/slack": "2026-09-27",
-    "https://manus.im/updates": "2026-09-27",
-    "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/": "2026-09-27",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/30/whats-the-tea-lessons-from-leaders-navigating-ai-transformation/": "2026-09-27",
-    "https://github.blog/ai-and-ml/github-copilot/marketing-ops-as-code-automating-events-from-planning-to-follow-up-on-github/": "2026-09-27",
     "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-09-28",
     "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-09-28",
     "https://cloud.baidu.com/products/index.html": "2026-09-28",
@@ -119,6 +114,17 @@
     "https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui/": "2026-10-10",
     "https://www.minimax.io/blog/minimax-h3": "2026-10-10",
     "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model": "2026-10-10",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/26/accelerating-frontier-transformation-reinvent-customer-engagement/": "2026-10-10"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/26/accelerating-frontier-transformation-reinvent-customer-engagement/": "2026-10-10",
+    "https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity?view_from=homepage_tab": "2026-10-11",
+    "https://seed.bytedance.com/en/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction?view_from=homepage_tab": "2026-10-11",
+    "https://manus.im/integrations/slack": "2026-10-11",
+    "https://manus.im/updates": "2026-10-11",
+    "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/": "2026-10-11",
+    "https://seed.bytedance.com/en/blog/edgebench-measuring-real-world-environment-learning-and-discovering-a-new-scaling-law?view_from=homepage_tab": "2026-10-11",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/30/whats-the-tea-lessons-from-leaders-navigating-ai-transformation/": "2026-10-11",
+    "https://github.blog/ai-and-ml/github-copilot/marketing-ops-as-code-automating-events-from-planning-to-follow-up-on-github/": "2026-10-11",
+    "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tab": "2026-10-11",
+    "https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model?view_from=homepage_tab": "2026-10-11",
+    "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro?view_from=homepage_tab": "2026-10-11"
   }
 }

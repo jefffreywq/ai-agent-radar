@@ -1,11 +1,5 @@
 {
   "seen": {
-    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-july-2026/": "2026-09-30",
-    "https://manus.im/features/video-editor": "2026-09-30",
-    "https://mistral.ai/news/shieldstral/": "2026-09-30",
-    "https://mistral.ai/news/manage-prompts-and-skills-in-studio/": "2026-09-30",
-    "https://mistral.ai/news/robostral-navigate/": "2026-09-30",
-    "https://mistral.ai/news/leanstral-1-5/": "2026-09-30",
     "https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/": "2026-10-01",
     "https://manus.im/features/manus-browser-operator": "2026-10-01",
     "https://manus.im/compare/vs-chatgpt": "2026-10-01",
@@ -127,6 +121,11 @@
     "https://www.kimi.com/resources/kimi-brand": "2026-10-13",
     "http://manus.im/blog/introducing-manus-2-0": "2026-10-13",
     "https://mistral.ai/news/hallo-deutschland/": "2026-10-13",
-    "https://blog.google/innovation-and-ai/technology/health/ai-health-research/": "2026-10-13"
+    "https://blog.google/innovation-and-ai/technology/health/ai-health-research/": "2026-10-13",
+    "https://manus.im/features": "2026-10-14",
+    "https://mistral.ai/news/shieldstral/": "2026-10-14",
+    "https://mistral.ai/news/manage-prompts-and-skills-in-studio/": "2026-10-14",
+    "https://mistral.ai/news/robostral-navigate/": "2026-10-14",
+    "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/": "2026-10-14"
   }
 }

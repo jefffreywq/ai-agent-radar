@@ -1,9 +1,5 @@
 {
   "seen": {
-    "https://mistral.ai/news/agentic-search/": "2026-10-02",
-    "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/": "2026-10-02",
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-run-several-agents-at-once/": "2026-10-02",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-10-02",
     "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/": "2026-10-03",
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/": "2026-10-03",
     "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/": "2026-10-03",
@@ -125,6 +121,10 @@
     "https://blogs.microsoft.com/on-the-issues/2026/09/01/responsible-ai-in-2026-how-we-are-adapting-for-whats-ahead/": "2026-10-15",
     "https://seed.bytedance.com/en/blog/seed-alignment-preparedness-team-looking-for-global-talents": "2026-10-15",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/were-powering-european-scientific-discovery-with-advanced-ai-compute-and-frontier-models/": "2026-10-15",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-extreme-weather-cyclone-predictions/": "2026-10-15"
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-extreme-weather-cyclone-predictions/": "2026-10-15",
+    "https://mistral.ai/news/agentic-search/": "2026-10-16",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-time-best-inventions/": "2026-10-16",
+    "https://mistral.ai/news/timestral/": "2026-10-16",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-10-16"
   }
 }

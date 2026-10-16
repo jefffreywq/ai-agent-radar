@@ -1,17 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/": "2026-10-03",
-    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/": "2026-10-03",
-    "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/": "2026-10-03",
-    "https://api-docs.deepseek.com/guides/vision": "2026-10-03",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/21/the-ai-strategy-roadmap-five-drivers-of-successful-ai-transformation/": "2026-10-03",
-    "https://www.minimax.io/news/minimax-speech-28": "2026-10-03",
-    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-builders/": "2026-10-03",
-    "https://www.minimax.io/models/text/m27": "2026-10-03",
-    "https://www.minimax.io/models/text": "2026-10-03",
-    "https://design.minimax.io/": "2026-10-03",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-10-03",
-    "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp/": "2026-10-03",
     "https://blog.google/innovation-and-ai/models-and-research/gemini-models/what-full-stack-development-means/": "2026-10-04",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-10-04",
     "https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity": "2026-10-05",
@@ -125,6 +113,16 @@
     "https://mistral.ai/news/agentic-search/": "2026-10-16",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-time-best-inventions/": "2026-10-16",
     "https://mistral.ai/news/timestral/": "2026-10-16",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-10-16"
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-10-16",
+    "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/": "2026-10-17",
+    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/": "2026-10-17",
+    "https://api-docs.deepseek.com/guides/vision": "2026-10-17",
+    "https://www.minimax.io/news/minimax-speech-28": "2026-10-17",
+    "https://manus.im/models": "2026-10-17",
+    "https://www.minimax.io/models/text/m27": "2026-10-17",
+    "https://www.minimax.io/models/text": "2026-10-17",
+    "https://design.minimax.io/": "2026-10-17",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-10-17",
+    "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp/": "2026-10-17"
   }
 }

@@ -1,14 +1,5 @@
 {
   "seen": {
-    "https://autoglm.zhipuai.cn/?channel=official": "2026-10-07",
-    "https://autoglm.zhipuai.cn": "2026-10-07",
-    "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/": "2026-10-07",
-    "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/": "2026-10-07",
-    "https://bigmodel.cn": "2026-10-07",
-    "https://mistral.ai/news/mistral-large-4/": "2026-10-07",
-    "https://mistral.ai/news/mistral-x-humain/": "2026-10-07",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/": "2026-10-07",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/24/5-signals-of-trusted-ai-how-organizations-scale-ai-with-security-governance-and-observability/": "2026-10-07",
     "https://mistral.ai/news/legacy-code-modernization/": "2026-10-08",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/": "2026-10-08",
     "https://www.zhipuai.cn/zh/research/156": "2026-10-08",
@@ -122,6 +113,17 @@
     "https://www.minimax.io/models/text/m3": "2026-10-20",
     "https://www.minimax.io/blog": "2026-10-20",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/ai-planet-accelerator-apac/": "2026-10-20",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/general/2026/10/05/sovereign-ai-accelerate-innovation-with-control-and-choice/": "2026-10-20"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/general/2026/10/05/sovereign-ai-accelerate-innovation-with-control-and-choice/": "2026-10-20",
+    "https://mistral.ai/news/voxtral-3/": "2026-10-21",
+    "https://autoglm.zhipuai.cn/?channel=official": "2026-10-21",
+    "https://autoglm.zhipuai.cn": "2026-10-21",
+    "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/": "2026-10-21",
+    "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/": "2026-10-21",
+    "https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/": "2026-10-21",
+    "https://bigmodel.cn": "2026-10-21",
+    "https://mistral.ai/news/mistral-large-4/": "2026-10-21",
+    "https://mistral.ai/news/mistral-x-humain/": "2026-10-21",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/": "2026-10-21",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/24/5-signals-of-trusted-ai-how-organizations-scale-ai-with-security-governance-and-observability/": "2026-10-21"
   }
 }

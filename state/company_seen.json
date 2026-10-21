@@ -1,15 +1,5 @@
 {
   "seen": {
-    "https://mistral.ai/news/legacy-code-modernization/": "2026-10-08",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/": "2026-10-08",
-    "https://www.zhipuai.cn/zh/research/156": "2026-10-08",
-    "https://www.zhipuai.cn/zh/research/155": "2026-10-08",
-    "https://www.zhipuai.cn/zh/research/145": "2026-10-08",
-    "https://mistral.ai/news/regional-inference-open-models-new-compute/": "2026-10-08",
-    "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/": "2026-10-08",
-    "https://design.minimax.io/media-plan/subscribe": "2026-10-08",
-    "https://www.minimax.io/blog/minimax-maxproof-math-proof-evolution": "2026-10-08",
-    "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/": "2026-10-08",
     "https://api-docs.deepseek.com/updates": "2026-10-09",
     "https://github.com/deepseek-ai/awesome-deepseek-integration/tree/main": "2026-10-09",
     "https://status.deepseek.com/": "2026-10-09",
@@ -124,6 +114,14 @@
     "https://mistral.ai/news/mistral-large-4/": "2026-10-21",
     "https://mistral.ai/news/mistral-x-humain/": "2026-10-21",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/": "2026-10-21",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/24/5-signals-of-trusted-ai-how-organizations-scale-ai-with-security-governance-and-observability/": "2026-10-21"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/24/5-signals-of-trusted-ai-how-organizations-scale-ai-with-security-governance-and-observability/": "2026-10-21",
+    "https://mistral.ai/news/legacy-code-modernization/": "2026-10-22",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/": "2026-10-22",
+    "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/": "2026-10-22",
+    "https://mistral.ai/news/regional-inference-open-models-new-compute/": "2026-10-22",
+    "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/": "2026-10-22",
+    "https://design.minimax.io/media-plan/subscribe": "2026-10-22",
+    "https://www.minimax.io/blog/minimax-maxproof-math-proof-evolution": "2026-10-22",
+    "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/": "2026-10-22"
   }
 }

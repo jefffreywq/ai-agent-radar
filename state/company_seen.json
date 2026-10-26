@@ -1,10 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/": "2026-10-13",
-    "https://www.kimi.com/resources/kimi-brand": "2026-10-13",
-    "http://manus.im/blog/introducing-manus-2-0": "2026-10-13",
-    "https://mistral.ai/news/hallo-deutschland/": "2026-10-13",
-    "https://blog.google/innovation-and-ai/technology/health/ai-health-research/": "2026-10-13",
     "https://manus.im/features": "2026-10-14",
     "https://mistral.ai/news/shieldstral/": "2026-10-14",
     "https://mistral.ai/news/manage-prompts-and-skills-in-studio/": "2026-10-14",
@@ -115,6 +110,11 @@
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/30/whats-the-tea-lessons-from-leaders-navigating-ai-transformation/": "2026-10-25",
     "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/detail/am-3c0d4ca1f067": "2026-10-26",
     "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-10-26",
-    "https://cloud.baidu.com/products/index.html": "2026-10-26"
+    "https://cloud.baidu.com/products/index.html": "2026-10-26",
+    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/": "2026-10-27",
+    "https://www.kimi.com/resources/kimi-brand": "2026-10-27",
+    "http://manus.im/blog/introducing-manus-2-0": "2026-10-27",
+    "https://mistral.ai/news/hallo-deutschland/": "2026-10-27",
+    "https://blog.google/innovation-and-ai/technology/health/ai-health-research/": "2026-10-27"
   }
 }

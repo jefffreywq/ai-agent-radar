@@ -1,10 +1,5 @@
 {
   "seen": {
-    "https://manus.im/features": "2026-10-14",
-    "https://mistral.ai/news/shieldstral/": "2026-10-14",
-    "https://mistral.ai/news/manage-prompts-and-skills-in-studio/": "2026-10-14",
-    "https://mistral.ai/news/robostral-navigate/": "2026-10-14",
-    "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/": "2026-10-14",
     "https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/": "2026-10-15",
     "https://manus.im/compare/vs-chatgpt": "2026-10-15",
     "https://api-docs.deepseek.com/": "2026-10-15",
@@ -115,6 +110,9 @@
     "https://www.kimi.com/resources/kimi-brand": "2026-10-27",
     "http://manus.im/blog/introducing-manus-2-0": "2026-10-27",
     "https://mistral.ai/news/hallo-deutschland/": "2026-10-27",
-    "https://blog.google/innovation-and-ai/technology/health/ai-health-research/": "2026-10-27"
+    "https://blog.google/innovation-and-ai/technology/health/ai-health-research/": "2026-10-27",
+    "https://manus.im/features": "2026-10-28",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/": "2026-10-28",
+    "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/": "2026-10-28"
   }
 }

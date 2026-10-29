@@ -1,9 +1,5 @@
 {
   "seen": {
-    "https://mistral.ai/news/agentic-search/": "2026-10-16",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-time-best-inventions/": "2026-10-16",
-    "https://mistral.ai/news/timestral/": "2026-10-16",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-10-16",
     "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/": "2026-10-17",
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/": "2026-10-17",
     "https://api-docs.deepseek.com/guides/vision": "2026-10-17",
@@ -109,6 +105,11 @@
     "https://mistral.ai/news/mistral-x-mozilla/": "2026-10-29",
     "https://blogs.microsoft.com/on-the-issues/2026/09/01/responsible-ai-in-2026-how-we-are-adapting-for-whats-ahead/": "2026-10-29",
     "https://seed.bytedance.com/en/blog/seed-alignment-preparedness-team-looking-for-global-talents": "2026-10-29",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/were-powering-european-scientific-discovery-with-advanced-ai-compute-and-frontier-models/": "2026-10-29"
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/were-powering-european-scientific-discovery-with-advanced-ai-compute-and-frontier-models/": "2026-10-29",
+    "https://mistral.ai/news/agentic-search/": "2026-10-30",
+    "https://mistral.ai/news/mistral-large-4-oss/": "2026-10-30",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-time-best-inventions/": "2026-10-30",
+    "https://mistral.ai/news/timestral/": "2026-10-30",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-10-30"
   }
 }

@@ -1,15 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/": "2026-10-17",
-    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/": "2026-10-17",
-    "https://api-docs.deepseek.com/guides/vision": "2026-10-17",
-    "https://www.minimax.io/news/minimax-speech-28": "2026-10-17",
-    "https://manus.im/models": "2026-10-17",
-    "https://www.minimax.io/models/text/m27": "2026-10-17",
-    "https://www.minimax.io/models/text": "2026-10-17",
-    "https://design.minimax.io/": "2026-10-17",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-10-17",
-    "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp/": "2026-10-17",
     "https://api-docs.deepseek.com/guides/search": "2026-10-18",
     "https://agent.minimax.io/download": "2026-10-18",
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-10-18",
@@ -110,6 +100,18 @@
     "https://mistral.ai/news/mistral-large-4-oss/": "2026-10-30",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-time-best-inventions/": "2026-10-30",
     "https://mistral.ai/news/timestral/": "2026-10-30",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-10-30"
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/": "2026-10-30",
+    "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/": "2026-10-31",
+    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/": "2026-10-31",
+    "https://api-docs.deepseek.com/guides/vision": "2026-10-31",
+    "https://www.kimi.com/en/blog/kimi-k3-1-pro": "2026-10-31",
+    "https://www.minimax.io/news/minimax-speech-28": "2026-10-31",
+    "https://platform.minimax.io/console/home": "2026-10-31",
+    "https://agent.minimax.io/": "2026-10-31",
+    "https://manus.im/models": "2026-10-31",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/general/2026/10/29/accelerating-frontier-transformation-reshape-business-processes/": "2026-10-31",
+    "https://design.minimax.io/": "2026-10-31",
+    "https://www.minimax.io/audio": "2026-10-31",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-10-31"
   }
 }

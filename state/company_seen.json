@@ -1,8 +1,5 @@
 {
   "seen": {
-    "https://api-docs.deepseek.com/guides/search": "2026-10-18",
-    "https://agent.minimax.io/download": "2026-10-18",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/23/ai-appreciation-day-impact-through-action/": "2026-10-18",
     "https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity": "2026-10-19",
     "https://seed.bytedance.com/en/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction": "2026-10-19",
     "https://seed.bytedance.com/en/models?view_from=homepage_tab": "2026-10-19",
@@ -112,6 +109,13 @@
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/general/2026/10/29/accelerating-frontier-transformation-reshape-business-processes/": "2026-10-31",
     "https://design.minimax.io/": "2026-10-31",
     "https://www.minimax.io/audio": "2026-10-31",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-10-31"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-10-31",
+    "https://api-docs.deepseek.com/guides/search": "2026-11-01",
+    "https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity?view_from=homepage_tabn": "2026-11-01",
+    "https://seed.bytedance.com/en/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction?view_from=homepage_tabn": "2026-11-01",
+    "https://seed.bytedance.com/en/blog/seed-alignment-preparedness-team-looking-for-global-talents?view_from=homepage_tabn": "2026-11-01",
+    "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tabn": "2026-11-01",
+    "https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model?view_from=homepage_tabn": "2026-11-01",
+    "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro?view_from=homepage_tabn": "2026-11-01"
   }
 }

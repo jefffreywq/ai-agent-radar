@@ -1,16 +1,5 @@
 {
   "seen": {
-    "https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity": "2026-10-19",
-    "https://seed.bytedance.com/en/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction": "2026-10-19",
-    "https://seed.bytedance.com/en/models?view_from=homepage_tab": "2026-10-19",
-    "https://seed.bytedance.com/en/research?view_from=homepage_tab": "2026-10-19",
-    "https://seed.bytedance.com/models?view_from=homepage_tab": "2026-10-19",
-    "https://seed.bytedance.com/research?view_from=homepage_tab": "2026-10-19",
-    "https://ai.byteplus.com/en/playground/model/gen_chat?model=dola-seed-2-1-turbo-260628": "2026-10-19",
-    "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5": "2026-10-19",
-    "https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model": "2026-10-19",
-    "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro": "2026-10-19",
-    "https://blogs.microsoft.com/blog/2026/09/16/microsofts-commitment-for-ai-in-education/": "2026-10-19",
     "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/": "2026-10-20",
     "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/": "2026-10-20",
     "https://www.minimax.io/blog/minimax-m31f": "2026-10-20",
@@ -116,6 +105,17 @@
     "https://seed.bytedance.com/en/blog/seed-alignment-preparedness-team-looking-for-global-talents?view_from=homepage_tabn": "2026-11-01",
     "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tabn": "2026-11-01",
     "https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model?view_from=homepage_tabn": "2026-11-01",
-    "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro?view_from=homepage_tabn": "2026-11-01"
+    "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro?view_from=homepage_tabn": "2026-11-01",
+    "https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity": "2026-11-02",
+    "https://seed.bytedance.com/en/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction": "2026-11-02",
+    "https://seed.bytedance.com/en/models?view_from=homepage_tab": "2026-11-02",
+    "https://seed.bytedance.com/en/research?view_from=homepage_tab": "2026-11-02",
+    "https://seed.bytedance.com/models?view_from=homepage_tab": "2026-11-02",
+    "https://seed.bytedance.com/research?view_from=homepage_tab": "2026-11-02",
+    "https://ai.byteplus.com/en/playground/model/gen_chat?model=dola-seed-2-1-turbo-260628": "2026-11-02",
+    "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5": "2026-11-02",
+    "https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model": "2026-11-02",
+    "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro": "2026-11-02",
+    "https://blogs.microsoft.com/blog/2026/09/16/microsofts-commitment-for-ai-in-education/": "2026-11-02"
   }
 }

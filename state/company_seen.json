@@ -1,17 +1,5 @@
 {
   "seen": {
-    "https://api-docs.deepseek.com/updates": "2026-10-23",
-    "https://github.com/deepseek-ai/awesome-deepseek-integration/tree/main": "2026-10-23",
-    "https://status.deepseek.com/": "2026-10-23",
-    "https://api-docs.deepseek.com/api/create-chat-completion": "2026-10-23",
-    "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/": "2026-10-23",
-    "https://www.zhipuai.cn/zh/research/156": "2026-10-23",
-    "https://www.zhipuai.cn/zh/research/155": "2026-10-23",
-    "https://www.zhipuai.cn/zh/research/145": "2026-10-23",
-    "https://www.minimax.io/blog/minimax-code-mini-app-1792650729": "2026-10-23",
-    "https://mistral.ai/news/mistral-x-cloudera/": "2026-10-23",
-    "https://zcode.z.ai/cn": "2026-10-23",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/25/accelerating-ai-adoption-with-intelligent-discovery-in-microsoft-marketplace/": "2026-10-23",
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases/": "2026-10-24",
     "https://www.kimi.com/agent": "2026-10-24",
     "https://www.kimi.com/code": "2026-10-24",
@@ -115,6 +103,19 @@
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/": "2026-11-05",
     "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/": "2026-11-05",
     "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/": "2026-11-05",
-    "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/": "2026-11-05"
+    "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/": "2026-11-05",
+    "https://mistral.ai/news/build-with-studio/": "2026-11-06",
+    "https://api-docs.deepseek.com/updates": "2026-11-06",
+    "https://github.com/deepseek-ai/awesome-deepseek-integration/tree/main": "2026-11-06",
+    "https://status.deepseek.com/": "2026-11-06",
+    "https://api-docs.deepseek.com/api/create-chat-completion": "2026-11-06",
+    "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/": "2026-11-06",
+    "https://www.zhipuai.cn/zh/research/156": "2026-11-06",
+    "https://www.zhipuai.cn/zh/research/155": "2026-11-06",
+    "https://www.zhipuai.cn/zh/research/145": "2026-11-06",
+    "https://mistral.ai/news/mistral-x-cloudera/": "2026-11-06",
+    "https://zcode.z.ai/cn": "2026-11-06",
+    "https://www.minimax.io/blog/minimax-code-mini-app-1792650729": "2026-11-06",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/25/accelerating-ai-adoption-with-intelligent-discovery-in-microsoft-marketplace/": "2026-11-06"
   }
 }

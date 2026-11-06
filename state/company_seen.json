@@ -1,12 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases/": "2026-10-24",
-    "https://www.kimi.com/agent": "2026-10-24",
-    "https://www.kimi.com/code": "2026-10-24",
-    "https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui/": "2026-10-24",
-    "https://www.minimax.io/blog/minimax-h3": "2026-10-24",
-    "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model": "2026-10-24",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/26/accelerating-frontier-transformation-reinvent-customer-engagement/": "2026-10-24",
     "https://manus.im/integrations/slack": "2026-10-25",
     "https://manus.im/updates": "2026-10-25",
     "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/": "2026-10-25",
@@ -116,6 +109,13 @@
     "https://mistral.ai/news/mistral-x-cloudera/": "2026-11-06",
     "https://zcode.z.ai/cn": "2026-11-06",
     "https://www.minimax.io/blog/minimax-code-mini-app-1792650729": "2026-11-06",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/25/accelerating-ai-adoption-with-intelligent-discovery-in-microsoft-marketplace/": "2026-11-06"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/25/accelerating-ai-adoption-with-intelligent-discovery-in-microsoft-marketplace/": "2026-11-06",
+    "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases/": "2026-11-07",
+    "https://www.kimi.com/agent": "2026-11-07",
+    "https://www.kimi.com/code": "2026-11-07",
+    "https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui/": "2026-11-07",
+    "https://www.minimax.io/blog/minimax-h3": "2026-11-07",
+    "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model": "2026-11-07",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/26/accelerating-frontier-transformation-reinvent-customer-engagement/": "2026-11-07"
   }
 }

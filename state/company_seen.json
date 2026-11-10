@@ -1,8 +1,5 @@
 {
   "seen": {
-    "https://manus.im/features": "2026-10-28",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/": "2026-10-28",
-    "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/": "2026-10-28",
     "https://manus.im/compare/vs-chatgpt": "2026-10-29",
     "https://api-docs.deepseek.com/": "2026-10-29",
     "https://api-docs.deepseek.com/zh-cn/": "2026-10-29",
@@ -117,6 +114,12 @@
     "http://manus.im/blog/introducing-manus-2-0": "2026-11-10",
     "https://seed.bytedance.com/en/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5": "2026-11-10",
     "https://mistral.ai/news/hallo-deutschland/": "2026-11-10",
-    "https://blog.google/innovation-and-ai/technology/health/ai-health-research/": "2026-11-10"
+    "https://blog.google/innovation-and-ai/technology/health/ai-health-research/": "2026-11-10",
+    "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/": "2026-11-11",
+    "https://manus.im/features": "2026-11-11",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/": "2026-11-11",
+    "https://www.minimax.io/blog/minimax-h3-image": "2026-11-11",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/general/2026/11/09/introducing-frontier-accelerate-one-microsoft-path-to-expertise-investments-and-skills/": "2026-11-11",
+    "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/": "2026-11-11"
   }
 }

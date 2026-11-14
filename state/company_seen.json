@@ -1,12 +1,5 @@
 {
   "seen": {
-    "https://api-docs.deepseek.com/guides/search": "2026-11-01",
-    "https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity?view_from=homepage_tabn": "2026-11-01",
-    "https://seed.bytedance.com/en/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction?view_from=homepage_tabn": "2026-11-01",
-    "https://seed.bytedance.com/en/blog/seed-alignment-preparedness-team-looking-for-global-talents?view_from=homepage_tabn": "2026-11-01",
-    "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tabn": "2026-11-01",
-    "https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model?view_from=homepage_tabn": "2026-11-01",
-    "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro?view_from=homepage_tabn": "2026-11-01",
     "https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity": "2026-11-02",
     "https://seed.bytedance.com/en/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction": "2026-11-02",
     "https://seed.bytedance.com/en/models?view_from=homepage_tab": "2026-11-02",
@@ -120,6 +113,8 @@
     "https://www.microsoft.com/en-us/microsoft-cloud/blog/general/2026/10/29/accelerating-frontier-transformation-reshape-business-processes/": "2026-11-14",
     "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/": "2026-11-14",
     "https://design.minimax.io/": "2026-11-14",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-11-14"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-11-14",
+    "https://blogs.microsoft.com/blog/2026/11/12/from-ai-ambition-to-business-impact/": "2026-11-15",
+    "https://blogs.microsoft.com/blog/2026/11/12/scaling-ai-value-without-losing-control-lessons-from-frontier-firms/": "2026-11-15"
   }
 }

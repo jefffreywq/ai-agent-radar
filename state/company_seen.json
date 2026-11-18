@@ -1,10 +1,5 @@
 {
   "seen": {
-    "https://mistral.ai/news/legacy-code-modernization/": "2026-11-05",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/": "2026-11-05",
-    "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/": "2026-11-05",
-    "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/": "2026-11-05",
-    "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/": "2026-11-05",
     "https://mistral.ai/news/build-with-studio/": "2026-11-06",
     "https://api-docs.deepseek.com/updates": "2026-11-06",
     "https://github.com/deepseek-ai/awesome-deepseek-integration/tree/main": "2026-11-06",
@@ -110,6 +105,13 @@
     "https://mistral.ai/news/mistral-large-4/": "2026-11-18",
     "https://mistral.ai/news/mistral-x-humain/": "2026-11-18",
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/": "2026-11-18",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/24/5-signals-of-trusted-ai-how-organizations-scale-ai-with-security-governance-and-observability/": "2026-11-18"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/24/5-signals-of-trusted-ai-how-organizations-scale-ai-with-security-governance-and-observability/": "2026-11-18",
+    "https://mistral.ai/news/legacy-code-modernization/": "2026-11-19",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/": "2026-11-19",
+    "https://mistral.ai/news/mistral-nvidia-ai-for-industrial-engineering/": "2026-11-19",
+    "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/": "2026-11-19",
+    "https://console.byteplus.com/ark/region:ap-southeast-1/experience/gen_image?model=dola-seedream-5-5-261028": "2026-11-19",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/": "2026-11-19",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-disease-research/": "2026-11-19"
   }
 }

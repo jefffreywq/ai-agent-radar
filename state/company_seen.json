@@ -1,12 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/": "2026-11-08",
-    "https://manus.im/integrations/slack": "2026-11-08",
-    "https://manus.im/updates": "2026-11-08",
-    "https://blogs.microsoft.com/blog/2026/07/28/looking-back-on-microsofts-fy26-from-ai-experimentation-to-frontier-transformation/": "2026-11-08",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/07/30/whats-the-tea-lessons-from-leaders-navigating-ai-transformation/": "2026-11-08",
-    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-11-09",
-    "https://cloud.baidu.com/products/index.html": "2026-11-09",
     "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/": "2026-11-10",
     "https://www.kimi.com/resources/kimi-brand": "2026-11-10",
     "http://manus.im/blog/introducing-manus-2-0": "2026-11-10",
@@ -112,6 +105,11 @@
     "https://www.minimax.io/blog/minimax-h3": "2026-11-21",
     "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model": "2026-11-21",
     "https://www.minimax.io/blog/practical-cryptanalysis-with-minimaxs-latest-internal-model": "2026-11-21",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/26/accelerating-frontier-transformation-reinvent-customer-engagement/": "2026-11-21"
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/26/accelerating-frontier-transformation-reinvent-customer-engagement/": "2026-11-21",
+    "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/": "2026-11-23",
+    "https://manus.im/integrations/slack": "2026-11-23",
+    "https://manus.im/updates": "2026-11-23",
+    "https://console.bce.baidu.com/qianfan/modelcenter/model/buildIn/list": "2026-11-23",
+    "https://cloud.baidu.com/products/index.html": "2026-11-23"
   }
 }

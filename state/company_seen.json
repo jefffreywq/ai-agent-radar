@@ -1,9 +1,5 @@
 {
   "seen": {
-    "https://mistral.ai/news/mistral-large-4-oss/": "2026-11-13",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-time-best-inventions/": "2026-11-13",
-    "https://mistral.ai/news/timestral/": "2026-11-13",
-    "https://cloud.baidu.com/product/qianfan_home/model_3.html": "2026-11-13",
     "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/": "2026-11-14",
     "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/": "2026-11-14",
     "https://api-docs.deepseek.com/guides/build_a_chatbot": "2026-11-14",
@@ -116,6 +112,11 @@
     "https://blogs.microsoft.com/on-the-issues/2026/09/01/responsible-ai-in-2026-how-we-are-adapting-for-whats-ahead/": "2026-11-26",
     "https://github.blog/ai-and-ml/github-copilot/how-to-choose-the-next-safe-step-in-application-modernization/": "2026-11-26",
     "https://seed.bytedance.com/en/blog/seed-alignment-preparedness-team-looking-for-global-talents": "2026-11-26",
-    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/were-powering-european-scientific-discovery-with-advanced-ai-compute-and-frontier-models/": "2026-11-26"
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/were-powering-european-scientific-discovery-with-advanced-ai-compute-and-frontier-models/": "2026-11-26",
+    "https://mistral.ai/news/mistral-large-4-oss/": "2026-11-27",
+    "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-time-best-inventions/": "2026-11-27",
+    "https://www.minimax.io/blog/minimax-h3-family": "2026-11-27",
+    "https://mistral.ai/news/timestral/": "2026-11-27",
+    "https://cloud.baidu.com/product/qianfan_home/model_3.html": "2026-11-27"
   }
 }

@@ -1,18 +1,5 @@
 {
   "seen": {
-    "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/": "2026-11-14",
-    "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/": "2026-11-14",
-    "https://api-docs.deepseek.com/guides/build_a_chatbot": "2026-11-14",
-    "https://api-docs.deepseek.com/guides/thinking_mode": "2026-11-14",
-    "https://www.kimi.com/en/blog/kimi-k3-1-pro": "2026-11-14",
-    "https://www.minimax.io/news/minimax-speech-28": "2026-11-14",
-    "https://agent.minimax.io/": "2026-11-14",
-    "https://platform.minimax.io/console/home": "2026-11-14",
-    "https://manus.im/models": "2026-11-14",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/general/2026/10/29/accelerating-frontier-transformation-reshape-business-processes/": "2026-11-14",
-    "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/": "2026-11-14",
-    "https://design.minimax.io/": "2026-11-14",
-    "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/08/04/accelerating-frontier-transformation-enrich-employee-experience/": "2026-11-14",
     "https://blogs.microsoft.com/blog/2026/11/12/from-ai-ambition-to-business-impact/": "2026-11-15",
     "https://blogs.microsoft.com/blog/2026/11/12/scaling-ai-value-without-losing-control-lessons-from-frontier-firms/": "2026-11-15",
     "https://seed.bytedance.com/en/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction": "2026-11-16",
@@ -117,6 +104,14 @@
     "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-time-best-inventions/": "2026-11-27",
     "https://www.minimax.io/blog/minimax-h3-family": "2026-11-27",
     "https://mistral.ai/news/timestral/": "2026-11-27",
-    "https://cloud.baidu.com/product/qianfan_home/model_3.html": "2026-11-27"
+    "https://cloud.baidu.com/product/qianfan_home/model_3.html": "2026-11-27",
+    "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/": "2026-11-28",
+    "https://www.kimi.com/en/blog/kimi-k3-1-pro": "2026-11-28",
+    "https://www.minimax.io/news/minimax-speech-28": "2026-11-28",
+    "https://agent.minimax.io/": "2026-11-28",
+    "https://platform.minimax.io/console/home": "2026-11-28",
+    "https://manus.im/models": "2026-11-28",
+    "https://www.microsoft.com/en-us/microsoft-cloud/blog/general/2026/10/29/accelerating-frontier-transformation-reshape-business-processes/": "2026-11-28",
+    "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/": "2026-11-28"
   }
 }
